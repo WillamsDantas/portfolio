@@ -742,3 +742,29 @@ body.site {
 
 .grid--gap-section { margin-top: var(--s-10); }
 @media (max-width: 900px) { .grid--gap-section { margin-top: var(--s-6); } }
+
+/* Nome e texto de cada projeto */
+.pf-case__head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s-8); align-items: end; margin-bottom: var(--s-10); }
+.pf-case__name { font-size: var(--t-56); line-height: var(--lh-56); font-weight: 500; letter-spacing: -0.035em; }
+.pf-case__desc { color: var(--text-2); font-size: var(--t-16); line-height: var(--lh-16); max-width: 560px; justify-self: end; }
+@media (max-width: 900px) {
+  .pf-case__head { grid-template-columns: 1fr; gap: var(--s-3); margin-bottom: var(--s-6); }
+  .pf-case__name { font-size: var(--t-40); line-height: var(--lh-40); }
+  .pf-case__desc { justify-self: start; }
+}
+
+/* Carrosséis colados, slide com slide */
+.rail--carr { grid-auto-columns: calc(100% / 4); gap: 0; }
+.rail--carr .shot { border-radius: 0; }
+.rail--carr .shot:first-child { border-radius: var(--r-4) 0 0 var(--r-4); }
+.rail--carr .shot:last-child { border-radius: 0 var(--r-4) var(--r-4) 0; }
+.rail--carr .shot::after { box-shadow: none; }
+.rail--carr .shot__zoom { display: none; }
+@media (max-width: 900px) { .rail--carr { grid-auto-columns: 72%; } }
+
+/* Menos espaço entre um carrossel e outro */
+.case__sub--bare { margin: var(--s-6) 0 var(--s-3); }
+.case--bare > .pf-case__head + .case__sub--bare { margin-top: 0; }
+.rail-wrap .rail-progress { margin-top: var(--s-3); }
+.case--bare { border-top: 0; }
+.case--bare:first-of-type { border-top: 0; }

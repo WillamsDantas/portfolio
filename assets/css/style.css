@@ -722,6 +722,7 @@ body.site {
 .case__sub--bare { justify-content: flex-end; margin: var(--s-10) 0 var(--s-4); }
 .case--bare > .case__sub--bare:first-child { margin-top: 0; }
 .grid--gap-top { margin-top: var(--s-4); }
+.grid--gap-top + .grid, .grid + .grid--gap-top { }
 .pf-contact { padding: var(--s-16) 0 var(--s-24); border-top: 1px solid var(--line); }
 .pf-contact__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-3); }
 @media (max-width: 900px) {
@@ -729,3 +730,12 @@ body.site {
   .case--bare { padding: var(--s-12) 0; }
   .pf-contact__list { grid-template-columns: 1fr; }
 }
+
+/* BALT: quadros e carrossel panorâmico */
+.r-quadro { aspect-ratio: 3 / 5; }
+.rail--pano { grid-auto-columns: calc((100% - 0px) / 4); gap: 0; }
+.rail--pano .shot { border-radius: 0; }
+.rail--pano .shot:first-child { border-radius: var(--r-4) 0 0 var(--r-4); }
+.rail--pano .shot:last-child { border-radius: 0 var(--r-4) var(--r-4) 0; }
+.rail--pano .shot::after { box-shadow: none; }
+@media (max-width: 900px) { .rail--pano { grid-auto-columns: 72%; } }

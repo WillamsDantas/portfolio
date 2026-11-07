@@ -41,7 +41,7 @@
   const fab = $('.fab');
   const onScroll = () => {
     const yy = window.scrollY;
-    header.classList.toggle('is-scrolled', yy > 8);
+    if (header) header.classList.toggle('is-scrolled', yy > 8);
     if (fab) fab.classList.toggle('is-visible', yy > window.innerHeight * 0.8);
   };
   onScroll();
@@ -51,13 +51,16 @@
   const menuBtn = $('.menu-btn');
   const mobileNav = $('#menu-mobile');
   const setMenu = (open) => {
+    if (!menuBtn || !mobileNav) return;
     mobileNav.classList.toggle('is-open', open);
     menuBtn.setAttribute('aria-expanded', String(open));
     menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
     menuBtn.querySelector('use').setAttribute('href', open ? '#i-close' : '#i-menu');
   };
-  menuBtn.addEventListener('click', () => setMenu(!mobileNav.classList.contains('is-open')));
-  $$('a', mobileNav).forEach((a) => a.addEventListener('click', () => setMenu(false)));
+  if (menuBtn && mobileNav) {
+    menuBtn.addEventListener('click', () => setMenu(!mobileNav.classList.contains('is-open')));
+    $$('a', mobileNav).forEach((a) => a.addEventListener('click', () => setMenu(false)));
+  }
 
   /* Menu ativo conforme a seção */
   const navLinks = $$('.nav a');

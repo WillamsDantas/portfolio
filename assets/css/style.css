@@ -782,6 +782,6 @@ body.site {
   box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 10px 30px -12px rgba(0,0,0,.6);
   transition: transform 300ms var(--ease-out), background-color 250ms var(--ease), border-color 250ms var(--ease);
 }
-.icon-glass svg { width: 26px; height: 26px; }
+.icon-glass svg { width: 24px; height: 24px; }
 .icon-glass:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.24); }
 .icon-glass--gold { background: var(--gold); color: var(--on-gold); border-color: transparent; box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 8px 24px -8px rgba(232,174,20,.55); }

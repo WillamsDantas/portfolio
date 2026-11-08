@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposta · Dr. Lucas Barbosa</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#131417">
+<meta property="og:title" content="Dr. Lucas, o seu próximo paciente já está no Instagram.">
+<meta property="og:description" content="Uma proposta feita para você: conteúdo, vídeo e tráfego pago.">
+<meta property="og:image" content="https://willamsdantas.github.io/portfolio/proposta-dr-lucas/slide-2.webp">
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#131417;--surface:#1a1c20;--surface-2:#212429;--line:#2a2c32;--line-2:#3a3d44;
+  --text:#f2f1ee;--text-2:#b4b6bc;--text-3:#878a91;
+  --gold:linear-gradient(135deg,#f9d35c 0%,#e8ae14 48%,#c27c02 100%);--on-gold:#1b1406;--gold-text:#f2bf2f;
+  --gutter:48px;--container:1120px;--ease:cubic-bezier(.16,1,.3,1);
+  --sec:160px;--card:48px;
+}
+@media (max-width:900px){:root{--sec:112px;--card:36px}}
+@media (max-width:600px){:root{--gutter:22px;--sec:88px;--card:28px}}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Google Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:17px;line-height:28px;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+button{font:inherit;color:inherit;cursor:pointer}
+.container{max-width:calc(var(--container) + var(--gutter)*2);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
+.sec{padding:var(--sec) 0}
+.sec + .sec{border-top:1px solid var(--line)}
+
+.h1{font-size:clamp(44px,7vw,96px);line-height:.98;font-weight:500;letter-spacing:-.045em;max-width:13ch}
+.h2{font-size:clamp(36px,5vw,64px);line-height:1.02;font-weight:500;letter-spacing:-.04em;max-width:15ch}
+.lead{font-size:clamp(19px,1.6vw,22px);line-height:1.55;color:var(--text-2);max-width:56ch;margin-top:32px}
+.lead + .lead{margin-top:20px}
+.lead b{color:var(--text);font-weight:500}
+.gold{color:var(--gold-text)}
+
+/* Topo */
+.top{display:flex;justify-content:space-between;gap:16px;padding-top:28px;padding-bottom:28px;font-size:14px;color:var(--text-3)}
+.top b{color:var(--text);font-weight:500}
+@media (max-width:600px){.top{flex-direction:column;gap:2px}}
+
+/* Abertura */
+.open{padding:clamp(72px,12vw,160px) 0 var(--sec)}
+.scroll-hint{display:inline-flex;align-items:center;gap:12px;margin-top:56px;color:var(--text-3);font-size:15px}
+.scroll-hint i{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;font-style:normal}
+
+/* Linhas de afirmação */
+.claims{margin-top:64px;border-top:1px solid var(--line)}
+.claims li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:32px;padding:32px 0;border-bottom:1px solid var(--line)}
+.claims b{font-size:clamp(20px,2vw,26px);line-height:1.3;font-weight:500;letter-spacing:-.015em}
+.claims span{color:var(--text-2)}
+@media (max-width:760px){.claims li{grid-template-columns:1fr;gap:8px;padding:28px 0}}
+
+/* Prova */
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:72px}
+.duo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;background:var(--surface)}
+@media (max-width:600px){.duo{gap:10px;margin-top:48px}.duo img{border-radius:14px}}
+.cap{margin-top:16px;font-size:14px;color:var(--text-3)}
+
+/* Método */
+.method{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px;margin-top:80px}
+@media (max-width:900px){.method{grid-template-columns:1fr;gap:0;margin-top:56px}}
+.method > div{border-top:1px solid var(--line-2);padding-top:32px}
+@media (max-width:900px){.method > div{padding:32px 0 40px}}
+.method .n{font-size:15px;color:var(--text-3)}
+.method h3{font-size:30px;line-height:1.15;font-weight:500;letter-spacing:-.025em;margin-top:20px}
+.method h3 em{font-style:normal;color:var(--gold-text);display:block}
+.method p{color:var(--text-2);margin-top:16px}
+
+/* Simulador */
+.build{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:48px;margin-top:80px;align-items:start}
+@media (max-width:1040px){.build{grid-template-columns:1fr;gap:56px;margin-top:56px}}
+.step + .step{margin-top:72px}
+.step h3{font-size:24px;line-height:1.3;font-weight:500;letter-spacing:-.015em}
+.step .hint{color:var(--text-3);margin-top:6px;font-size:16px}
+
+.plans{display:grid;gap:16px;margin-top:28px}
+.plan{position:relative;display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:20px;align-items:start;padding:var(--card);border-radius:24px;background:var(--surface);border:1px solid var(--line);cursor:pointer;transition:border-color .3s var(--ease),background-color .3s var(--ease)}
+.plan:hover{border-color:var(--line-2)}
+.plan input{position:absolute;opacity:0;pointer-events:none}
+.radio{width:24px;height:24px;margin-top:6px;border-radius:50%;border:1.5px solid var(--line-2);display:grid;place-items:center;transition:all .3s var(--ease)}
+.radio::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--on-gold);transform:scale(0);transition:transform .3s var(--ease)}
+.plan:has(input:checked){border-color:rgba(242,191,47,.6);background:linear-gradient(160deg,#25221a 0%,var(--surface) 70%)}
+.plan:has(input:checked) .radio{background:var(--gold);border-color:transparent}
+.plan:has(input:checked) .radio::after{transform:scale(1)}
+.plan:has(input:focus-visible){outline:2px solid var(--text);outline-offset:3px}
+.plan__name{font-size:28px;line-height:1.2;font-weight:500;letter-spacing:-.02em;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.tag{font-size:13px;line-height:1;font-weight:500;padding:7px 12px;border-radius:999px;background:var(--gold);color:var(--on-gold);letter-spacing:0}
+.plan__for{color:var(--text-2);margin-top:8px}
+.plan__meta{color:var(--text-3);font-size:15px;margin-top:16px}
+.plan__price{text-align:right;white-space:nowrap}
+.plan__price small{display:block;font-size:14px;color:var(--text-3)}
+.plan__price b{font-size:30px;line-height:1.2;font-weight:500;letter-spacing:-.02em}
+@media (max-width:600px){
+  .plan{grid-template-columns:24px minmax(0,1fr);gap:16px}
+  .plan__price{grid-column:2;text-align:left;margin-top:4px}
+  .plan__name{font-size:24px}
+}
+
+.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:28px;padding:8px;border-radius:20px;background:var(--surface);border:1px solid var(--line)}
+.seg button{border:0;background:transparent;border-radius:14px;padding:18px 12px;text-align:center;transition:background-color .3s var(--ease),color .3s var(--ease)}
+.seg button b{display:block;font-weight:500;font-size:17px}
+.seg button span{display:block;font-size:14px;color:var(--text-3);margin-top:2px}
+.seg button[aria-pressed="true"]{background:var(--surface-2);box-shadow:inset 0 0 0 1px rgba(242,191,47,.55)}
+.seg button[aria-pressed="true"] span{color:var(--gold-text)}
+.seg button:disabled{opacity:.35;cursor:not-allowed}
+.seg-note{font-size:15px;color:var(--text-3);margin-top:14px;min-height:24px}
+
+.adds{display:grid;gap:16px;margin-top:28px}
+.add{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:calc(var(--card) - 8px) var(--card);border-radius:24px;background:var(--surface);border:1px solid var(--line)}
+.add h4{margin:0;font-size:21px;line-height:1.3;font-weight:500}
+.add p{color:var(--text-2);font-size:16px;line-height:1.5;margin-top:6px;max-width:42ch}
+.add .price{color:var(--gold-text);font-size:15px;margin-top:10px}
+@media (max-width:600px){.add{flex-direction:column;align-items:flex-start}}
+.stepper{display:flex;align-items:center;gap:6px;flex:none;padding:6px;border-radius:999px;border:1px solid var(--line-2)}
+.stepper button{width:40px;height:40px;border-radius:50%;border:0;background:var(--surface-2);font-size:20px;line-height:1}
+.stepper button:disabled{opacity:.35;cursor:not-allowed}
+.stepper output{min-width:36px;text-align:center;font-weight:500;font-size:18px}
+.switch{flex:none;width:60px;height:34px;border-radius:999px;border:0;background:var(--line-2);position:relative;transition:background .3s var(--ease)}
+.switch::after{content:"";position:absolute;top:4px;left:4px;width:26px;height:26px;border-radius:50%;background:#fff;transition:transform .3s var(--ease)}
+.switch[aria-checked="true"]{background:var(--gold)}
+.switch[aria-checked="true"]::after{transform:translateX(26px)}
+
+.incl{margin-top:72px;padding-top:32px;border-top:1px solid var(--line);color:var(--text-2)}
+.incl b{color:var(--text);font-weight:500}
+
+/* Resumo */
+.sum{position:sticky;top:24px;padding:var(--card) calc(var(--card) - 8px);border-radius:28px;background:var(--surface);border:1px solid var(--line-2);box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
+.sum h3{font-size:22px;font-weight:500}
+.sum ul{margin-top:24px;display:grid;gap:14px}
+.sum li{display:flex;justify-content:space-between;gap:16px;color:var(--text-2);font-size:16px;line-height:1.4}
+.sum li b{color:var(--text);font-weight:500;white-space:nowrap}
+.sum hr{border:0;border-top:1px solid var(--line);margin:28px 0}
+.total small{color:var(--text-3);font-size:15px}
+.total div{display:flex;align-items:baseline;gap:8px;margin-top:4px}
+.total b{font-size:52px;line-height:1.05;font-weight:500;letter-spacing:-.04em}
+.total span{color:var(--text-3)}
+.save{margin-top:16px;color:var(--gold-text);font-size:16px;line-height:1.45}
+.bonus{margin-top:12px;color:var(--text-2);font-size:15px;line-height:1.5}
+.btn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;margin-top:32px;padding:20px 28px;border-radius:999px;background:var(--gold);color:var(--on-gold);font-weight:500;font-size:17px;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 14px 36px -12px rgba(232,174,20,.6);transition:transform .3s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:22px;height:22px;flex:none}
+.btn-note{text-align:center;color:var(--text-3);font-size:14px;margin-top:14px}
+
+/* Dúvidas */
+.faq{margin-top:72px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:32px 0;display:flex;justify-content:space-between;align-items:center;gap:24px;font-size:clamp(20px,2vw,24px);line-height:1.35;font-weight:500;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;font-style:normal;font-size:22px;color:var(--text-2);transition:transform .4s var(--ease)}
+.faq details[open] summary i{transform:rotate(45deg)}
+.faq p{color:var(--text-2);padding:0 64px 36px 0;max-width:70ch;font-size:18px;line-height:1.6}
+@media (max-width:600px){.faq p{padding-right:0}}
+
+/* Como funciona */
+.flow{margin-top:72px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px}
+@media (max-width:900px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.flow{grid-template-columns:1fr;gap:0}}
+.flow li{border-top:1px solid var(--line-2);padding-top:28px}
+@media (max-width:560px){.flow li{padding:28px 0 32px}}
+.flow .n{color:var(--text-3);font-size:15px}
+.flow h3{font-size:22px;line-height:1.3;font-weight:500;margin-top:16px}
+.flow p{color:var(--text-2);margin-top:10px;font-size:16px;line-height:1.55}
+.terms{margin-top:72px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 56px;color:var(--text-3);font-size:15px;line-height:1.5}
+@media (max-width:700px){.terms{grid-template-columns:1fr}}
+
+/* Fechamento */
+.end{text-align:center}
+.end .h2{margin:0 auto;max-width:17ch}
+.end .lead{margin-left:auto;margin-right:auto}
+.end .btn{width:auto;display:inline-flex;margin-top:48px;padding:20px 36px}
+.end .alt{display:block;margin-top:20px;color:var(--text-3);font-size:15px;text-decoration:underline;text-underline-offset:4px}
+footer{border-top:1px solid var(--line);padding:36px 0;text-align:center;color:var(--text-3);font-size:14px}
+
+.mbar{display:none}
+@media (max-width:1040px){
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:20;align-items:center;justify-content:space-between;gap:16px;padding:12px 12px 12px 22px;border-radius:999px;background:rgba(26,28,32,.86);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);border:1px solid var(--line-2);transform:translateY(140%);transition:transform .5s var(--ease)}
+  .mbar.on{transform:none}
+  .mbar small{display:block;font-size:13px;color:var(--text-3);line-height:1.2}
+  .mbar b{font-size:20px;line-height:1.3;font-weight:500}
+  .mbar{padding-bottom:calc(12px + env(safe-area-inset-bottom,0px)*0)}
+  .mbar a{padding:12px 20px;border-radius:999px;background:var(--gold);color:var(--on-gold);font-weight:500;font-size:15px}
+}
+[data-r]{opacity:0;transform:translateY(20px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+[data-r].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){[data-r]{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="container top">
+  <span><b>Willams Dantas</b> · Proposta para Dr. Lucas Barbosa</span>
+  <span>Válida até 23 de novembro de 2026</span>
+</div>
+
+<main>
+
+<!-- Abertura -->
+<section class="open">
+  <div class="container">
+    <h1 class="h1" data-r>Dr. Lucas, o seu próximo paciente já está no Instagram.</h1>
+    <p class="lead" data-r>A pergunta é se, quando ele abrir o seu perfil, vai escolher você. Preparei esta proposta para que a resposta seja <b>sim</b>.</p>
+    <a class="scroll-hint" href="#problema" data-r><i aria-hidden="true">↓</i>Leva 3 minutos</a>
+  </div>
+</section>
+
+<!-- Problema -->
+<section class="sec" id="problema">
+  <div class="container">
+    <h2 class="h2" data-r>O paciente particular decide antes de ligar.</h2>
+    <p class="lead" data-r>Antes de marcar uma consulta, ele pesquisa. Abre o seu perfil, passa os olhos pelos últimos posts e, em poucos segundos, decide se você é o médico certo para ele.</p>
+    <p class="lead" data-r>O Instagram não mostra a sua formação, o seu cuidado nem os seus resultados. Mostra só o que está postado. <b>E o paciente não vai para quem é melhor. Vai para quem parece melhor.</b></p>
+    <ul class="claims">
+      <li data-r><b>Perfil parado parece consultório vazio.</b><span>Semanas sem postar passam a impressão de que você não está atendendo, ou de que ninguém procura você.</span></li>
+      <li data-r><b>Visual de modelo pronto deixa você igual aos outros.</b><span>Quando todo médico usa o mesmo estilo, nada diferencia o especialista de quem só está começando.</span></li>
+      <li data-r><b>Post sem estratégia gera curtida, não consulta.</b><span>Conteúdo bom precisa de um caminho: chamar a atenção, gerar confiança e levar até o seu WhatsApp.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Prova -->
+<section class="sec">
+  <div class="container">
+    <h2 class="h2" data-r>Eu fiz isso antes de você me contratar.</h2>
+    <p class="lead" data-r>Para você não precisar imaginar, criei um carrossel com o seu nome. Agora imagine o seu perfil assim, toda semana.</p>
+    <div class="duo" data-r>
+      <img src="../slide-1.webp" width="1080" height="1350" alt="Capa do carrossel: Fique atento a este sinal na sua pele." loading="lazy">
+      <img src="../slide-2.webp" width="1080" height="1350" alt="Segundo slide: Prazer, eu sou o Dr. Lucas Barbosa." loading="lazy">
+    </div>
+    <p class="cap">Carrossel criado para esta proposta.</p>
+    <ul class="claims">
+      <li data-r><b>A capa desperta curiosidade.</b><span>Ela aponta um sinal e só explica lá dentro. Quem arrasta fica mais tempo no post, e o Instagram mostra ele para mais gente.</span></li>
+      <li data-r><b>Você aparece como autoridade.</b><span>Rosto, nome e o que você trata. O paciente chega na consulta já confiando em você.</span></li>
+      <li data-r><b>O visual tem o padrão do seu atendimento.</b><span>Saúde hormonal e longevidade pedem um perfil com cara de clínica premium, não de panfleto.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Método -->
+<section class="sec">
+  <div class="container">
+    <h2 class="h2" data-r>Um sistema, não posts soltos.</h2>
+    <p class="lead" data-r>Você não precisa de uma pessoa para o design, outra para o vídeo e outra para os anúncios. Eu cuido das três frentes, e cada uma reforça a outra.</p>
+    <div class="method">
+      <div data-r><span class="n">01</span><h3>Conteúdo <em>constrói autoridade.</em></h3><p>Carrosséis e posts que transformam o que você já explica no consultório em conteúdo que educa e gera confiança. Você só aprova.</p></div>
+      <div data-r><span class="n">02</span><h3>Vídeo <em>cria proximidade.</em></h3><p>O paciente sente que já te conhece antes da primeira consulta. Você grava do celular, do jeito que der. Eu deixo pronto para postar.</p></div>
+      <div data-r><span class="n">03</span><h3>Tráfego <em>gera alcance.</em></h3><p>Anúncios que levam o seu conteúdo até quem está procurando tratamento em Maceió e região, direto para o seu WhatsApp.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Monte o seu plano -->
+<section class="sec" id="plano">
+  <div class="container">
+    <h2 class="h2" data-r>Monte o seu plano.</h2>
+    <p class="lead" data-r>Escolha o ritmo, o prazo e o que quiser somar. O valor aparece na hora, sem surpresa.</p>
+
+    <div class="build">
+      <div>
+        <div class="step" data-r>
+          <h3>1. Quantos posts por semana?</h3>
+          <p class="hint">Todos com design, texto e legenda prontos.</p>
+          <div class="plans" role="radiogroup" aria-label="Plano">
+            <label class="plan"><input type="radio" name="plan" value="start"><span class="radio" aria-hidden="true"></span>
+              <span><span class="plan__name">Start</span><p class="plan__for">Para começar com constância.</p><p class="plan__meta">1 carrossel + 1 post por semana · 8 peças por mês</p></span>
+              <span class="plan__price"><b>R$ 750</b><small>/mês, contrato de 6 meses</small></span></label>
+            <label class="plan"><input type="radio" name="plan" value="essencial" checked><span class="radio" aria-hidden="true"></span>
+              <span><span class="plan__name">Essencial <span class="tag">Recomendado para você</span></span><p class="plan__for">Para ser lembrado toda semana.</p><p class="plan__meta">1 carrossel + 2 posts por semana · 12 peças por mês</p></span>
+              <span class="plan__price"><small>a partir de</small><b>R$ 930</b><small>/mês</small></span></label>
+            <label class="plan"><input type="radio" name="plan" value="presenca"><span class="radio" aria-hidden="true"></span>
+              <span><span class="plan__name">Presença</span><p class="plan__for">Para ser a referência no feed de quem te segue.</p><p class="plan__meta">2 carrosséis + 2 posts por semana · 16 peças por mês</p></span>
+              <span class="plan__price"><small>a partir de</small><b>R$ 1.490</b><small>/mês</small></span></label>
+          </div>
+        </div>
+
+        <div class="step" data-r>
+          <h3>2. Por quanto tempo?</h3>
+          <p class="hint">Quanto maior o compromisso, menor o valor por mês.</p>
+          <div class="seg" role="group" aria-label="Prazo do contrato">
+            <button type="button" data-m="1" aria-pressed="false"><b>Mensal</b><span>Sem contrato</span></button>
+            <button type="button" data-m="3" aria-pressed="false"><b>3 meses</b><span>10% off</span></button>
+            <button type="button" data-m="6" aria-pressed="true"><b>6 meses</b><span>15% off</span></button>
+          </div>
+          <p class="seg-note" id="segNote"></p>
+        </div>
+
+        <div class="step" data-r>
+          <h3>3. Quer acelerar?</h3>
+          <p class="hint">Vídeo e tráfego podem ser somados a qualquer plano.</p>
+          <div class="adds">
+            <div class="add">
+              <div><h4>Edição de vídeo</h4><p>Reels com corte, legenda, trilha e acabamento. Você grava, eu deixo pronto.</p><p class="price">R$ 120 por vídeo</p></div>
+              <div class="stepper" aria-label="Vídeos por mês"><button type="button" id="vMinus" aria-label="Menos um vídeo">−</button><output id="vCount" aria-live="polite">0</output><button type="button" id="vPlus" aria-label="Mais um vídeo">+</button></div>
+            </div>
+            <div class="add">
+              <div><h4>Tráfego pago</h4><p>Campanhas no Instagram e no Facebook, ajustes semanais e relatório mensal. A verba dos anúncios é paga direto ao Meta, e você decide quanto investir.</p><p class="price">R$ 1.500 por mês</p></div>
+              <button type="button" class="switch" id="traffic" role="switch" aria-checked="false" aria-label="Incluir tráfego pago"></button>
+            </div>
+          </div>
+        </div>
+
+        <p class="incl" data-r><b>Em todos os planos:</b> design, copy, legenda, calendário mensal, 2 rodadas de ajustes por peça e conteúdo dentro das regras de publicidade do CFM.</p>
+      </div>
+
+      <aside class="sum" id="resumo" aria-live="polite" data-r>
+        <h3>Seu plano</h3>
+        <ul id="sumList"></ul>
+        <hr>
+        <div class="total"><small>Total por mês</small><div><b id="sumTotal">R$ 930</b><span>/mês</span></div></div>
+        <p class="save" id="sumSave"></p>
+        <p class="bonus" id="sumBonus"></p>
+        <a class="btn" id="sendPlan" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 18.86A8.5 8.5 0 1 0 4.64 15.75L3.3 20.6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path transform="translate(7.3 6.8) scale(.39)" fill="currentColor" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Enviar este plano
+        </a>
+        <p class="btn-note">Abre o WhatsApp com a sua escolha. Sem compromisso.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Dúvidas -->
+<section class="sec">
+  <div class="container">
+    <h2 class="h2" data-r>Antes que você pergunte.</h2>
+    <div class="faq" data-r>
+      <details><summary>Não tenho tempo para cuidar de Instagram.<i aria-hidden="true">+</i></summary><p>É exatamente por isso que esta proposta existe. Uma conversa por mês para alinhar os temas, e eu cuido de todo o resto. Você aprova pelo WhatsApp, em poucos minutos.</p></details>
+      <details><summary>E as regras do CFM para publicidade médica?<i aria-hidden="true">+</i></summary><p>Todo conteúdo segue as regras do CFM: sem promessa de resultado, sem sensacionalismo e respeitando o que pode ser anunciado sobre especialidade. E nada vai ao ar sem a sua aprovação.</p></details>
+      <details><summary>Já tentei postar e não deu resultado.<i aria-hidden="true">+</i></summary><p>Postar sem estratégia não funciona mesmo. Aqui, cada post tem um papel: atrair, gerar confiança ou levar para a consulta. E todo mês eu ajusto o próximo calendário pelo que funcionou melhor.</p></details>
+      <details><summary>E se eu não gostar de alguma peça?<i aria-hidden="true">+</i></summary><p>Cada peça tem 2 rodadas de ajustes inclusas. E você já viu o padrão de entrega: o carrossel desta proposta foi feito antes de qualquer contrato.</p></details>
+      <details><summary>Preciso gravar vídeos?<i aria-hidden="true">+</i></summary><p>Não é obrigatório. Os planos funcionam sozinhos. Se quiser gravar, eu te passo roteiros curtos e orientações simples de enquadramento. Dá para gravar tudo em uma tarde.</p></details>
+      <details><summary>Por que o contrato mais longo sai mais barato?<i aria-hidden="true">+</i></summary><p>Autoridade se constrói com constância. Nos primeiros meses, o Instagram ainda está aprendendo quem é o seu público. Quem se compromete com esse tempo vê o resultado, por isso eu reduzo o valor por mês.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- Como funciona -->
+<section class="sec">
+  <div class="container">
+    <h2 class="h2" data-r>Do sim ao primeiro post em até 10 dias úteis.</h2>
+    <ol class="flow" style="list-style:none;padding:0;margin-left:0">
+      <li data-r><span class="n">01</span><h3>Conversa inicial</h3><p>Em 40 minutos, entendo os seus tratamentos, o seu paciente ideal e o tom que você quer passar.</p></li>
+      <li data-r><span class="n">02</span><h3>Calendário do mês</h3><p>Você recebe os temas do mês e aprova antes de qualquer criação.</p></li>
+      <li data-r><span class="n">03</span><h3>Produção</h3><p>As peças chegam prontas, em lotes semanais. Você aprova ou pede ajustes.</p></li>
+      <li data-r><span class="n">04</span><h3>Acompanhamento</h3><p>Vejo o que funcionou melhor e uso isso para deixar o mês seguinte ainda mais forte.</p></li>
+    </ol>
+    <ul class="terms" data-r>
+      <li>Pagamento mensal, por Pix ou boleto, até o dia 5.</li>
+      <li>2 rodadas de ajustes por peça.</li>
+      <li>Plano Start disponível só no contrato de 6 meses.</li>
+      <li>Verba de anúncios paga direto ao Meta, à parte.</li>
+      <li>Fotos e vídeos gravados por você, com a minha orientação.</li>
+      <li>Valores válidos até 23 de novembro de 2026.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Fechamento -->
+<section class="sec end">
+  <div class="container">
+    <h2 class="h2" data-r>Seus pacientes já estão procurando. Vamos fazer eles te encontrarem.</h2>
+    <p class="lead" data-r>Atendo poucos clientes por vez para manter este padrão de entrega. Estes valores e esta condição valem até 23 de novembro.</p>
+    <a class="btn" data-r href="https://wa.me/5582996463391?text=Oi%2C%20Willams!%20Vi%20a%20proposta%20e%20quero%20come%C3%A7ar." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 18.86A8.5 8.5 0 1 0 4.64 15.75L3.3 20.6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path transform="translate(7.3 6.8) scale(.39)" fill="currentColor" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Quero começar
+    </a>
+    <a class="alt" href="#plano">Rever o meu plano</a>
+  </div>
+</section>
+
+</main>
+<div class="mbar" id="mbar" aria-hidden="true"><div><small>Seu plano</small><b id="mTotal">R$ 930</b><span style="color:var(--text-3);font-size:14px"> /mês</span></div><a href="#resumo" tabindex="-1">Ver resumo</a></div>
+
+<footer><div class="container">© 2026 Willams Dantas. Todos os direitos reservados.</div></footer>
+
+<script>
+(function(){
+  /* Revelar ao rolar */
+  var els=document.querySelectorAll('[data-r]');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  } else els.forEach(function(e){e.classList.add('in')});
+
+  /* Simulador */
+  var PLANS={
+    start:{name:'Start',pieces:'4 carrosséis + 4 posts por mês',avulso:1040,price:{6:750}},
+    essencial:{name:'Essencial',pieces:'4 carrosséis + 8 posts por mês',avulso:1280,price:{1:1090,3:980,6:930}},
+    presenca:{name:'Presença',pieces:'8 carrosséis + 8 posts por mês',avulso:2080,price:{1:1790,3:1590,6:1490}}
+  };
+  var VIDEO=120,TRAFFIC=1500,MAXV=12;
+  var st={plan:'essencial',m:6,v:0,t:false};
+  var brl=function(n){return 'R$ '+n.toLocaleString('pt-BR')};
+  var $=function(id){return document.getElementById(id)};
+  var segBtns=document.querySelectorAll('.seg button');
+
+  function render(){
+    var p=PLANS[st.plan];
+    if(!p.price[st.m]) st.m=6;
+    segBtns.forEach(function(b){
+      var m=+b.dataset.m;
+      b.disabled=!p.price[m];
+      b.setAttribute('aria-pressed',m===st.m?'true':'false');
+    });
+    $('segNote').textContent=st.plan==='start'?'O Start é exclusivo do contrato de 6 meses.':'';
+    var base=p.price[st.m];
+    var total=base+st.v*VIDEO+(st.t?TRAFFIC:0);
+    var mLabel=st.m===1?'Mensal':st.m+' meses';
+    var rows=[
+      ['Plano '+p.name+' · '+mLabel,brl(base)],
+      [p.pieces,''],
+    ];
+    if(st.v) rows.push([st.v+(st.v>1?' vídeos editados':' vídeo editado'),brl(st.v*VIDEO)]);
+    if(st.t) rows.push(['Tráfego pago (sem a verba)',brl(TRAFFIC)]);
+    $('sumList').innerHTML=rows.map(function(r){return '<li><span>'+r[0]+'</span>'+(r[1]?'<b>'+r[1]+'</b>':'')+'</li>'}).join('');
+    $('sumTotal').textContent=brl(total);$('mTotal').textContent=brl(total);
+    var saveMonth=p.avulso-base;
+    $('sumSave').textContent=st.m>1
+      ? 'Você economiza '+brl(saveMonth*st.m)+' em '+st.m+' meses, em relação aos serviços avulsos.'
+      : 'Você economiza '+brl(saveMonth)+' por mês, em relação aos serviços avulsos.';
+    var bonus='';
+    if(st.plan!=='start'&&st.m===3) bonus='Bônus: identidade visual com 50% de desconto (R$ 500 em vez de R$ 1.000).';
+    if(st.plan!=='start'&&st.m===6) bonus='Bônus: identidade visual inclusa, sem custo (valor de R$ 1.000).';
+    $('sumBonus').textContent=bonus;
+    $('vCount').textContent=st.v;
+    $('vMinus').disabled=st.v===0;$('vPlus').disabled=st.v===MAXV;
+    $('traffic').setAttribute('aria-checked',st.t?'true':'false');
+    var msg='Oi, Willams! Vi a proposta e montei este plano:\n\n'
+      +'• Plano '+p.name+' ('+mLabel.toLowerCase()+'): '+brl(base)+'/mês\n'
+      +(st.v?'• '+st.v+(st.v>1?' vídeos editados':' vídeo editado')+': '+brl(st.v*VIDEO)+'/mês\n':'')
+      +(st.t?'• Tráfego pago: '+brl(TRAFFIC)+'/mês\n':'')
+      +'\nTotal: '+brl(total)+' por mês. Vamos conversar?';
+    $('sendPlan').href='https://wa.me/5582996463391?text='+encodeURIComponent(msg);
+  }
+
+  document.querySelectorAll('input[name=plan]').forEach(function(r){r.addEventListener('change',function(){st.plan=r.value;render()})});
+  segBtns.forEach(function(b){b.addEventListener('click',function(){st.m=+b.dataset.m;render()})});
+  $('vMinus').addEventListener('click',function(){if(st.v>0){st.v--;render()}});
+  $('vPlus').addEventListener('click',function(){if(st.v<MAXV){st.v++;render()}});
+  $('traffic').addEventListener('click',function(){st.t=!st.t;render()});
+  render();
+  if('IntersectionObserver' in window){
+    var bar=$('mbar'),inPlan=false,inSum=false,upd=function(){bar.classList.toggle('on',inPlan&&!inSum)};
+    new IntersectionObserver(function(e){inPlan=e[0].isIntersecting;upd()}).observe(document.querySelector('.build > div'));
+    new IntersectionObserver(function(e){inSum=e[0].isIntersecting;upd()}).observe($('resumo'));
+  }
+})();
+</script>
+</body>
+</html>

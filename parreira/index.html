@@ -292,6 +292,15 @@ button{font:inherit;color:inherit}
   .carregando{display:none}
 }
 </style>
+<script>
+(function(){
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+  function inicio(){ window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }
+  window.addEventListener('load', inicio);
+  window.addEventListener('pageshow', function(e){ if (e.persisted) inicio(); });
+})();
+</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">

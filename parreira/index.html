@@ -10,10 +10,12 @@
 <meta property="og:title" content="Parreira · Building tomorrow together">
 <meta property="og:description" content="Construction and renovation with high quality and great care for every project.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='10' fill='%230aa76a'/%3E%3Ccircle cx='18' cy='18' r='5' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preload" href="fonts/lexend-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="img/hero-2.jpg" as="image" media="(min-width:900px)">
-<link rel="preload" href="img/hero-2-m.jpg" as="image" media="(max-width:899px)">
+<link rel="preload" href="img/hero.jpg" as="image" media="(min-width:900px)">
+<link rel="preload" href="img/hero-m.jpg" as="image" media="(max-width:899px)">
 <style>
 @font-face{font-family:"Lexend";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/lexend-latin-400-normal.woff2) format("woff2")}
 @font-face{font-family:"Lexend";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/lexend-latin-500-normal.woff2) format("woff2")}
@@ -101,21 +103,19 @@ button{font:inherit;color:inherit}
 .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity 1.4s ease,transform 7s linear}
 .slide.ativo{opacity:1;transform:scale(1)}
 .slide-1{background-image:url(img/hero.jpg),url(img/lqip-hero.jpg);background-position:75% 30%}
-.slide-2{background-image:url(img/hero-2.jpg),linear-gradient(140deg,#1c3a2c,#070807 70%);background-position:60% 50%}
-.slide-3{background-image:url(img/hero-3.jpg),linear-gradient(200deg,#23382c,#070807 70%)}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,8,7,.82) 0%,rgba(7,8,7,.45) 50%,rgba(7,8,7,.1) 100%),linear-gradient(0deg,var(--preto-claro) 0%,rgba(28,28,28,0) 30%)}
-.hero-texto{max-width:560px;display:flex;flex-direction:column;align-items:flex-start}
+.hero-texto{max-width:680px;display:flex;flex-direction:column;align-items:flex-start}
 .hero .h1{margin-top:14px}
-.hero p{margin-top:24px;color:var(--cinza-100);max-width:520px}
+.hero p{margin-top:24px;color:var(--cinza-100);max-width:540px}
+@media (max-width:699px){.quebra{display:none}}
 .hero .botao{margin-top:32px}
 .sociais{display:flex;gap:12px;margin-top:40px}
 .sociais a{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background-color .25s,transform .25s var(--curva),border-color .25s}
 
 .sociais svg{width:17px;height:17px;color:#fff}
 .pontos{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);display:flex;gap:10px}
-.pontos button{width:44px;height:24px;padding:0;background:none;border:0;cursor:pointer;position:relative}
-.pontos button::before{content:"";position:absolute;left:0;right:0;top:11px;height:2px;background:rgba(255,255,255,.25);transition:background-color .3s}
-.pontos button[aria-current="true"]::before{background:#fff}
+.pontos span{width:44px;height:2px;background:rgba(255,255,255,.25)}
+.pontos span.ativo{background:#fff}
 
 /* sobre */
 .sobre{background:var(--preto-claro);padding-block:clamp(72px,9vw,112px) clamp(56px,7vw,80px)}
@@ -196,7 +196,7 @@ button{font:inherit;color:inherit}
 .pergunta{border-bottom:1px solid rgba(243,243,243,.14)}
 .pergunta h3{font-size:.9375rem;font-weight:400}
 .pergunta button{width:100%;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding:16px 8px;background:none;border:0;cursor:pointer;text-align:left;line-height:1.45;color:var(--branco-normal)}
-.pergunta .mais{width:12px;height:12px;flex:none;margin-top:5px;transition:transform .35s var(--curva)}
+.pergunta .mais{width:12px;height:12px;flex:none;margin-top:5px;opacity:.7;filter:grayscale(1) brightness(1.4);transition:transform .35s var(--curva)}
 .pergunta button[aria-expanded="true"] .mais{transform:rotate(45deg)}
 .resposta{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--curva)}
 .resposta>div{overflow:hidden}
@@ -211,7 +211,7 @@ button{font:inherit;color:inherit}
 
 /* contato */
 .contato{position:relative;background:var(--preto-escuro);overflow:hidden;isolation:isolate;padding-block:clamp(64px,8vw,96px) clamp(72px,9vw,120px)}
-.contato-foto{position:absolute;top:0;bottom:0;right:0;width:min(60%,820px);z-index:-1;background:url(img/contato.jpg) 70% 30%/cover no-repeat,radial-gradient(ellipse at 60% 40%,#1d4a33 0%,rgba(7,8,7,0) 65%)}
+.contato-foto{position:absolute;top:0;bottom:0;right:0;width:min(62%,860px);z-index:-1;background:url(img/hero-2.jpg) 40% 40%/cover no-repeat}
 .contato-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--preto-escuro) 0%,rgba(7,8,7,.2) 45%,rgba(7,8,7,0) 70%),linear-gradient(0deg,var(--preto-escuro) 0%,rgba(7,8,7,0) 35%)}
 .contato-texto{max-width:420px}
 .contato .h2{margin-top:10px}
@@ -241,7 +241,6 @@ button{font:inherit;color:inherit}
 /* responsivo */
 @media (max-width:899px){
   .slide-1{background-image:url(img/hero-m.jpg),url(img/lqip-hero.jpg);background-position:80% 20%}
-  .slide-2{background-image:url(img/hero-2-m.jpg),linear-gradient(140deg,#1c3a2c,#070807 70%)}
   .hero::after{background:linear-gradient(90deg,rgba(7,8,7,.88) 0%,rgba(7,8,7,.62) 60%,rgba(7,8,7,.3) 100%),linear-gradient(0deg,var(--preto-claro) 0%,rgba(28,28,28,0) 30%)}
   .sobre-grade,.duvidas-grade{grid-template-columns:1fr}
   .sobre-rodape{flex-wrap:wrap}
@@ -344,14 +343,12 @@ button{font:inherit;color:inherit}
 <main id="conteudo">
   <section class="hero" id="inicio" aria-labelledby="hero-titulo">
     <div class="slides" aria-hidden="true">
-      <div class="slide slide-2 ativo"></div>
-      <div class="slide slide-1"></div>
-      <div class="slide slide-3"></div>
+      <div class="slide slide-1 ativo"></div>
     </div>
     <div class="container">
       <div class="hero-texto">
         <span class="rotulo">Parreira</span>
-        <h1 class="h1" id="hero-titulo">Building tomorrow together</h1>
+        <h1 class="h1" id="hero-titulo">Building tomorrow<br class="quebra"> together</h1>
         <p>For five years we have been building and renovating dreams, with high quality and great care for our clients and projects.</p>
         <a class="botao" href="#contato"><span class="seta" aria-hidden="true"><svg><use href="#i-seta"/></svg></span>Get in touch</a>
         <div class="sociais" aria-label="Social media">
@@ -361,11 +358,7 @@ button{font:inherit;color:inherit}
         </div>
       </div>
     </div>
-    <div class="pontos" role="group" aria-label="Background images">
-      <button type="button" aria-label="Image 1" aria-current="true"></button>
-      <button type="button" aria-label="Image 2" aria-current="false"></button>
-      <button type="button" aria-label="Image 3" aria-current="false"></button>
-    </div>
+    <div class="pontos" aria-hidden="true"><span class="ativo"></span><span></span><span></span></div>
   </section>
 
   <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
@@ -479,7 +472,7 @@ button{font:inherit;color:inherit}
   <div class="faixa" aria-hidden="true"><div class="faixa-trilho"><span>Building tomorrow together.</span><span class="v">5 years building dreams.</span><span>Building tomorrow together.</span><span class="v">5 years building dreams.</span><span>Building tomorrow together.</span><span class="v">5 years building dreams.</span><span>Building tomorrow together.</span><span class="v">5 years building dreams.</span></div></div>
 
   <section class="contato" id="contato" aria-labelledby="contato-titulo">
-    <div class="contato-foto" role="img" aria-label="Construction worker wearing a red helmet"></div>
+    <div class="contato-foto" role="img" aria-label="Worker on scaffolding at a construction site"></div>
     <div class="container">
       <div class="contato-texto rv">
         <span class="rotulo">Count on us</span>
@@ -551,13 +544,6 @@ button{font:inherit;color:inherit}
     requestAnimationFrame(passo);
   }
   if (tem && !reduz) { var on = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { contar(e.target); on.unobserve(e.target); } }); }, { threshold:.6 }); $$('[data-conta]').forEach(function(n){ on.observe(n); }); }
-
-  /* carrossel do topo */
-  var slides = $$('.slide'), pontos = $$('.pontos button'), atual = 0, timer;
-  function mostrar(i){ atual = (i + slides.length) % slides.length; slides.forEach(function(s, k){ s.classList.toggle('ativo', k === atual); }); pontos.forEach(function(p, k){ p.setAttribute('aria-current', k === atual ? 'true' : 'false'); }); }
-  function rodar(){ clearInterval(timer); if (!reduz) timer = setInterval(function(){ mostrar(atual + 1); }, 6000); }
-  pontos.forEach(function(p, k){ p.addEventListener('click', function(){ mostrar(k); rodar(); }); });
-  rodar();
 
   /* topo e progresso: um handler */
   var topo = $('#topo'), barra = $('.progresso span'), pedido = false;

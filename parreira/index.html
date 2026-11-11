@@ -12,8 +12,8 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='10' fill='%230aa76a'/%3E%3Ccircle cx='18' cy='18' r='5' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preload" href="fonts/lexend-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="img/hero.jpg" as="image" media="(min-width:900px)">
-<link rel="preload" href="img/hero-m.jpg" as="image" media="(max-width:899px)">
+<link rel="preload" href="img/hero-2.jpg" as="image" media="(min-width:900px)">
+<link rel="preload" href="img/hero-2-m.jpg" as="image" media="(max-width:899px)">
 <style>
 @font-face{font-family:"Lexend";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/lexend-latin-400-normal.woff2) format("woff2")}
 @font-face{font-family:"Lexend";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/lexend-latin-500-normal.woff2) format("woff2")}
@@ -77,13 +77,13 @@ button{font:inherit;color:inherit}
 
 /* botões */
 .botao{display:inline-flex;align-items:center;gap:14px;height:48px;padding:0 24px 0 8px;border-radius:12px;background:var(--verde);color:#fff;font-size:.875rem;font-weight:500;text-decoration:none;transition:transform .25s var(--curva),box-shadow .25s,background-color .25s}
-.botao:hover{transform:translateY(-2px);box-shadow:0 6px 18px -6px rgba(10,167,106,.7)}
+
 .botao:active{transform:scale(.98)}
 .botao .seta{width:32px;height:32px;border-radius:9px;background:#fff;display:grid;place-items:center;flex:none;transition:transform .3s var(--curva)}
-.botao:hover .seta{transform:rotate(45deg)}
+
 .botao .seta svg{width:12px;height:12px}
 .botao-contorno{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 32px;border-radius:12px;border:1px solid var(--verde);color:#fff;font-size:.875rem;font-weight:500;text-decoration:none;transition:background-color .25s,transform .25s var(--curva)}
-.botao-contorno:hover{background:rgba(10,167,106,.15);transform:translateY(-2px)}
+
 
 /* topo */
 .topo{position:fixed;inset:0 0 auto;z-index:100;transition:background-color .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent}
@@ -110,7 +110,7 @@ button{font:inherit;color:inherit}
 .hero .botao{margin-top:32px}
 .sociais{display:flex;gap:12px;margin-top:40px}
 .sociais a{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background-color .25s,transform .25s var(--curva),border-color .25s}
-.sociais a:hover{background:var(--verde);border-color:var(--verde);transform:translateY(-3px)}
+
 .sociais svg{width:17px;height:17px;color:#fff}
 .pontos{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);display:flex;gap:10px}
 .pontos button{width:44px;height:24px;padding:0;background:none;border:0;cursor:pointer;position:relative}
@@ -158,9 +158,9 @@ button{font:inherit;color:inherit}
 .servico-texto{position:absolute;left:18px;right:18px;bottom:18px;transition:transform .45s var(--curva)}
 .servico h3{font-size:clamp(1.125rem,1rem + .5vw,1.375rem);font-weight:500;line-height:1.2;color:#fff}
 .servico p{font-size:.8125rem;line-height:1.5;color:var(--cinza-400);max-height:0;opacity:0;overflow:hidden;transition:max-height .45s var(--curva),opacity .35s,margin .35s}
-.servico:hover,.servico.ativo{outline-color:var(--verde)}
-.servico:hover .servico-img,.servico.ativo .servico-img{transform:scale(1.06)}
-.servico:hover p,.servico.ativo p{max-height:5em;opacity:1;margin-top:8px}
+.servico.ativo{outline-color:var(--verde)}
+.servico.ativo .servico-img{transform:scale(1.06)}
+.servico.ativo p{max-height:5em;opacity:1;margin-top:8px}
 .s1 .servico-img{background-image:url(img/interior.jpg),linear-gradient(135deg,#3d3a33,#14130f)}
 .s2 .servico-img{background-image:url(img/exterior.jpg),linear-gradient(135deg,#3a3f3c,#121513)}
 .s3 .servico-img{background-image:url(img/structural.jpg),linear-gradient(135deg,#4a4a3b,#141410)}
@@ -173,7 +173,7 @@ button{font:inherit;color:inherit}
 .depo-topo .h2{margin-top:10px}
 .setas{display:flex;gap:16px}
 .setas button{width:40px;height:40px;border-radius:9px;background:var(--verde);border:0;display:grid;place-items:center;cursor:pointer;transition:transform .25s var(--curva),background-color .25s}
-.setas button:hover{transform:translateY(-2px);background:var(--verde-claro)}
+
 .setas svg{width:15px;height:15px}
 .depo-janela{position:relative;margin-top:32px}
 .depo-janela::after{content:"";position:absolute;top:0;bottom:0;right:-1px;width:80px;background:linear-gradient(90deg,rgba(7,8,7,0),var(--preto-escuro));pointer-events:none}
@@ -219,7 +219,7 @@ button{font:inherit;color:inherit}
 .contatos{margin-top:32px;display:flex;flex-direction:column;gap:14px}
 .contatos a{display:inline-flex;align-items:center;gap:14px;color:var(--verde-claro);font-size:.9375rem;text-decoration:none}
 .contatos .circ{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);flex:none;transition:background-color .25s,border-color .25s}
-.contatos a:hover .circ{background:var(--verde);border-color:var(--verde)}
+
 .contatos svg{width:17px;height:17px;color:#fff}
 
 /* rodapé */
@@ -261,6 +261,19 @@ button{font:inherit;color:inherit}
   .topo .botao{padding-right:14px}
 }
 @media (min-width:700px) and (max-width:899px){.l1{grid-template-columns:1fr 1fr}.l1 .s3{grid-column:1/-1}}
+
+@media (hover:hover) and (pointer:fine){
+  .botao:hover{transform:translateY(-2px);box-shadow:0 6px 18px -6px rgba(10,167,106,.7)}
+  .botao:hover .seta{transform:rotate(45deg)}
+  .botao-contorno:hover{background:rgba(10,167,106,.15);transform:translateY(-2px)}
+  .sociais a:hover{background:var(--verde);border-color:var(--verde);transform:translateY(-3px)}
+  .setas button:hover{transform:translateY(-2px);background:var(--verde-claro)}
+  .contatos a:hover .circ{background:var(--verde);border-color:var(--verde)}
+  .servico:hover{outline-color:var(--verde)}
+  .servico:hover .servico-img{transform:scale(1.06)}
+  .servico:hover p{max-height:5em;opacity:1;margin-top:8px}
+}
+.botao,.botao-contorno,.setas button,.pontos button,.sociais a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 
 /* movimento */
 @keyframes girar{to{transform:rotate(360deg)}}
@@ -331,8 +344,8 @@ button{font:inherit;color:inherit}
 <main id="conteudo">
   <section class="hero" id="inicio" aria-labelledby="hero-titulo">
     <div class="slides" aria-hidden="true">
-      <div class="slide slide-1 ativo"></div>
-      <div class="slide slide-2"></div>
+      <div class="slide slide-2 ativo"></div>
+      <div class="slide slide-1"></div>
       <div class="slide slide-3"></div>
     </div>
     <div class="container">
@@ -558,7 +571,7 @@ button{font:inherit;color:inherit}
   addEventListener('resize', aoRolar); aoRolar();
 
   /* serviços: no toque, destaca o cartão no centro da tela */
-  if (tem && window.matchMedia('(hover: none)').matches) {
+  if (tem && !window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     var os = new IntersectionObserver(function(es){ es.forEach(function(e){ e.target.classList.toggle('ativo', e.isIntersecting); }); }, { rootMargin:'-40% 0px -40% 0px' });
     $$('.servico').forEach(function(s){ os.observe(s); });
   }

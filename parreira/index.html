@@ -101,7 +101,7 @@ button{font:inherit;color:inherit}
 .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity 1.4s ease,transform 7s linear}
 .slide.ativo{opacity:1;transform:scale(1)}
 .slide-1{background-image:url(img/hero.jpg),url(img/lqip-hero.jpg);background-position:75% 30%}
-.slide-2{background-image:url(img/hero-2.jpg),linear-gradient(140deg,#1c3a2c,#070807 70%)}
+.slide-2{background-image:url(img/hero-2.jpg),linear-gradient(140deg,#1c3a2c,#070807 70%);background-position:60% 50%}
 .slide-3{background-image:url(img/hero-3.jpg),linear-gradient(200deg,#23382c,#070807 70%)}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,8,7,.82) 0%,rgba(7,8,7,.45) 50%,rgba(7,8,7,.1) 100%),linear-gradient(0deg,var(--preto-claro) 0%,rgba(28,28,28,0) 30%)}
 .hero-texto{max-width:560px;display:flex;flex-direction:column;align-items:flex-start}
@@ -136,7 +136,9 @@ button{font:inherit;color:inherit}
 /* trabalho */
 .trabalho{background:var(--preto);padding-top:clamp(64px,8vw,96px);text-align:center}
 .trabalho .h2{margin-top:10px}
-.trabalho-img{margin-top:clamp(40px,5vw,56px);height:clamp(260px,38vw,520px);background:url(img/obra.jpg) center/cover no-repeat,linear-gradient(180deg,#2b3a2f,#0f0f0f);transform-origin:50% 0;transition:transform 1.4s var(--curva)}
+.trabalho-img{margin-top:clamp(40px,5vw,56px);height:clamp(260px,38vw,520px);background:url(img/obra.jpg) 50% 35%/cover no-repeat,linear-gradient(180deg,#2b3a2f,#0f0f0f);transform-origin:50% 0;transition:transform 1.4s var(--curva)}
+.trabalho-img{position:relative}
+.trabalho-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,15,15,.35) 0%,rgba(15,15,15,.15) 40%,rgba(15,15,15,.75) 85%,var(--preto) 100%)}
 .js .trabalho-img{transform:scale(1.04)}
 .js .trabalho-img.dentro{transform:none}
 .frases{background:var(--preto);padding-block:clamp(56px,7vw,88px);text-align:center}
@@ -239,6 +241,7 @@ button{font:inherit;color:inherit}
 /* responsivo */
 @media (max-width:899px){
   .slide-1{background-image:url(img/hero-m.jpg),url(img/lqip-hero.jpg);background-position:80% 20%}
+  .slide-2{background-image:url(img/hero-2-m.jpg),linear-gradient(140deg,#1c3a2c,#070807 70%)}
   .hero::after{background:linear-gradient(90deg,rgba(7,8,7,.88) 0%,rgba(7,8,7,.62) 60%,rgba(7,8,7,.3) 100%),linear-gradient(0deg,var(--preto-claro) 0%,rgba(28,28,28,0) 30%)}
   .sobre-grade,.duvidas-grade{grid-template-columns:1fr}
   .sobre-rodape{flex-wrap:wrap}

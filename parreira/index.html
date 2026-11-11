@@ -97,7 +97,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:min(807px,100svh);display:flex;align-items:center;padding-block:160px 64px;overflow:hidden;isolation:isolate}
 .hero-fundo{position:absolute;inset:-13px 0 0;z-index:-2;background:url(img/hero.jpg) 70% 30%/cover no-repeat,url(img/lqip-hero.jpg) 70% 30%/cover no-repeat;transform:scale(1.06);animation:aproximar 2.4s var(--curva) forwards}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,8,7,.85) 0%,rgba(7,8,7,.45) 45%,rgba(7,8,7,0) 75%),linear-gradient(0deg,var(--preto-claro) 0%,rgba(7,8,7,.6) 8%,rgba(7,8,7,0) 35%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,8,7,.85) 0%,rgba(7,8,7,.45) 45%,rgba(7,8,7,0) 75%),linear-gradient(0deg,var(--preto-claro) 0%,rgba(28,28,28,0) 40%)}
 .hero .container{position:relative}
 .hero-texto{max-width:488px;display:flex;flex-direction:column;gap:32px}
 .hero-texto p{color:var(--cinza-400);font-size:var(--h6);line-height:1.4}
@@ -144,7 +144,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .sobre{padding-top:102px;text-align:center}
 .sobre .h1{max-width:670px;margin:0 auto}
 .sobre-titulo{margin-top:6px}
-.video{position:relative;margin-top:clamp(56px,10vw,142px);height:clamp(320px,52vw,626px);overflow:hidden}
+.video{position:relative;margin-top:clamp(56px,10vw,142px);height:clamp(300px,44vw,626px);overflow:hidden}
 .video-img{position:absolute;inset:0 -21px;background:url(img/video.jpg) center/cover no-repeat,linear-gradient(180deg,#26302a,#0d120f);transform:scale(1.08);transition:transform 1.4s var(--curva)}
 .video.dentro .video-img{transform:scale(1)}
 .video::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--preto-escuro) 0%,rgba(7,8,7,0) 100%)}
@@ -162,10 +162,11 @@ button,input,select,textarea{font:inherit;color:inherit}
 .frase{display:flex;align-items:center;gap:20px;white-space:nowrap;font-size:clamp(2rem,.9rem + 4vw,4.5rem);font-weight:500;line-height:1;will-change:transform}
 .frase+.frase{margin-top:56px}
 .frase.verde{color:var(--verde)}
+.frase .nw{display:inline-flex;align-items:center;gap:inherit;white-space:nowrap}
 .frase .selo{width:72px;height:72px;border-radius:50%;background:var(--verde);display:grid;place-items:center;flex:none}
 .frase .selo svg{width:27px;height:27px}
 .f1{padding-left:153px}.f2{padding-left:127px;gap:17px}.f3{padding-left:24px}.f4{padding-left:142px}
-@media (max-width:1099px){.frases{padding-block:88px 96px}.frase{white-space:normal;flex-wrap:wrap;line-height:1.1;gap:16px;width:min(var(--largura),100% - var(--gut)*2);margin-inline:auto;transform:none!important}.frase+.frase{margin-top:32px}.f1,.f2,.f3,.f4{padding-left:0}.frase .selo{width:clamp(44px,6vw,64px);height:clamp(44px,6vw,64px)}.frase .selo svg{width:40%;height:40%}.f2,.f4{justify-content:flex-end;text-align:right}}
+@media (max-width:1099px){.frases{padding-block:88px 96px}.frase{white-space:normal;flex-wrap:wrap;line-height:1.1;gap:16px;width:min(var(--largura),100% - var(--gut)*2);margin-inline:auto;transform:none!important}.frase+.frase{margin-top:32px}.f1,.f2,.f3,.f4{padding-left:0}.frase .selo{width:clamp(44px,6vw,64px);height:clamp(44px,6vw,64px)}.frase .selo svg{width:40%;height:40%}.frase{display:block}.frase .nw{display:inline}.frase .selo{display:inline-grid;vertical-align:middle}.f1 .selo,.f3 .selo{margin-left:14px}.f2 .selo{margin-right:14px}}
 
 /* ---------- serviços ---------- */
 .servicos{padding-bottom:173px}
@@ -266,7 +267,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .campos input:focus,.campos select:focus,.campos textarea:focus{border-color:var(--verde);background-color:#303030}
 .formulario .botao{margin-top:33px;margin-left:4px;width:calc(100% - 4px);justify-content:center;position:relative;padding:0}
 .formulario .botao .seta{position:absolute;right:10px}
-.aviso-form{margin-top:14px;font-size:.875rem;color:var(--verde-claro);min-height:1.4em}
+.aviso-form{margin-top:12px;font-size:.875rem;color:var(--verde-claro)}
+.aviso-form:empty{display:none}
 @media (max-width:1099px){.contato{padding-block:88px}.contato-intro{padding-top:0}.formulario{padding:36px 32px 40px}}
 @media (max-width:899px){.contato-grade{grid-template-columns:1fr}}
 @media (max-width:520px){.formulario{padding:32px 20px}.campos{grid-template-columns:1fr;margin-left:0}.formulario .botao{margin-left:0;width:100%}}
@@ -433,9 +435,9 @@ button,input,select,textarea{font:inherit;color:inherit}
   </section>
 
   <section class="frases" aria-label="Our values">
-    <p class="frase verde f1" data-dir="1">5 years building dreams.<span class="selo" aria-hidden="true"><svg><use href="#marca" fill="url(#g-branco)"/></svg></span></p>
-    <p class="frase f2" data-dir="-1"><span class="selo" aria-hidden="true"><svg><use href="#marca" fill="url(#g-branco)"/></svg></span>Your Vision, Our Construction</p>
-    <p class="frase verde f3" data-dir="1">Commitment to Perfection<span class="selo" aria-hidden="true"><svg><use href="#marca" fill="url(#g-branco)"/></svg></span></p>
+    <p class="frase verde f1" data-dir="1">5 years building <span class="nw">dreams.<span class="selo" aria-hidden="true"><svg><use href="#marca" fill="url(#g-branco)"/></svg></span></span></p>
+    <p class="frase f2" data-dir="-1"><span class="nw"><span class="selo" aria-hidden="true"><svg><use href="#marca" fill="url(#g-branco)"/></svg></span>Your</span> Vision, Our Construction</p>
+    <p class="frase verde f3" data-dir="1">Commitment to <span class="nw">Perfection<span class="selo" aria-hidden="true"><svg><use href="#marca" fill="url(#g-branco)"/></svg></span></span></p>
     <p class="frase f4" data-dir="-1">Smart Solutions for a Better World</p>
   </section>
 

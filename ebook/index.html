@@ -114,17 +114,16 @@ h1{margin:0;font-weight:600;font-size:clamp(32px,2.2vw + 16px,48px);line-height:
 .mock--body{top:42%;width:94%;height:70%;border-radius:46% 46% 0 0/28% 28% 0 0}
 .photo-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center}
 
-.notif{position:absolute;display:flex;align-items:center;gap:3.8%;padding:0 4.4% 0 3.6%;height:10.8cqw;border-radius:clamp(12px,2.1cqw,16px);background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.04));-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -8px 16px rgba(255,255,255,.05),0 12px 32px rgba(0,0,0,.45);opacity:0;transform:translateY(18px) scale(.97);will-change:transform,opacity}
-.notif::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(255,255,255,.08) 50%,rgba(255,255,255,.28));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.notif{position:absolute;display:flex;align-items:center;gap:3%;padding:0 4.4% 0 3.7%;height:10.8cqw;border-radius:clamp(12px,2.1cqw,16px);background:radial-gradient(70% 140% at 49% 58%,rgba(255,255,255,.08),rgba(255,255,255,0)),rgba(34,32,46,.25);filter:blur(.8px);opacity:0;transform:translateY(18px) scale(.97);will-change:transform,opacity}
 .notif svg{flex:none;width:5.2cqw;height:5.2cqw;min-width:30px;min-height:30px}
 .notif .t{display:flex;flex-direction:column;gap:.2em;min-width:0;line-height:1.1}
 .notif .t strong{font-weight:500;font-size:clamp(12px,1.84cqw,14px);color:#fff;white-space:nowrap}
 .notif .t span{font-size:clamp(10px,1.53cqw,12px);color:var(--texto-2);white-space:nowrap}
-.notif time{position:absolute;top:22%;right:5%;font-size:clamp(9px,1.4cqw,11px);color:#717171;line-height:1}
+.notif time{position:absolute;top:26%;right:5.5%;font-size:clamp(9px,1.4cqw,11px);color:#717171;line-height:1}
 .n1{left:22.1%;top:34.4%;width:39.1%}
 .n2{left:8.2%;top:44.7%;width:40.8%}
 .n3{left:8.2%;top:55.1%;width:40.8%}
-.n4{left:3.8%;top:77.9%;width:93.5%;height:16.5cqw;padding:0 6% 0 10.6%;gap:2%}
+.n4{left:3.8%;top:77.9%;width:93.5%;height:16.5cqw;padding:0 6% 0 10.6%;gap:2%;border-radius:clamp(16px,3.2cqw,24px);filter:blur(1.6px)}
 .n4 svg{width:7.9cqw;height:7.9cqw}
 .n4 .t strong{font-size:clamp(14px,2.7cqw,21px)}
 .n4 .t span{font-size:clamp(12px,2.2cqw,17px)}
@@ -135,7 +134,7 @@ h1{margin:0;font-weight:600;font-size:clamp(32px,2.2vw + 16px,48px);line-height:
 .is-ready .n3{animation-delay:1.7s,2.4s;animation-duration:.7s,6.5s}
 .is-ready .n4{animation:pop4 .9s var(--ease) 2.3s forwards}
 @keyframes pop{to{opacity:1;transform:none}}
-@keyframes pop4{to{opacity:.75;transform:none}}
+@keyframes pop4{to{opacity:.5;transform:none}}
 @keyframes float{0%,100%{translate:0 0}50%{translate:0 -6px}}
 
 /* ---------- aulas ---------- */
@@ -217,7 +216,7 @@ h2 em{font-style:italic;font-weight:700;padding-right:.08em}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .notif,.is-ready .notif{animation:none!important;opacity:1;transform:none}
-  .n4,.is-ready .n4{opacity:.75}
+  .n4,.is-ready .n4{opacity:.5}
   .reveal{opacity:1;transform:none;transition:none}
   .btn,.toast{transition:none}
 }

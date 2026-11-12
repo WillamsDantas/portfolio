@@ -114,17 +114,17 @@ h1{margin:0;font-weight:600;font-size:clamp(32px,2.2vw + 16px,48px);line-height:
 .mock--body{top:42%;width:94%;height:70%;border-radius:46% 46% 0 0/28% 28% 0 0}
 .photo-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center}
 
-.notif{position:absolute;display:flex;align-items:center;gap:3%;padding:0 4.4% 0 3.7%;height:10.8cqw;border-radius:clamp(12px,2.1cqw,16px);background:radial-gradient(70% 140% at 49% 58%,rgba(255,255,255,.08),rgba(255,255,255,0)),rgba(34,32,46,.25);filter:blur(.8px);opacity:0;transform:translateY(18px) scale(.97);will-change:transform,opacity}
-.notif svg{flex:none;width:5.2cqw;height:5.2cqw;min-width:30px;min-height:30px}
+.notif{position:absolute;display:flex;align-items:center;gap:3%;padding:0 3.4% 0 2.4%;height:8.3cqw;border-radius:clamp(12px,2.1cqw,16px);background:radial-gradient(70% 140% at 49% 58%,rgba(255,255,255,.08),rgba(255,255,255,0)),rgba(34,32,46,.25);filter:blur(.8px);opacity:0;transform:translateY(18px) scale(.97);will-change:transform,opacity}
+.notif svg{flex:none;width:4.7cqw;height:4.7cqw;min-width:28px;min-height:28px}
 .notif .t{display:flex;flex-direction:column;gap:.2em;min-width:0;line-height:1.1}
 .notif .t strong{font-weight:500;font-size:clamp(12px,1.84cqw,14px);color:#fff;white-space:nowrap}
 .notif .t span{font-size:clamp(10px,1.53cqw,12px);color:var(--texto-2);white-space:nowrap}
-.notif time{position:absolute;top:26%;right:5.5%;font-size:clamp(9px,1.4cqw,11px);color:#717171;line-height:1}
-.n1{left:22.1%;top:34.4%;width:39.1%}
-.n2{left:8.2%;top:44.7%;width:40.8%}
-.n3{left:8.2%;top:55.1%;width:40.8%}
-.n4{left:3.8%;top:77.9%;width:93.5%;height:16.5cqw;padding:0 6% 0 10.6%;gap:2%;border-radius:clamp(16px,3.2cqw,24px);filter:blur(1.6px)}
-.n4 svg{width:7.9cqw;height:7.9cqw}
+.notif time{position:absolute;top:24%;right:3.4%;font-size:clamp(9px,1.4cqw,11px);color:#717171;line-height:1}
+.n1{left:22.1%;top:34%;width:49.4%}
+.n2{left:8.2%;top:43.5%;width:49.4%}
+.n3{left:8.2%;top:53%;width:49.4%}
+.n4{left:3.8%;top:79%;width:93.5%;height:12.5cqw;padding:0 5% 0 6%;gap:2%;border-radius:clamp(16px,3.2cqw,24px);filter:blur(1.6px)}
+.n4 svg{width:6.6cqw;height:6.6cqw}
 .n4 .t strong{font-size:clamp(14px,2.7cqw,21px)}
 .n4 .t span{font-size:clamp(12px,2.2cqw,17px)}
 .n4 time{font-size:clamp(11px,2cqw,16px)}
@@ -199,16 +199,16 @@ h2 em{font-style:italic;font-weight:700;padding-right:.08em}
 }
 /* notificações quando a área da foto fica estreita (tablet e celular) */
 @container (max-width:640px){
-  .notif{height:clamp(56px,15cqw,70px);gap:12px;padding:0 16px}
-  .notif svg{width:36px;height:36px;min-width:0;min-height:0}
+  .notif{height:clamp(52px,13cqw,60px);gap:12px;padding:0 14px}
+  .notif svg{width:32px;height:32px;min-width:0;min-height:0}
   .notif .t strong{font-size:14px}
   .notif .t span{font-size:12px}
   .notif time{top:11px;right:14px;font-size:11px}
-  .n1{left:26%;top:20%;width:clamp(230px,66%,300px)}
-  .n2{left:4%;top:37%;width:clamp(230px,66%,300px)}
-  .n3{left:14%;top:54%;width:clamp(230px,66%,300px)}
-  .n4{left:3%;width:94%;top:74%;height:clamp(66px,19cqw,90px);padding:0 20px;gap:14px}
-  .n4 svg{width:46px;height:46px}
+  .n1{left:20%;top:24%;width:clamp(250px,76%,340px)}
+  .n2{left:4%;top:38%;width:clamp(250px,76%,340px)}
+  .n3{left:12%;top:52%;width:clamp(250px,76%,340px)}
+  .n4{left:3%;width:94%;top:74%;height:clamp(60px,16cqw,76px);padding:0 18px;gap:14px}
+  .n4 svg{width:40px;height:40px}
   .n4 .t strong{font-size:17px}
   .n4 .t span{font-size:14px}
   .n4 time{font-size:12px;top:14px;right:18px}

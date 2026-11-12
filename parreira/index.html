@@ -169,7 +169,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .frase .nw{display:inline-flex;align-items:center;gap:inherit;white-space:nowrap}
 .frase .selo{width:72px;height:72px;border-radius:50%;background:var(--verde);display:grid;place-items:center;flex:none}
 .frase .selo svg{width:27px;height:27px}
-.f1{padding-left:153px}.f2{padding-left:127px;gap:17px}.f3{padding-left:24px}.f4{padding-left:142px}
+.f1{padding-left:129px}.f2{padding-left:103px;gap:17px}.f3{padding-left:0}.f4{padding-left:118px}
+@media (min-width:1100px){.frases-bloco{width:fit-content;margin-inline:auto}}
+@media (min-width:1441px){.frase{font-size:5vw;gap:1.39vw}.frase+.frase{margin-top:3.9vw}.frase .selo{width:5vw;height:5vw}.f1{padding-left:8.96vw}.f2{padding-left:7.15vw;gap:1.18vw}.f3{padding-left:0}.f4{padding-left:8.19vw}}
 @media (max-width:1099px){.frases{padding-block:88px 96px}.frase{white-space:normal;flex-wrap:wrap;line-height:1.1;gap:16px;width:min(var(--largura),100% - var(--gut)*2);margin-inline:auto;transform:none!important}.frase+.frase{margin-top:32px}.f1,.f2,.f3,.f4{padding-left:0}.frase .selo{width:clamp(44px,6vw,64px);height:clamp(44px,6vw,64px)}.frase .selo svg{width:40%;height:40%}.frase{display:block}.frase .nw{display:inline}.frase .selo{display:inline-grid;vertical-align:middle}.f1 .selo,.f3 .selo{margin-left:14px}.f2 .selo{margin-right:14px}}
 
 /* ---------- serviços ---------- */
@@ -461,10 +463,12 @@ button,input,select,textarea{font:inherit;color:inherit}
   </section>
 
   <section class="frases" aria-label="Nossos valores">
+    <div class="frases-bloco">
     <p class="frase verde f1" data-dir="1">5 anos construindo <span class="nw">sonhos.<span class="selo" aria-hidden="true"><svg><use href="#marca" fill="url(#g-branco)"/></svg></span></span></p>
     <p class="frase f2" data-dir="-1"><span class="nw"><span class="selo" aria-hidden="true"><svg><use href="#marca" fill="url(#g-branco)"/></svg></span>Sua</span> visão, nossa construção</p>
     <p class="frase verde f3" data-dir="1">Compromisso com a <span class="nw">excelência<span class="selo" aria-hidden="true"><svg><use href="#marca" fill="url(#g-branco)"/></svg></span></span></p>
     <p class="frase f4" data-dir="-1">Soluções inteligentes <br class="quebra-frase">para um mundo melhor</p>
+    </div>
   </section>
 
   <section class="servicos" id="servicos" aria-labelledby="servicos-titulo">

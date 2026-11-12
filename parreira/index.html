@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Parreira · Building tomorrow together</title>
-<meta name="description" content="For five years we have been building and renovating dreams, with high quality and great care for our clients and projects.">
+<title>Parreira · Construindo o amanhã juntos</title>
+<meta name="description" content="Há cinco anos construímos e reformamos sonhos, com alta qualidade e muito cuidado com nossos clientes e projetos.">
 <meta name="theme-color" content="#070807">
 <meta name="robots" content="noindex, nofollow">
-<meta property="og:title" content="Parreira · Building tomorrow together">
-<meta property="og:description" content="Construction and renovation with high quality and great care for every project.">
+<meta property="og:title" content="Parreira · Construindo o amanhã juntos">
+<meta property="og:description" content="Construção e reforma com alta qualidade e cuidado em cada projeto.">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -104,7 +104,7 @@ button{font:inherit;color:inherit}
 .slide.ativo{opacity:1;transform:scale(1)}
 .slide-1{background-image:url(img/hero.jpg),url(img/lqip-hero.jpg);background-position:75% 30%}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,8,7,.82) 0%,rgba(7,8,7,.45) 50%,rgba(7,8,7,.1) 100%),linear-gradient(0deg,var(--preto-claro) 0%,rgba(28,28,28,0) 30%)}
-.hero-texto{max-width:680px;display:flex;flex-direction:column;align-items:flex-start}
+.hero-texto{max-width:800px;display:flex;flex-direction:column;align-items:flex-start}
 .hero .h1{margin-top:14px}
 .hero p{margin-top:24px;color:var(--cinza-100);max-width:540px}
 @media (max-width:699px){.quebra{display:none}}
@@ -238,6 +238,15 @@ button{font:inherit;color:inherit}
 .rodape-base a{text-decoration:none;color:#fff}
 .rodape-base .credito{color:var(--cinza-600)}
 
+/* telas grandes */
+@media (min-width:1600px){
+  :root{--largura:1200px;--largura-topo:1280px;--h2:3.25rem}
+  .linha{grid-auto-rows:280px}
+  .sobre-grade{grid-template-columns:minmax(0,360px) minmax(0,1fr)}
+  .duvidas-grade{grid-template-columns:minmax(0,400px) minmax(0,1fr)}
+  .contato-texto{max-width:480px}
+}
+
 /* responsivo */
 @media (max-width:899px){
   .slide-1{background-image:url(img/hero-m.jpg),url(img/lqip-hero.jpg);background-position:80% 20%}
@@ -337,15 +346,15 @@ button{font:inherit;color:inherit}
 </svg>
 <div class="carregando" aria-hidden="true"><div><svg class="simbolo"><use href="#marca" fill="url(#g-verde)"/></svg><svg class="nome"><use href="#nome"/></svg></div></div>
 <div class="progresso" aria-hidden="true"><span></span></div>
-<a class="pular" href="#conteudo">Skip to content</a>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="topo" id="topo">
   <div class="barra">
-    <a class="marca" href="#inicio" aria-label="Parreira, home">
+    <a class="marca" href="#inicio" aria-label="Parreira, início">
       <svg class="simbolo" aria-hidden="true"><use href="#marca" fill="url(#g-verde)"/></svg>
       <svg class="nome" aria-hidden="true"><use href="#nome"/></svg>
     </a>
-    <a class="botao" href="#contato"><span class="seta" aria-hidden="true"><svg><use href="#i-seta"/></svg></span>Get in touch</a>
+    <a class="botao" href="#contato"><span class="seta" aria-hidden="true"><svg><use href="#i-seta"/></svg></span>Entre em contato</a>
   </div>
 </header>
 
@@ -357,10 +366,10 @@ button{font:inherit;color:inherit}
     <div class="container">
       <div class="hero-texto">
         <span class="rotulo">Parreira</span>
-        <h1 class="h1" id="hero-titulo">Building tomorrow<br class="quebra"> together</h1>
-        <p>For five years we have been building and renovating dreams, with high quality and great care for our clients and projects.</p>
-        <a class="botao" href="#contato"><span class="seta" aria-hidden="true"><svg><use href="#i-seta"/></svg></span>Get in touch</a>
-        <div class="sociais" aria-label="Social media">
+        <h1 class="h1" id="hero-titulo">Construindo o<br class="quebra"> amanhã juntos</h1>
+        <p>Há cinco anos construímos e reformamos sonhos, com alta qualidade e muito cuidado com nossos clientes e projetos.</p>
+        <a class="botao" href="#contato"><span class="seta" aria-hidden="true"><svg><use href="#i-seta"/></svg></span>Entre em contato</a>
+        <div class="sociais" aria-label="Redes sociais">
           <a href="https://instagram.com/" aria-label="Instagram" target="_blank" rel="noopener"><svg><use href="#i-instagram"/></svg></a>
           <a href="https://facebook.com/" aria-label="Facebook" target="_blank" rel="noopener"><svg><use href="#i-facebook"/></svg></a>
           <a href="https://tiktok.com/" aria-label="TikTok" target="_blank" rel="noopener"><svg><use href="#i-tiktok"/></svg></a>
@@ -374,62 +383,62 @@ button{font:inherit;color:inherit}
     <div class="container">
       <div class="sobre-grade">
         <div class="sobre-intro rv">
-          <span class="rotulo">About us</span>
+          <span class="rotulo">Sobre nós</span>
           <h2 class="h2" id="sobre-titulo">Parreira</h2>
-          <p>Parreira specializes in intelligent renovations for residential and commercial spaces. With five years of experience, we focus on interior and exterior renovations, structural enhancements, high-quality results.</p>
-          <a class="botao" href="#contato"><span class="seta" aria-hidden="true"><svg><use href="#i-seta"/></svg></span>Get in touch</a>
+          <p>A Parreira é especialista em reformas inteligentes para espaços residenciais e comerciais. Com cinco anos de experiência, atuamos em reformas internas e externas e em reforços estruturais, sempre com resultado de alta qualidade.</p>
+          <a class="botao" href="#contato"><span class="seta" aria-hidden="true"><svg><use href="#i-seta"/></svg></span>Entre em contato</a>
         </div>
         <div>
           <dl class="numeros">
-            <div class="numero rv"><dt>Projects</dt><dd><span data-conta="120" data-prefixo="+">+120</span></dd></div>
-            <div class="numero rv" style="--atraso:80ms"><dt>Satisfaction</dt><dd><span data-conta="9.8" data-decimal=",">9,8</span></dd></div>
-            <div class="numero rv" style="--atraso:160ms"><dt>recommendation</dt><dd><span data-conta="100" data-sufixo="%">100%</span></dd></div>
-            <div class="numero rv" style="--atraso:240ms"><dt>collaborators</dt><dd><span data-conta="30" data-prefixo="+">+30</span></dd></div>
+            <div class="numero rv"><dt>Projetos</dt><dd><span data-conta="120" data-prefixo="+">+120</span></dd></div>
+            <div class="numero rv" style="--atraso:80ms"><dt>Satisfação</dt><dd><span data-conta="9.8" data-decimal=",">9,8</span></dd></div>
+            <div class="numero rv" style="--atraso:160ms"><dt>Recomendação</dt><dd><span data-conta="100" data-sufixo="%">100%</span></dd></div>
+            <div class="numero rv" style="--atraso:240ms"><dt>Colaboradores</dt><dd><span data-conta="30" data-prefixo="+">+30</span></dd></div>
           </dl>
-          <p class="sobre-texto rv">Our mission is to create construction solutions that not only meet our clients' needs but also positively contribute to the environment and the communities around us. We leverage the latest technologies and eco-friendly practices to ensure each project is efficient and sustainable. With a focus on integrity, teamwork, and safety, we strive to lead the industry in quality and customer satisfaction.</p>
+          <p class="sobre-texto rv">Nossa missão é criar soluções de construção que atendam às necessidades dos clientes e contribuam de forma positiva para o meio ambiente e as comunidades ao nosso redor. Usamos tecnologias atuais e práticas sustentáveis para que cada projeto seja eficiente e duradouro. Com foco em integridade, trabalho em equipe e segurança, buscamos ser referência em qualidade e satisfação dos clientes.</p>
         </div>
       </div>
       <div class="sobre-rodape rv">
         <svg class="simbolo" aria-hidden="true"><use href="#marca" fill="url(#g-verde)"/></svg>
-        <p>Want to know a little more about Parreira?</p>
-        <a class="botao-contorno" href="#servicos">Our Services</a>
+        <p>Quer conhecer um pouco mais da Parreira?</p>
+        <a class="botao-contorno" href="#servicos">Nossos serviços</a>
       </div>
     </div>
   </section>
 
   <section class="trabalho" aria-labelledby="trabalho-titulo">
     <div class="container rv">
-      <span class="rotulo">Our job</span>
-      <h2 class="h2" id="trabalho-titulo">Building tomorrow<br><span class="verde">together.</span></h2>
+      <span class="rotulo">Nosso trabalho</span>
+      <h2 class="h2" id="trabalho-titulo">Construindo o amanhã<br><span class="verde">juntos.</span></h2>
     </div>
-    <div class="trabalho-img" role="img" aria-label="Aerial view of a construction site"></div>
+    <div class="trabalho-img" role="img" aria-label="Engenheiros conferindo o projeto em uma obra"></div>
   </section>
 
-  <section class="frases" aria-label="Our values">
+  <section class="frases" aria-label="Nossos valores">
     <div class="container">
-      <p>5 years building dreams.</p>
-      <p>Your Vision, Our Construction.</p>
-      <p>Commitment to Perfection</p>
-      <p>Smart Solutions</p>
-      <p>for a Better World</p>
+      <p>5 anos construindo sonhos.</p>
+      <p>Sua visão, nossa construção.</p>
+      <p>Compromisso com a excelência</p>
+      <p>Soluções inteligentes</p>
+      <p>para um mundo melhor</p>
     </div>
   </section>
 
   <section class="servicos" id="servicos" aria-labelledby="servicos-titulo">
     <div class="container">
       <div class="rv">
-        <span class="rotulo">Services</span>
-        <h2 class="h2" id="servicos-titulo">Discover our main services</h2>
+        <span class="rotulo">Serviços</span>
+        <h2 class="h2" id="servicos-titulo">Conheça nossos principais serviços</h2>
       </div>
       <div class="grade-servicos">
         <div class="linha l1">
-          <article class="servico s1 rv"><div class="servico-img" role="img" aria-label="Renovated living room"></div><div class="servico-texto"><h3>Interior Renovations</h3><p>Transform your indoor spaces with Parreira's expert interior renovations.</p></div></article>
-          <article class="servico s2 rv" style="--atraso:80ms"><div class="servico-img" role="img" aria-label="Renovated kitchen"></div><div class="servico-texto"><h3>Exterior Renovations</h3><p>Refresh facades, roofs and outdoor areas with durable, beautiful finishes.</p></div></article>
-          <article class="servico s3 rv" style="--atraso:160ms"><div class="servico-img" role="img" aria-label="Worker on a structural frame"></div><div class="servico-texto"><h3>Structural Renovations</h3><p>Ensure the safety and longevity of your property with our structural renovations.</p></div></article>
+          <article class="servico s1 rv"><div class="servico-img" role="img" aria-label="Varanda reformada"></div><div class="servico-texto"><h3>Reformas internas</h3><p>Transforme os ambientes da sua casa ou empresa com as reformas internas da Parreira.</p></div></article>
+          <article class="servico s2 rv" style="--atraso:80ms"><div class="servico-img" role="img" aria-label="Cozinha reformada"></div><div class="servico-texto"><h3>Reformas externas</h3><p>Fachadas, telhados e áreas externas renovados com acabamento bonito e durável.</p></div></article>
+          <article class="servico s3 rv" style="--atraso:160ms"><div class="servico-img" role="img" aria-label="Trabalhador na estrutura de um telhado"></div><div class="servico-texto"><h3>Reformas estruturais</h3><p>Garanta a segurança e a vida longa do seu imóvel com nossas reformas estruturais.</p></div></article>
         </div>
         <div class="linha l2">
-          <article class="servico s4 rv"><div class="servico-img" role="img" aria-label="Technician installing efficient windows"></div><div class="servico-texto"><h3>Energy Efficiency Improvements</h3><p>Cut energy costs with better insulation, windows and efficient systems.</p></div></article>
-          <article class="servico s5 rv" style="--atraso:80ms"><div class="servico-img" role="img" aria-label="Team working in a commercial space"></div><div class="servico-texto"><h3>Commercial Renovations</h3><p>Modern, functional workspaces delivered on schedule and with minimal disruption.</p></div></article>
+          <article class="servico s4 rv"><div class="servico-img" role="img" aria-label="Técnico instalando janelas eficientes"></div><div class="servico-texto"><h3>Eficiência energética</h3><p>Reduza a conta de energia com isolamento, janelas e sistemas mais eficientes.</p></div></article>
+          <article class="servico s5 rv" style="--atraso:80ms"><div class="servico-img" role="img" aria-label="Equipe trabalhando em um espaço comercial"></div><div class="servico-texto"><h3>Reformas comerciais</h3><p>Espaços de trabalho modernos e funcionais, entregues no prazo e com o mínimo de transtorno.</p></div></article>
         </div>
       </div>
     </div>
@@ -439,20 +448,20 @@ button{font:inherit;color:inherit}
     <div class="container">
       <div class="depo-topo rv">
         <div>
-          <span class="rotulo">Feedbacks</span>
-          <h2 class="h2" id="depo-titulo">Testimonials</h2>
+          <span class="rotulo">Avaliações</span>
+          <h2 class="h2" id="depo-titulo">Depoimentos</h2>
         </div>
         <div class="setas">
-          <button type="button" data-depo="-1" aria-label="Previous testimonial"><svg style="transform:scaleX(-1)"><use href="#i-flecha"/></svg></button>
-          <button type="button" data-depo="1" aria-label="Next testimonial"><svg><use href="#i-flecha"/></svg></button>
+          <button type="button" data-depo="-1" aria-label="Depoimento anterior"><svg style="transform:scaleX(-1)"><use href="#i-flecha"/></svg></button>
+          <button type="button" data-depo="1" aria-label="Próximo depoimento"><svg><use href="#i-flecha"/></svg></button>
         </div>
       </div>
       <div class="depo-janela rv">
-        <div class="depo-trilho" id="depo-trilho" tabindex="0" aria-label="Testimonials list">
-          <figure class="depo"><blockquote>Exceptional service from start to finish! The team at Parreira INC, delivered beyound expectations. Higly recommend their expertise!</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
-          <figure class="depo"><blockquote>Exceptional service from start to finish! The team at Parreira INC, delivered beyound expectations. Higly recommend their expertise!</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
-          <figure class="depo"><blockquote>Exceptional service from start to finish! The team at Parreira INC, delivered beyound expectations. Higly recommend their expertise!</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
-          <figure class="depo"><blockquote>Exceptional service from start to finish! The team at Parreira INC, delivered beyound expectations. Higly recommend their expertise!</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
+        <div class="depo-trilho" id="depo-trilho" tabindex="0" aria-label="Lista de depoimentos">
+          <figure class="depo"><blockquote>Atendimento excepcional do início ao fim! A equipe da Parreira superou nossas expectativas. Recomendo muito o trabalho deles!</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
+          <figure class="depo"><blockquote>Atendimento excepcional do início ao fim! A equipe da Parreira superou nossas expectativas. Recomendo muito o trabalho deles!</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
+          <figure class="depo"><blockquote>Atendimento excepcional do início ao fim! A equipe da Parreira superou nossas expectativas. Recomendo muito o trabalho deles!</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
+          <figure class="depo"><blockquote>Atendimento excepcional do início ao fim! A equipe da Parreira superou nossas expectativas. Recomendo muito o trabalho deles!</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
         </div>
       </div>
     </div>
@@ -461,32 +470,32 @@ button{font:inherit;color:inherit}
   <section class="duvidas" aria-labelledby="duvidas-titulo">
     <div class="container duvidas-grade">
       <div class="duvidas-intro rv">
-        <span class="rotulo">FAQ</span>
-        <h2 class="h2" id="duvidas-titulo">Questions?</h2>
-        <p>At Parreira, we understand that you may have questions about our services, experience, and processes. Below, you'll find answers to some of the most common inquiries. If you don't find the information you need, feel free to contact us directly. We're here to help!</p>
-        <a class="conversar" href="#contato">Still have questions? Let's talk.</a>
+        <span class="rotulo">Dúvidas</span>
+        <h2 class="h2" id="duvidas-titulo">Perguntas?</h2>
+        <p>Sabemos que você pode ter dúvidas sobre nossos serviços, nossa experiência e nossa forma de trabalhar. Abaixo estão as respostas para as perguntas mais comuns. Se não encontrar o que procura, fale com a gente. Estamos aqui para ajudar.</p>
+        <a class="conversar" href="#contato">Ainda tem dúvidas? Vamos conversar.</a>
       </div>
       <div class="perguntas rv" style="--atraso:120ms">
-        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r1" id="p1"><span>What is Parreira's experience in the construction industry?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r1" role="region" aria-labelledby="p1"><div><p>Parreira has spent five years building and renovating residential and commercial properties.</p></div></div></div>
-        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r2" id="p2"><span>What services does Parreira offer?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r2" role="region" aria-labelledby="p2"><div><p>Interior, exterior, structural and commercial renovations, plus energy efficiency improvements.</p></div></div></div>
-        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r3" id="p3"><span>Does Parreira work on both residential and commercial projects?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r3" role="region" aria-labelledby="p3"><div><p>Yes. We take on homes as well as offices, shops and other commercial spaces.</p></div></div></div>
-        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r4" id="p4"><span>How does Parreira improve energy efficiency in construction projects?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r4" role="region" aria-labelledby="p4"><div><p>We specify better insulation, efficient windows and lighting, and systems that reduce energy use.</p></div></div></div>
-        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r5" id="p5"><span>What are the benefits of hiring Parreira for structural renovations?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r5" role="region" aria-labelledby="p5"><div><p>A careful assessment of the structure, a clear plan and work that improves safety and longevity.</p></div></div></div>
-        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r6" id="p6"><span>Do you offer a warranty on the services provided?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r6" role="region" aria-labelledby="p6"><div><p>Yes. Every project includes a written warranty on workmanship, detailed in your proposal.</p></div></div></div>
-        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r7" id="p7"><span>Does Parreira work on sustainable projects?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r7" role="region" aria-labelledby="p7"><div><p>Yes. We regularly use low-impact materials and energy-saving solutions.</p></div></div></div>
+        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r1" id="p1"><span>Qual é a experiência da Parreira na construção civil?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r1" role="region" aria-labelledby="p1"><div><p>São cinco anos construindo e reformando imóveis residenciais e comerciais.</p></div></div></div>
+        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r2" id="p2"><span>Quais serviços a Parreira oferece?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r2" role="region" aria-labelledby="p2"><div><p>Reformas internas, externas, estruturais e comerciais, além de melhorias de eficiência energética.</p></div></div></div>
+        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r3" id="p3"><span>A Parreira atende projetos residenciais e comerciais?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r3" role="region" aria-labelledby="p3"><div><p>Sim. Atendemos casas e apartamentos, e também escritórios, lojas e outros espaços comerciais.</p></div></div></div>
+        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r4" id="p4"><span>Como a Parreira melhora a eficiência energética das obras?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r4" role="region" aria-labelledby="p4"><div><p>Indicamos isolamento adequado, janelas e iluminação eficientes e sistemas que reduzem o consumo de energia.</p></div></div></div>
+        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r5" id="p5"><span>Quais as vantagens de contratar a Parreira para reformas estruturais?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r5" role="region" aria-labelledby="p5"><div><p>Avaliação cuidadosa da estrutura, um plano claro e uma obra que aumenta a segurança e a vida útil do imóvel.</p></div></div></div>
+        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r6" id="p6"><span>Vocês oferecem garantia dos serviços?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r6" role="region" aria-labelledby="p6"><div><p>Sim. Todo projeto tem garantia por escrito da mão de obra, detalhada na proposta.</p></div></div></div>
+        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r7" id="p7"><span>A Parreira trabalha com projetos sustentáveis?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r7" role="region" aria-labelledby="p7"><div><p>Sim. Usamos com frequência materiais de baixo impacto e soluções que economizam energia.</p></div></div></div>
       </div>
     </div>
   </section>
 
-  <div class="faixa" aria-hidden="true"><div class="faixa-trilho"><span>Building tomorrow together.</span><span class="v">5 years building dreams.</span><span>Building tomorrow together.</span><span class="v">5 years building dreams.</span><span>Building tomorrow together.</span><span class="v">5 years building dreams.</span><span>Building tomorrow together.</span><span class="v">5 years building dreams.</span></div></div>
+  <div class="faixa" aria-hidden="true"><div class="faixa-trilho"><span>Construindo o amanhã juntos.</span><span class="v">5 anos construindo sonhos.</span><span>Construindo o amanhã juntos.</span><span class="v">5 anos construindo sonhos.</span><span>Construindo o amanhã juntos.</span><span class="v">5 anos construindo sonhos.</span><span>Construindo o amanhã juntos.</span><span class="v">5 anos construindo sonhos.</span></div></div>
 
   <section class="contato" id="contato" aria-labelledby="contato-titulo">
-    <div class="contato-foto" role="img" aria-label="Worker on scaffolding at a construction site"></div>
+    <div class="contato-foto" role="img" aria-label="Trabalhador em um andaime na obra"></div>
     <div class="container">
       <div class="contato-texto rv">
-        <span class="rotulo">Count on us</span>
-        <h2 class="h2" id="contato-titulo">Ready to turn your vision into reality?</h2>
-        <p>You can a request a quote using this short form. We will get back to you with your quote shortly</p>
+        <span class="rotulo">Conte com a gente</span>
+        <h2 class="h2" id="contato-titulo">Pronto para tirar seu projeto do papel?</h2>
+        <p>Peça seu orçamento por um dos canais abaixo. Respondemos com a sua proposta em pouco tempo.</p>
         <ul class="contatos">
           <li><a href="https://wa.me/11234567890" target="_blank" rel="noopener"><span class="circ"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg></span>123-456-7890</a></li>
           <li><a href="mailto:contact@parreira.com"><span class="circ"><svg aria-hidden="true"><use href="#i-email"/></svg></span>contact@parreira.com</a></li>
@@ -501,23 +510,23 @@ button{font:inherit;color:inherit}
   <div class="container">
     <div class="rodape-grade">
       <div>
-        <a class="marca" href="#inicio" aria-label="Parreira, back to top">
+        <a class="marca" href="#inicio" aria-label="Parreira, voltar ao início">
           <svg class="simbolo" aria-hidden="true"><use href="#marca" fill="url(#g-verde)"/></svg>
           <svg class="nome" aria-hidden="true"><use href="#nome"/></svg>
         </a>
         <dl>
-          <dt>Address</dt><dd>22 Paris ST. Marlborough MA 01752</dd>
-          <dt>Contact</dt><dd>123-456-7890</dd><dd><a href="mailto:contact@parreira.com">contact@parreira.com</a></dd>
+          <dt>Endereço</dt><dd>22 Paris ST. Marlborough MA 01752</dd>
+          <dt>Contato</dt><dd>123-456-7890</dd><dd><a href="mailto:contact@parreira.com">contact@parreira.com</a></dd>
         </dl>
       </div>
-      <nav aria-label="Footer">
-        <ul><li><a href="#inicio">Home</a></li><li><a href="#servicos">Services</a></li><li><a href="#sobre">About</a></li><li><a href="#contato">Contact</a></li></ul>
+      <nav aria-label="Rodapé">
+        <ul><li><a href="#inicio">Início</a></li><li><a href="#servicos">Serviços</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#contato">Contato</a></li></ul>
       </nav>
     </div>
     <div class="rodape-base">
-      <span>© 2024 Parreira INC. All rights reserved</span>
-      <span class="credito">Design by Nasser Yousef</span>
-      <ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul>
+      <span>© 2024 Parreira INC. Todos os direitos reservados</span>
+      <span class="credito">Design por Nasser Yousef</span>
+      <ul><li><a href="#">Política de privacidade</a></li><li><a href="#">Termos de uso</a></li></ul>
     </div>
   </div>
 </footer>

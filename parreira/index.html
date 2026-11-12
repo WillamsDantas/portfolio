@@ -202,7 +202,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .setas button{width:48px;height:48px;border-radius:12px;background:var(--verde);border:0;display:grid;place-items:center;cursor:pointer;transition:transform .25s var(--curva),background-color .25s}
 .setas button:hover{transform:translateY(-2px);background:var(--verde-claro)}
 .setas svg{width:16px;height:16px}
-.depo-trilho{margin-top:87px;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 64px)/3);gap:32px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth}
+.depo-trilho{margin-top:87px;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 64px)/3);gap:32px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth;padding-block:8px}
 .depo-trilho::-webkit-scrollbar{display:none}
 .depo{margin:0;scroll-snap-align:start;height:280px;border-radius:var(--raio-cartao);background:var(--preto-clarissimo);padding:50px 36px 28px 36px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .3s var(--curva)}
 .depo:hover{transform:translateY(-4px)}
@@ -504,10 +504,10 @@ button,input,select,textarea{font:inherit;color:inherit}
           <button type="button" data-depo="1" aria-label="Próximo depoimento"><svg><use href="#i-flecha"/></svg></button>
         </div>
       </div>
-      <div class="depo-trilho" id="depo-trilho" tabindex="0" aria-label="Lista de depoimentos">
-        <figure class="depo rv"><blockquote>Atendimento excepcional do início ao fim! A equipe da Parreira superou nossas expectativas. Recomendo muito o trabalho deles!</blockquote><figcaption><svg aria-hidden="true"><use href="#i-avatar"/></svg><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
-        <figure class="depo rv" style="--atraso:80ms"><blockquote>Atendimento excepcional do início ao fim! A equipe da Parreira superou nossas expectativas. Recomendo muito o trabalho deles!</blockquote><figcaption><svg aria-hidden="true"><use href="#i-avatar"/></svg><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
-        <figure class="depo rv" style="--atraso:160ms"><blockquote>Atendimento excepcional do início ao fim! A equipe da Parreira superou nossas expectativas. Recomendo muito o trabalho deles!</blockquote><figcaption><svg aria-hidden="true"><use href="#i-avatar"/></svg><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
+      <div class="depo-trilho rv" id="depo-trilho" tabindex="0" aria-label="Lista de depoimentos">
+        <figure class="depo"><blockquote>Atendimento excepcional do início ao fim! A equipe da Parreira superou nossas expectativas. Recomendo muito o trabalho deles!</blockquote><figcaption><svg aria-hidden="true"><use href="#i-avatar"/></svg><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
+        <figure class="depo"><blockquote>Atendimento excepcional do início ao fim! A equipe da Parreira superou nossas expectativas. Recomendo muito o trabalho deles!</blockquote><figcaption><svg aria-hidden="true"><use href="#i-avatar"/></svg><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
+        <figure class="depo"><blockquote>Atendimento excepcional do início ao fim! A equipe da Parreira superou nossas expectativas. Recomendo muito o trabalho deles!</blockquote><figcaption><svg aria-hidden="true"><use href="#i-avatar"/></svg><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
       </div>
     </div>
   </section>

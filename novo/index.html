@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Willams Dantas · Designer de criativos, identidade visual e tráfego</title>
+<meta name="description" content="Portfólio de Willams Dantas: criativos, carrosséis, identidade visual e tráfego pago para infoprodutores e marcas. Maceió, AL.">
+<meta name="theme-color" content="#0E0E10">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Willams Dantas · Portfólio">
+<meta property="og:description" content="Criativos, identidade visual e tráfego pago para infoprodutores e marcas.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="fonts/google-sans-flex-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Google Sans Flex";font-style:normal;font-display:swap;font-weight:100 1000;src:url(fonts/google-sans-flex-latin-wght-normal.woff2) format("woff2-variations"),url(fonts/google-sans-flex-latin-wght-normal.woff2) format("woff2")}
+
+:root{
+  /* Style Guide · Willams Dantas (somente cores do wireframe) */
+  --fundo:#0E0E10;
+  --preto:#08080A;
+  --superficie:#18181C;
+  --superficie-2:#1F1F23;
+  --elevado:#26262B;
+  --linha:#33333A;
+  --linha-2:#3A3A42;
+  --cinza-escuro:#4A4A52;
+  --cinza-medio:#55555F;
+  --linha-forte:#6A6A74;
+  --texto:#E8E8E8;
+  --texto-2:#9A9AA2;
+  --texto-3:#7A7A82;
+  --cinza-claro:#CFCFD6;
+  --vidro:rgba(255,255,255,.06);
+  --borda:linear-gradient(135deg,rgba(255,255,255,.28),rgba(255,255,255,.04) 50%,rgba(255,255,255,.16));
+  --borda-forte:linear-gradient(135deg,rgba(255,255,255,.7),rgba(255,255,255,.08) 50%,rgba(255,255,255,.45));
+  --conteudo:1008px;
+  --margem:clamp(20px,4vw,40px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+@media (min-width:1800px){:root{--conteudo:1200px}}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--fundo);color:var(--texto);font-family:"Google Sans Flex",system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,svg{display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.wrap{width:100%;max-width:calc(var(--conteudo) + var(--margem)*2);margin:0 auto;padding:0 var(--margem)}
+:focus-visible{outline:2px solid var(--cinza-claro);outline-offset:3px;border-radius:6px}
+
+/* borda em gradiente reutilizável */
+.gb{position:relative}
+.gb::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:var(--borda);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+
+/* pílulas */
+.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;background:var(--vidro);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);font-size:12px;line-height:1.2;color:var(--cinza-claro)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--cinza-claro);box-shadow:0 0 0 0 rgba(207,207,214,.5);animation:pulse 2s ease-out infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(207,207,214,0)}100%{box-shadow:0 0 0 0 rgba(207,207,214,0)}}
+
+/* monograma do wireframe */
+.wd{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--superficie-2);color:#6D6D75;font-size:10px;letter-spacing:.02em;flex:none}
+.wd--lg{width:48px;height:48px;border-radius:12px;font-size:13px}
+
+/* ---------- carregamento ---------- */
+.loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--fundo);transition:opacity .7s var(--ease),visibility .7s}
+.loader-in{display:flex;flex-direction:column;align-items:center;gap:22px}
+.loader svg{width:min(78vw,420px);height:auto;overflow:visible}
+.sig{font-family:"Google Sans Flex",sans-serif;font-weight:300;font-size:46px;letter-spacing:.06em;fill:transparent;stroke:var(--texto);stroke-width:.7;stroke-dasharray:900;stroke-dashoffset:900;animation:draw 1.9s var(--ease) .15s forwards,fillin .6s ease 1.6s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fillin{to{fill:var(--texto);stroke-width:0}}
+.loader.done{opacity:0;visibility:hidden}
+
+/* ---------- cabeçalho ---------- */
+.header{position:fixed;top:16px;left:50%;z-index:50;width:min(560px,calc(100% - 32px));transform:translateX(-50%)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px;padding:0 14px;border-radius:999px;background:rgba(24,24,28,.55);-webkit-backdrop-filter:blur(20px) saturate(140%);backdrop-filter:blur(20px) saturate(140%)}
+.bar-phrase{flex:1;min-width:0;text-align:center;font-size:13px;color:var(--texto-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;filter:blur(3px);opacity:0;transition:opacity .4s}
+.bar-phrase.on{opacity:.8}
+.menu-btn{display:grid;place-items:center;width:36px;height:36px;border-radius:50%}
+.menu-btn span{display:block;width:20px;height:1.6px;border-radius:1px;background:var(--texto);transition:transform .35s var(--ease)}
+.menu-btn span+span{margin-top:6px}
+.menu-btn[aria-expanded="true"] span:first-child{transform:translateY(3.8px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:last-child{transform:translateY(-3.8px) rotate(-45deg)}
+.menu{position:absolute;left:0;right:0;top:64px;display:grid;grid-template-columns:1fr auto;gap:24px;padding:24px 28px;border-radius:24px;background:rgba(24,24,28,.8);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .35s var(--ease),transform .35s var(--ease),visibility .35s}
+.menu.open{opacity:1;visibility:visible;transform:none}
+.menu ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.menu a{font-size:22px;font-weight:400;color:var(--texto);transition:color .2s}
+.menu-info{display:grid;align-content:end;gap:4px;text-align:right;font-size:13px;color:var(--texto-3)}
+.menu-info strong{font-weight:500;color:var(--texto)}
+
+/* ---------- topo ---------- */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:grid;place-items:center;overflow:hidden;text-align:center;padding:96px 0 120px}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 50%,rgba(14,14,16,0) 0%,rgba(14,14,16,.6) 70%,var(--fundo) 100%);pointer-events:none}
+.hero-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:28px}
+h1{margin:0;font-weight:300;font-size:clamp(34px,5.3vw,80px);line-height:1;letter-spacing:.22em;text-transform:uppercase;padding-left:.22em}
+.role{position:absolute;left:50%;bottom:36px;z-index:1;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--texto-3)}
+.spin-sq{width:16px;height:16px;border:1.5px solid var(--cinza-claro);border-radius:3px;animation:rot 8s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+
+/* ---------- títulos de seção ---------- */
+.sec-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:clamp(80px,9vw,120px) 0 clamp(48px,5vw,64px)}
+.sec-title{display:flex;align-items:center;gap:18px}
+.sec-title .spin-sq{width:14px;height:14px;transform:rotate(45deg);animation:rot45 8s linear infinite}
+@keyframes rot45{from{transform:rotate(45deg)}to{transform:rotate(405deg)}}
+h2{margin:0;font-weight:300;font-size:clamp(36px,4.4vw,64px);line-height:1;letter-spacing:.2em;text-transform:uppercase}
+.sec-sub{margin:0;font-size:14px;color:var(--texto-3)}
+
+/* ---------- eu sou ---------- */
+.about-intro{padding:clamp(80px,10vw,140px) 0}
+.about-intro .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:center;gap:48px}
+.intro-text{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+.intro-text p{margin:0;font-weight:500;font-size:clamp(24px,2.36vw,34px);line-height:1.25;letter-spacing:-.005em}
+.intro-text p span{color:var(--texto-2)}
+.who{display:flex;align-items:center;gap:14px;margin-top:6px}
+.avatar{width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--elevado),var(--superficie));transition:transform .3s var(--ease)}
+.avatar::before{transition:background .3s}
+.who strong{display:block;font-weight:400;font-size:15px}
+.who span{font-size:12px;color:var(--texto-3)}
+.words{position:relative;display:grid;grid-template-columns:1fr 1fr;row-gap:28px;column-gap:24px;justify-items:center;padding:40px 0}
+.words .w{position:relative;z-index:1;font-size:clamp(30px,3.2vw,46px);font-weight:400;line-height:1.1;will-change:transform}
+.orb{position:absolute;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2A2A30,#18181C 70%);z-index:0}
+.orb--a{width:clamp(140px,14vw,200px);aspect-ratio:1;left:50%;top:50%;translate:-50% -50%;animation:float 7s ease-in-out infinite}
+.orb--b{width:52px;aspect-ratio:1;right:12%;top:6%;animation:float 5.5s ease-in-out infinite reverse;opacity:.8}
+.orb--c{width:28px;aspect-ratio:1;left:14%;bottom:8%;animation:float 6.5s ease-in-out infinite;opacity:.7}
+@keyframes float{50%{transform:translateY(-14px)}}
+
+/* ---------- cards de trabalho ---------- */
+.works{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.card{position:relative;display:flex;flex-direction:column;aspect-ratio:3/4;border-radius:16px;background:var(--superficie);overflow:hidden;isolation:isolate;transition:background .4s var(--ease)}
+.card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:var(--borda);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:3;transition:opacity .4s}
+.card .spin-border{position:absolute;inset:0;border-radius:inherit;padding:1.5px;overflow:hidden;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;z-index:3;pointer-events:none}
+.card .spin-border::before{content:"";position:absolute;left:50%;top:50%;width:200%;aspect-ratio:1;translate:-50% -50%;background:conic-gradient(from 0deg,rgba(255,255,255,0) 0deg,rgba(255,255,255,.9) 40deg,rgba(255,255,255,0) 90deg,rgba(255,255,255,0) 180deg,rgba(255,255,255,.6) 220deg,rgba(255,255,255,0) 270deg)}
+.card-cat{position:relative;z-index:2;padding:22px 16px 0;text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--texto-2)}
+.card-media{position:relative;flex:1;margin:16px;border-radius:10px;background:var(--elevado);overflow:hidden;display:grid;place-items:center}
+.card-media::after{content:"";position:absolute;inset:0;background:rgba(8,8,10,.38);transition:opacity .45s var(--ease)}
+.poster{font-weight:300;font-size:clamp(22px,2.2vw,32px);letter-spacing:.12em;text-transform:uppercase;color:var(--cinza-escuro);text-align:center;padding:0 12px;line-height:1.15;transition:color .45s,transform .6s var(--ease)}
+.card-foot{position:relative;z-index:2;padding:0 16px 22px;text-align:center}
+.card-foot strong{display:block;font-weight:400;font-size:16px;color:var(--texto)}
+.card-foot span{font-size:13px;color:var(--texto-3)}
+.lab{display:grid;grid-template-columns:repeat(2,minmax(0,330px));justify-content:center;column-gap:clamp(28px,6vw,90px);row-gap:28px}
+.lab .card{aspect-ratio:4/4.3}
+.lab{padding-bottom:clamp(60px,9vw,130px)}
+.lab .card:nth-child(even){translate:0 clamp(60px,9vw,130px)}
+@media (hover:hover) and (pointer:fine){
+  .card:hover{background:var(--superficie-2)}
+  .card:hover::before{opacity:0}
+  .card:hover .spin-border{opacity:1}
+  .card:hover .spin-border::before{animation:spinb 2.4s linear infinite}
+  .card:hover .card-media::after{opacity:0}
+  .card:hover .poster{color:var(--texto-2);transform:scale(1.04)}
+  .avatar:hover{transform:scale(1.05);box-shadow:0 0 0 1px rgba(255,255,255,.35)}
+  .menu a:hover{color:var(--texto-2)}
+  .link-row:hover .link-name{color:var(--cinza-claro)}
+  .link-row:hover .arr{transform:translate(2px,-2px)}
+  .btn-glass:hover::before{background:var(--borda-forte)}
+  .contact-pill:hover{background:var(--elevado)}
+  .photo:hover .photo-in{filter:grayscale(0)}
+  .teaser:hover{transform:scale(1.01)}
+  .teaser:hover::before{background:var(--borda-forte)}
+}
+@keyframes spinb{to{rotate:1080deg}}
+.cursor{position:fixed;left:0;top:0;z-index:60;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--texto);color:var(--fundo);display:grid;place-items:center;pointer-events:none;opacity:0;scale:.4;transition:opacity .25s,scale .25s var(--ease)}
+.cursor.on{opacity:1;scale:1}
+.cursor svg{width:22px;height:22px}
+
+/* ---------- sobre ---------- */
+.teaser{position:relative;aspect-ratio:16/8;border-radius:24px;overflow:hidden;background:radial-gradient(70% 90% at 50% 40%,#26262B,#141418 70%,var(--preto));transition:transform .5s var(--ease)}
+.teaser .grain{position:absolute;inset:0;opacity:.18;background-image:radial-gradient(rgba(255,255,255,.35) 1px,transparent 1px);background-size:3px 3px;-webkit-mask-image:radial-gradient(60% 60% at 50% 50%,#000,transparent);mask-image:radial-gradient(60% 60% at 50% 50%,#000,transparent)}
+.teaser .play{position:absolute;left:50%;top:50%;translate:-50% -50%;width:64px;height:64px;border-radius:50%;background:var(--vidro);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);display:grid;place-items:center}
+.teaser .play svg{width:22px;height:22px;margin-left:3px}
+.me{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;margin-top:36px;position:relative;z-index:2}
+.badge{display:flex;align-items:center;gap:8px;font-weight:300;font-style:normal;font-size:16px;letter-spacing:.06em;color:var(--texto-2)}
+.badge svg{width:20px;height:20px;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:rotate(-8deg) scale(1.06)}}
+h3.name{margin:0;font-weight:500;font-size:clamp(36px,3.6vw,52px);line-height:1.1}
+.about-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;margin-top:clamp(70px,8vw,100px)}
+.col{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.col p{margin:0}
+.summary{font-size:17px;line-height:1.6;color:var(--texto)}
+.socials{display:flex;gap:10px}
+.sq{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--elevado);color:var(--cinza-claro)}
+.sq svg{width:16px;height:16px}
+.timeline{list-style:none;margin:0;padding:0;width:100%}
+.timeline li{display:grid;grid-template-columns:76px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--linha);font-size:13px}
+.timeline time{color:var(--texto-3)}
+.photo{width:100%;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:var(--superficie)}
+.photo-in{width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(160deg,#26262B,#141418);filter:grayscale(1);transition:filter .6s}
+.photo-in span{font-size:13px;color:var(--texto-3)}
+.quote{display:flex;flex-direction:column;gap:8px}
+.quote svg{width:20px;height:20px;color:var(--cinza-claro)}
+.quote strong{font-weight:400;font-size:18px}
+.quote span{font-size:12px;color:var(--texto-3)}
+.skills{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;text-align:center}
+.skills li{font-size:clamp(22px,2vw,28px);line-height:1.2;will-change:transform,filter}
+.skills li:nth-child(5){color:var(--texto-2)}
+.skills li:nth-child(6){color:var(--texto-3)}
+.tools{display:grid;grid-template-columns:repeat(4,40px);gap:14px}
+.tool{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:var(--elevado);font-size:10px;font-weight:500;letter-spacing:.02em;color:var(--cinza-claro)}
+.tools-cap{margin:0;font-size:11px;line-height:1.5;color:var(--texto-3)}
+.about-grid--b{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:56px}
+
+/* ---------- cursos ---------- */
+.courses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.course{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.course .sq{width:40px;height:40px;border-radius:10px}
+.course .sq svg{width:18px;height:18px}
+.course small{font-size:12px;color:var(--texto-3)}
+.course strong{font-weight:400;font-size:20px;line-height:1.3}
+.course p{margin:0;font-size:13px;color:var(--texto-3)}
+
+/* ---------- então ---------- */
+.then{position:relative}
+.then-stage{position:relative;height:100vh;height:100svh;display:grid;place-items:center;overflow:hidden}
+.then-shape{position:absolute;left:50%;top:50%;width:clamp(160px,18vw,240px);aspect-ratio:1;margin:calc(clamp(160px,18vw,240px)/-2) 0 0 calc(clamp(160px,18vw,240px)/-2);border-radius:22px;background:linear-gradient(135deg,#26262B,#141418);opacity:.9}
+.then-shape::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:var(--borda);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.phrase{position:absolute;left:0;right:0;top:50%;translate:0 -50%;margin:0;padding:0 var(--margem);text-align:center;font-size:clamp(28px,2.8vw,40px);line-height:1.25;font-weight:400;opacity:0}
+.then-static{display:none}
+
+/* ---------- contato ---------- */
+.contact{position:relative;min-height:100vh;min-height:100svh;display:grid;place-items:center;overflow:hidden;padding:120px 0}
+.ribbons{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.ribbons path{fill:none;stroke-linecap:round;stroke-dasharray:420 1400;animation:flow 9s linear infinite}
+.ribbons path:nth-child(2){animation-duration:12s;animation-delay:-3s}
+.ribbons path:nth-child(3){animation-duration:15s;animation-delay:-6s}
+.ribbons path:nth-child(4){animation-duration:11s;animation-delay:-8s}
+@keyframes flow{to{stroke-dashoffset:-1820}}
+.contact-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+.contact .who{flex-direction:column;gap:8px;margin:0}
+.contact h2{font-size:clamp(40px,4.4vw,64px);line-height:1.1}
+.status{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--texto-2)}
+.contact-pill{display:inline-flex;align-items:center;gap:14px;margin-top:8px;padding:18px 32px;border-radius:999px;background:var(--superficie);font-size:clamp(20px,2vw,28px);line-height:1;transition:background .3s}
+.contact-pill svg{width:22px;height:22px}
+.links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:28px;padding:48px 0 40px;border-top:1px solid var(--linha)}
+.link-row{display:flex;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid var(--linha);font-size:14px}
+.link-row svg{width:16px;height:16px;color:var(--texto-2);flex:none}
+.link-name{flex:1;transition:color .2s}
+.arr{transition:transform .25s var(--ease)}
+.link-row[aria-disabled="true"]{color:var(--texto-3);cursor:default}
+.link-row[aria-disabled="true"] .arr{display:none}
+.soon{font-size:11px;color:var(--texto-3)}
+footer{border-top:1px solid var(--linha)}
+.foot{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:28px 0 36px;font-size:12px;color:var(--texto-3)}
+.foot strong{display:flex;align-items:center;gap:8px;font-weight:400;font-size:15px;color:var(--texto)}
+.foot .r{text-align:right}
+
+/* botão de vidro (link) */
+.btn-glass{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 28px;border-radius:999px;background:var(--vidro);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);font-weight:500;font-size:17px}
+
+/* ---------- animação inicial (antes do JS) ---------- */
+.js .fx-in,.js .fx-title,.js .fx-up{opacity:0}
+
+/* ---------- responsivo ---------- */
+@media (max-width:1024px){
+  .works{gap:20px}
+  .about-grid,.about-grid--b{gap:28px}
+}
+@media (max-width:900px){
+  .about-intro .wrap{grid-template-columns:1fr;gap:40px}
+  .works{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .about-grid,.about-grid--b{grid-template-columns:1fr 1fr}
+  .about-grid .col:nth-child(3){grid-column:1/-1}
+  .about-grid--b .col:nth-child(2){order:3;grid-column:1/-1}
+  .courses{grid-template-columns:1fr 1fr}
+  .links{grid-template-columns:1fr 1fr}
+  .teaser{aspect-ratio:16/10}
+}
+@media (max-width:600px){
+  h1{letter-spacing:.2em;padding-left:.2em;line-height:1.15}
+  .hero h1 .ln{display:block}
+  .words{grid-template-columns:1fr;row-gap:10px;padding:20px 0}
+  .orb--a{width:150px}
+  .works{grid-template-columns:1fr;gap:20px}
+  .lab{grid-template-columns:1fr 1fr;column-gap:14px;row-gap:14px}
+  .lab .card{aspect-ratio:3/4}
+  .lab{padding-bottom:56px}
+  .lab .card:nth-child(even){translate:0 56px}
+  .lab .card-cat{padding-top:14px;font-size:9px}
+  .lab .card-media{margin:10px}
+  .lab .card-foot{padding:0 10px 14px}
+  .lab .card-foot strong{font-size:13px}
+  .lab .card-foot span{font-size:11px}
+  .lab .poster{font-size:16px}
+  .about-grid,.about-grid--b,.courses{grid-template-columns:1fr}
+  .about-grid .col:nth-child(3),.about-grid--b .col:nth-child(2){grid-column:auto}
+  .links{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr;text-align:left}
+  .foot .r{text-align:left}
+  .menu{grid-template-columns:1fr}
+  .menu-info{text-align:left}
+  .contact-pill{padding:16px 24px}
+  .teaser{aspect-ratio:4/5;border-radius:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .sig{fill:var(--texto);stroke-width:0;stroke-dashoffset:0}
+  .js .fx-in,.js .fx-title,.js .fx-up{opacity:1}
+  .then-stage{display:none}
+  .then-static{display:flex;flex-direction:column;align-items:center;gap:28px;padding:120px var(--margem);text-align:center}
+  .then-static p{margin:0;font-size:clamp(26px,2.8vw,40px);line-height:1.25}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="rib" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <symbol id="i-up" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></g></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></g></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.31-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.49-8.41"/></symbol>
+    <symbol id="i-li" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></g></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></g></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8M16 17H8"/></g></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></g></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+    <symbol id="i-ast" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M17.2 8.5 6.8 15.5M6.8 8.5l10.4 7"/></g></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5z"/></symbol>
+    <symbol id="i-mega" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></g></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></g></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></g></symbol>
+  </defs>
+</svg>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-in">
+    <span class="wd wd--lg gb">WD</span>
+    <svg viewBox="0 0 520 70"><text class="sig" x="260" y="52" text-anchor="middle">Willams Dantas</text></svg>
+  </div>
+</div>
+
+<header class="header">
+  <div class="bar gb">
+    <a href="#inicio" class="wd gb" aria-label="Willams Dantas, início">WD</a>
+    <span class="bar-phrase" aria-hidden="true"></span>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
+  </div>
+  <nav class="menu gb" id="menu" aria-label="Principal">
+    <ul>
+      <li><a href="#trabalhos">Trabalhos</a></li>
+      <li><a href="#lab">Lab</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#cursos">Cursos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <div class="menu-info"><strong>Willams Dantas</strong><span>@willamsdanttas</span><span>Maceió, AL</span></div>
+  </nav>
+</header>
+
+<main id="inicio">
+  <!-- 02 · Topo -->
+  <section class="hero" aria-labelledby="nome">
+    <canvas id="particles" aria-hidden="true"></canvas>
+    <div class="hero-in">
+      <span class="pill gb fx-up">Olá, eu sou</span>
+      <h1 id="nome" class="fx-up"><span class="ln">Willams </span><span class="ln">Dantas</span></h1>
+      <span class="pill gb fx-up">Designer de criativos e identidade visual</span>
+    </div>
+    <div class="role" aria-hidden="true"><span class="spin-sq"></span>Role</div>
+  </section>
+
+  <!-- 03 · Eu sou -->
+  <section class="about-intro" aria-label="Apresentação">
+    <div class="wrap">
+      <div class="intro-text">
+        <span class="pill gb fx-in">Eu sou</span>
+        <p class="fx-in">Designer de criativos e identidade visual. <span>Uno estratégia, design e inteligência artificial para que infoprodutores e marcas sejam vistos, lembrados e escolhidos.</span></p>
+        <div class="who fx-in">
+          <span class="avatar gb" aria-hidden="true"></span>
+          <div><strong>Willams Dantas</strong><span>@willamsdanttas</span></div>
+        </div>
+      </div>
+      <div class="words" aria-label="Áreas: Social, Criativos, Identidade e Tráfego">
+        <span class="orb orb--a" aria-hidden="true"></span><span class="orb orb--b" aria-hidden="true"></span><span class="orb orb--c" aria-hidden="true"></span>
+        <span class="w" data-x="110">Social</span>
+        <span class="w" data-x="-100">Criativos</span>
+        <span class="w" data-x="100">Identidade</span>
+        <span class="w" data-x="-90">Tráfego</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · Trabalhos -->
+  <section id="trabalhos" aria-labelledby="t-trab">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-title fx-title"><span class="spin-sq" aria-hidden="true"></span><h2 id="t-trab">Trabalhos</h2></div>
+        <p class="sec-sub fx-title">Criativos, carrosséis e identidades que colocam marcas em movimento.</p>
+      </div>
+      <div class="works" id="works">
+        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Criativos</span><div class="card-media"><span class="poster">BALT</span></div><div class="card-foot"><strong>BALT Moto Elétrica</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Carrosséis</span><div class="card-media"><span class="poster">Evellyn<br>Leticia</span></div><div class="card-foot"><strong>Evellyn Leticia</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Criativos</span><div class="card-media"><span class="poster">MonttCred</span></div><div class="card-foot"><strong>MonttCred</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Identidade visual</span><div class="card-media"><span class="poster">Nosso<br>Cantinho</span></div><div class="card-foot"><strong>Nosso Cantinho</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Carrosséis</span><div class="card-media"><span class="poster">Ana<br>Vieira</span></div><div class="card-foot"><strong>Ana Vieira</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Novo projeto</span><div class="card-media"><span class="poster">Em<br>breve</span></div><div class="card-foot"><strong>Próximo case</strong><span>2026</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 · Lab -->
+  <section id="lab" aria-labelledby="t-lab">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-title fx-title"><span class="spin-sq" aria-hidden="true"></span><h2 id="t-lab">Lab</h2></div>
+        <p class="sec-sub fx-title">Onde testo ideias: apps, ferramentas e projetos autorais.</p>
+      </div>
+      <div class="lab">
+        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">App</span><div class="card-media"><span class="poster">Retornei</span></div><div class="card-foot"><strong>Retornei</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Plugin Figma</span><div class="card-media"><span class="poster">Prelo</span></div><div class="card-foot"><strong>Prelo</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Plugin Figma</span><div class="card-media"><span class="poster">Paleta</span></div><div class="card-foot"><strong>Paleta</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">App</span><div class="card-media"><span class="poster">Quita</span></div><div class="card-foot"><strong>Quita</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Inteligência artificial</span><div class="card-media"><span class="poster">Agente<br>de ofertas</span></div><div class="card-foot"><strong>Agente de ofertas</strong><span>2026</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · Sobre -->
+  <section id="sobre" aria-labelledby="t-sobre">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-title fx-title"><span class="spin-sq" aria-hidden="true"></span><h2 id="t-sobre">Sobre</h2></div>
+      </div>
+      <div class="teaser gb fx-in" role="img" aria-label="Espaço do vídeo de apresentação">
+        <span class="grain"></span>
+        <span class="play gb" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+      </div>
+      <div class="me">
+        <span class="badge fx-up"><svg aria-hidden="true"><use href="#i-badge"/></svg>W. Dantas</span>
+        <span class="pill gb fx-up">Esse sou eu</span>
+        <h3 class="name fx-up">Willams Dantas</h3>
+      </div>
+
+      <div class="about-grid">
+        <div class="col fx-in">
+          <span class="pill gb">Resumo</span>
+          <p class="summary">Designer especializado em infoprodutores e marcas digitais. Crio criativos, carrosséis e identidades visuais com foco em posicionamento e venda, e acompanho os resultados no tráfego pago. A inteligência artificial faz parte do meu processo para entregar mais rápido sem perder o padrão.</p>
+          <div class="socials">
+            <a class="sq gb" href="https://www.instagram.com/willamsdanttas/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+            <a class="sq gb" href="#contato" aria-label="Contato"><svg><use href="#i-mail"/></svg></a>
+          </div>
+        </div>
+        <div class="col fx-in">
+          <span class="pill gb">Experiência</span>
+          <ul class="timeline">
+            <li><time>2024–hoje</time><span>Designer para infoprodutores · Autônomo</span></li>
+            <li><time>2025–hoje</time><span>Gestão de tráfego pago · Mobilidade elétrica</span></li>
+            <li><time>2025–hoje</time><span>Identidade visual · Balt e MonttCred</span></li>
+            <li><time>2026</time><span>Apps e ferramentas próprias · Lab</span></li>
+          </ul>
+        </div>
+        <div class="col fx-in">
+          <span class="pill gb">Formação</span>
+          <ul class="timeline">
+            <li><time>Contínua</time><span>Design gráfico e direção de arte</span></li>
+            <li><time>Contínua</time><span>Tráfego pago e marketing digital</span></li>
+            <li><time>Contínua</time><span>Inteligência artificial aplicada ao design</span></li>
+          </ul>
+
+        </div>
+      </div>
+
+      <div class="about-grid about-grid--b">
+        <div class="col fx-in">
+          <div class="photo gb"><div class="photo-in"><span>Sua foto entra aqui</span></div></div>
+          <div class="quote"><svg aria-hidden="true"><use href="#i-ast"/></svg><strong>Design que posiciona. Criativo que vende.</strong><span>O princípio por trás de cada projeto.</span></div>
+        </div>
+        <div class="col" style="align-items:center">
+          <span class="pill gb fx-in">Habilidades</span>
+          <ul class="skills">
+            <li data-x="50">Design de criativos</li>
+            <li data-x="-30">Tráfego pago</li>
+            <li data-x="100">Social media</li>
+            <li data-x="-100">Identidade visual</li>
+            <li data-x="60">Direção de arte com IA</li>
+            <li data-x="-60">Motion</li>
+          </ul>
+        </div>
+        <div class="col fx-in">
+          <span class="pill gb">Ferramentas</span>
+          <div class="tools" aria-label="Ferramentas">
+            <span class="tool gb">Fi</span><span class="tool gb">Ps</span><span class="tool gb">Ai</span><span class="tool gb">Ae</span>
+            <span class="tool gb">Pr</span><span class="tool gb">Cc</span><span class="tool gb">Ca</span><span class="tool gb">Me</span>
+            <span class="tool gb">GA</span><span class="tool gb">Gpt</span><span class="tool gb">Cl</span><span class="tool gb">Mj</span>
+            <span class="tool gb">Vo</span><span class="tool gb">Fr</span><span class="tool gb">No</span><span class="tool gb">Gh</span>
+          </div>
+          <p class="tools-cap">Figma, Photoshop, Illustrator, After Effects, Premiere, CapCut, Canva, Meta Ads, Google Ads, ChatGPT, Claude, Midjourney, Veo, Framer, Notion e GitHub.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 · Cursos -->
+  <section id="cursos" aria-labelledby="t-cursos">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-title fx-title"><span class="spin-sq" aria-hidden="true"></span><h2 id="t-cursos">Cursos</h2></div>
+        <p class="sec-sub fx-title">Formações que sustentam o meu trabalho.</p>
+      </div>
+      <div class="courses">
+        <div class="course fx-in"><span class="sq gb"><svg><use href="#i-mega"/></svg></span><small>Tráfego pago</small><strong>Gestão de anúncios na Meta</strong><p>Campanhas, públicos e leitura de métricas.</p></div>
+        <div class="course fx-in"><span class="sq gb"><svg><use href="#i-layers"/></svg></span><small>Design</small><strong>Identidade visual e criativos</strong><p>Marca, sistema visual e peças que convertem.</p></div>
+        <div class="course fx-in"><span class="sq gb"><svg><use href="#i-cap"/></svg></span><small>Inteligência artificial</small><strong>Direção de arte com IA</strong><p>Imagem, vídeo e texto com padrão profissional.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 · Então -->
+  <section class="then" aria-label="Mensagem final">
+    <div class="then-stage" id="thenStage">
+      <span class="then-shape" aria-hidden="true"></span>
+      <p class="phrase">Então,</p>
+      <p class="phrase">se a sua marca precisa ser vista,</p>
+      <p class="phrase">lembrada</p>
+      <p class="phrase">e escolhida,</p>
+      <p class="phrase">o design certo faz isso acontecer.</p>
+      <p class="phrase">E é isso que eu entrego.</p>
+      <p class="phrase">Vamos construir juntos?</p>
+    </div>
+    <div class="then-static">
+      <p>Então,</p><p>se a sua marca precisa ser vista, lembrada e escolhida,</p><p>o design certo faz isso acontecer.</p><p>E é isso que eu entrego.</p><p>Vamos construir juntos?</p>
+    </div>
+  </section>
+
+  <!-- 13 · Contato -->
+  <section class="contact" id="contato" aria-labelledby="t-contato">
+    <svg class="ribbons" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-100 620 C 240 420, 520 820, 820 560 S 1300 300, 1560 520" stroke="url(#rib)" stroke-width="2"/>
+      <path d="M-100 700 C 300 520, 600 900, 900 640 S 1320 420, 1560 640" stroke="url(#rib)" stroke-width="1.2"/>
+      <path d="M-100 260 C 260 120, 560 420, 860 240 S 1280 80, 1560 260" stroke="url(#rib)" stroke-width="1.6"/>
+      <path d="M-100 340 C 320 220, 620 500, 920 330 S 1300 180, 1560 360" stroke="url(#rib)" stroke-width="1"/>
+    </svg>
+    <div class="contact-in">
+      <div class="who fx-up"><span class="avatar gb" aria-hidden="true"></span><span>@willamsdanttas</span></div>
+      <span class="pill gb fx-up">Obrigado</span>
+      <h2 id="t-contato" class="fx-up">Vamos<br>conversar</h2>
+      <span class="status fx-up"><span class="dot" aria-hidden="true"></span>Disponível para novos projetos</span>
+      <a class="contact-pill gb fx-up" href="https://ig.me/m/willamsdanttas" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>Chamar no Instagram</a>
+    </div>
+  </section>
+
+  <!-- 14 · Links -->
+  <div class="wrap">
+    <nav class="links" aria-label="Redes e contatos">
+      <a class="link-row fx-up" href="https://www.instagram.com/willamsdanttas/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg><span class="link-name">Instagram</span><svg class="arr" aria-hidden="true"><use href="#i-up"/></svg></a>
+      <span class="link-row fx-up" aria-disabled="true"><svg aria-hidden="true"><use href="#i-wa"/></svg><span class="link-name">WhatsApp</span><span class="soon">em breve</span></span>
+      <span class="link-row fx-up" aria-disabled="true"><svg aria-hidden="true"><use href="#i-globe"/></svg><span class="link-name">Behance</span><span class="soon">em breve</span></span>
+      <span class="link-row fx-up" aria-disabled="true"><svg aria-hidden="true"><use href="#i-file"/></svg><span class="link-name">Currículo.pdf</span><span class="soon">em breve</span></span>
+      <span class="link-row fx-up" aria-disabled="true"><svg aria-hidden="true"><use href="#i-mail"/></svg><span class="link-name">E-mail</span><span class="soon">em breve</span></span>
+      <span class="link-row fx-up" aria-disabled="true"><svg aria-hidden="true"><use href="#i-li"/></svg><span class="link-name">LinkedIn</span><span class="soon">em breve</span></span>
+    </nav>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><strong>Willams Dantas <span class="wd gb" aria-hidden="true" style="width:20px;height:20px;border-radius:6px;font-size:7px">WD</span></strong><span>Todos os direitos reservados</span></div>
+    <span>Portfólio Willams Dantas © 2026</span>
+    <span class="r">Maceió, AL</span>
+  </div>
+</footer>
+
+<div class="cursor" aria-hidden="true"><svg><use href="#i-up"/></svg></div>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script>
+(()=>{
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const hasGsap=window.gsap&&window.ScrollTrigger;
+  let lenis=null;
+
+  /* rolagem suave */
+  if(!reduce&&window.Lenis&&hasGsap){
+    lenis=new Lenis({duration:1.15,smoothWheel:true});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(t=>lenis.raf(t*1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+  const go=(hash)=>{const el=document.querySelector(hash);if(!el)return;if(lenis)lenis.scrollTo(el,{offset:hash==='#inicio'?0:-20});else el.scrollIntoView({behavior:reduce?'auto':'smooth'})};
+
+  /* carregamento */
+  const loader=document.getElementById('loader');
+  const finish=()=>{loader.classList.add('done');document.body.classList.add('ready');if(lenis)lenis.start();intro();setTimeout(()=>loader.remove(),900)};
+  if(reduce){loader.remove();document.body.classList.add('ready')}
+  else{if(lenis)lenis.stop();const t0=performance.now();const done=()=>setTimeout(finish,Math.max(0,2300-(performance.now()-t0)));(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(done);setTimeout(()=>{if(document.body.contains(loader)&&!loader.classList.contains('done'))finish()},4000)}
+
+  /* menu */
+  const btn=document.querySelector('.menu-btn'),menu=document.getElementById('menu');
+  const setMenu=o=>{btn.setAttribute('aria-expanded',String(o));btn.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');menu.classList.toggle('open',o)};
+  btn.addEventListener('click',()=>setMenu(btn.getAttribute('aria-expanded')!=='true'));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+  document.addEventListener('click',e=>{if(!e.target.closest('.header'))setMenu(false)});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();setMenu(false);go(a.getAttribute('href'))}));
+
+  /* partículas do topo */
+  const cv=document.getElementById('particles'),cx=cv.getContext('2d');let W,H,P=[],run=true,raf;
+  const size=()=>{const r=Math.min(devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*r;cv.height=H*r;cx.setTransform(r,0,0,r,0,0);const n=Math.round(Math.min(90,W*H/16000));P=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,z:Math.random()*0.8+0.2,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18}))};
+  const draw=()=>{cx.clearRect(0,0,W,H);for(const p of P){p.x+=p.vx*p.z;p.y+=p.vy*p.z;if(p.x<-5)p.x=W+5;if(p.x>W+5)p.x=-5;if(p.y<-5)p.y=H+5;if(p.y>H+5)p.y=-5;cx.beginPath();cx.arc(p.x,p.y,p.z*1.6,0,6.283);cx.fillStyle=`rgba(207,207,214,${.12+p.z*.35})`;cx.fill()}
+    for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){const a=P[i],b=P[j],dx=a.x-b.x,dy=a.y-b.y,d=dx*dx+dy*dy;if(d<9000){cx.strokeStyle=`rgba(207,207,214,${(1-d/9000)*.08})`;cx.lineWidth=1;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}
+    if(run&&!reduce)raf=requestAnimationFrame(draw)};
+  size();draw();
+  addEventListener('resize',()=>{size();if(reduce)draw()});
+  new IntersectionObserver(([e])=>{run=e.isIntersecting;if(run&&!reduce){cancelAnimationFrame(raf);draw()}}).observe(cv);
+
+  /* cursor com seta nos cards */
+  if(fine){const cur=document.querySelector('.cursor');let qx,qy;
+    if(hasGsap){qx=gsap.quickTo(cur,'x',{duration:.35,ease:'power3'});qy=gsap.quickTo(cur,'y',{duration:.35,ease:'power3'})}
+    document.querySelectorAll('.card').forEach(c=>{c.addEventListener('mouseenter',()=>cur.classList.add('on'));c.addEventListener('mouseleave',()=>cur.classList.remove('on'))});
+    addEventListener('mousemove',e=>{if(qx){qx(e.clientX);qy(e.clientY)}else{cur.style.transform=`translate(${e.clientX}px,${e.clientY}px)`}},{passive:true});
+  }
+
+  /* animações */
+  function intro(){if(!hasGsap||reduce)return;gsap.fromTo('.hero .fx-up',{y:-30,opacity:0},{y:0,opacity:1,duration:1.1,ease:'power4.out',stagger:.15})}
+  if(!hasGsap||reduce){document.querySelectorAll('.fx-in,.fx-title,.fx-up').forEach(e=>e.style.opacity=1);return}
+  gsap.registerPlugin(ScrollTrigger);
+
+  // entrada padrão: x −50 px
+  gsap.utils.toArray('.fx-in').forEach(el=>gsap.fromTo(el,{x:-50,opacity:0},{x:0,opacity:1,duration:.9,ease:'power4.out',scrollTrigger:{trigger:el,start:'top 80%',once:true}}));
+  // títulos: x −100 px
+  gsap.utils.toArray('.fx-title').forEach(el=>gsap.fromTo(el,{x:-100,opacity:0},{x:0,opacity:1,duration:1,ease:'power4.out',scrollTrigger:{trigger:el,start:'top 80%',once:true}}));
+  // contato e links: y −50 px em sequência
+  ScrollTrigger.batch('.contact .fx-up',{start:'top 85%',once:true,onEnter:b=>gsap.fromTo(b,{y:-50,opacity:0},{y:0,opacity:1,duration:.9,ease:'power4.out',stagger:.2})});
+  ScrollTrigger.batch('.links .fx-up',{start:'top 90%',once:true,onEnter:b=>gsap.fromTo(b,{y:-50,opacity:0},{y:0,opacity:1,duration:.8,ease:'power4.out',stagger:.3})});
+  ScrollTrigger.batch('.me .fx-up',{start:'top 85%',once:true,onEnter:b=>gsap.fromTo(b,{y:-30,opacity:0},{y:0,opacity:1,duration:.9,ease:'power4.out',stagger:.15})});
+
+  const mm=gsap.matchMedia();
+  mm.add('(min-width:601px)',()=>{
+    // palavras grandes deslizam no eixo x (scrub 3)
+    gsap.utils.toArray('.words .w').forEach(w=>gsap.fromTo(w,{x:+w.dataset.x},{x:0,ease:'power4.out',scrollTrigger:{trigger:'.words',start:'top 70%',end:'bottom 30%',scrub:3}}));
+    // habilidades: desfoque → nítido
+    gsap.utils.toArray('.skills li').forEach(li=>gsap.fromTo(li,{x:+li.dataset.x,opacity:0,filter:'blur(10px)'},{x:0,opacity:1,filter:'blur(0px)',ease:'power4.out',scrollTrigger:{trigger:li,start:'top 80%',end:'top 40%',scrub:3}}));
+  });
+  mm.add('(max-width:600px)',()=>{
+    gsap.utils.toArray('.words .w').forEach(w=>gsap.fromTo(w,{x:+w.dataset.x*.5,opacity:.2},{x:0,opacity:1,scrollTrigger:{trigger:w,start:'top 90%',end:'top 60%',scrub:2}}));
+    gsap.utils.toArray('.skills li').forEach(li=>gsap.fromTo(li,{x:+li.dataset.x*.4,opacity:0,filter:'blur(8px)'},{x:0,opacity:1,filter:'blur(0px)',scrollTrigger:{trigger:li,start:'top 92%',end:'top 65%',scrub:2}}));
+  });
+
+  // frases fixadas no centro
+  const phrases=gsap.utils.toArray('.phrase'),barP=document.querySelector('.bar-phrase');
+  const tl=gsap.timeline({scrollTrigger:{trigger:'#thenStage',start:'top top',end:()=>'+='+(phrases.length*innerHeight*.8),pin:true,scrub:1,
+    onUpdate:s=>{const i=Math.min(phrases.length-1,Math.floor(s.progress*phrases.length));barP.textContent=phrases[i].textContent},
+    onToggle:s=>barP.classList.toggle('on',s.isActive)}});
+  phrases.forEach((p,i)=>{
+    tl.fromTo(p,{opacity:0,y:40,filter:'blur(8px)'},{opacity:1,y:0,filter:'blur(0px)',duration:1,ease:'power2.out'});
+    if(i<phrases.length-1)tl.to(p,{opacity:0,y:-40,filter:'blur(8px)',duration:1,ease:'power2.in'},'+=0.6');
+  });
+  tl.to('.then-shape',{rotate:270,duration:tl.duration()*.85,ease:'none'},0)
+    .to('.then-shape',{rotate:315,skewX:-22,scaleX:1.35,scaleY:.8,duration:tl.duration()*.15,ease:'power2.inOut'},'>');
+})();
+</script>
+</body>
+</html>

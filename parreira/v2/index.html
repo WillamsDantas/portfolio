@@ -73,27 +73,20 @@ button,input,select,textarea{font:inherit;color:inherit}
 .h4{font-size:var(--h4);font-weight:500;line-height:1.2}
 
 /* ---------- botões ---------- */
-.botao{display:inline-flex;align-items:center;gap:20px;height:52px;padding:0 8px 0 32px;border-radius:var(--raio-botao);background:var(--verde);color:var(--branco);font-size:.875rem;font-weight:500;text-decoration:none;border:0;cursor:pointer;transition:transform .25s var(--curva),box-shadow .25s,background-color .25s}
-.botao:hover{translate:0 -2px;box-shadow:0 4px 8px rgba(10,167,106,.6)}
+.botao{position:relative;display:inline-flex;align-items:center;height:52px;padding:0 28px 0 64px;border-radius:var(--raio-botao);background:var(--verde);color:var(--branco);font-size:.875rem;font-weight:500;text-decoration:none;border:0;cursor:pointer;transition:padding .7s var(--curva),translate .3s var(--curva),box-shadow .3s var(--curva)}
+/* no mouse, o quadradinho da seta vai para a direita girando e o texto vai para a esquerda; o efeito usa "translate" para deixar o "transform" livre para as animações de entrada */
+.botao:hover{padding:0 64px 0 28px;translate:0 -2px;box-shadow:0 4px 8px rgba(10,167,106,.6)}
 .botao:active{transform:scale(.98)}
-.botao .seta{width:36px;height:36px;border-radius:12px;background:var(--branco-escuro);display:grid;place-items:center;flex:none;transition:transform .3s var(--curva)}
-.botao:hover .seta{transform:rotate(45deg)}
-/* v2: seta troca de lado girando */
-.botao{position:relative;padding:0 28px 0 64px;transition:padding .7s var(--curva),translate .3s var(--curva),box-shadow .3s var(--curva)}
-.botao .seta{position:absolute;left:8px;top:50%;transform:translateY(-50%);transition:left .7s var(--curva),transform .7s var(--curva)}
-.botao:hover{padding:0 64px 0 28px}
+.botao .seta{position:absolute;left:8px;top:50%;width:36px;height:36px;border-radius:12px;background:var(--branco-escuro);display:grid;place-items:center;transform:translateY(-50%);transition:left .7s var(--curva),transform .7s var(--curva)}
 .botao:hover .seta{left:calc(100% - 44px);transform:translateY(-50%) rotate(360deg)}
 .botao .seta svg{width:13px;height:13px}
 .botao-contorno{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 40px;border-radius:var(--raio-botao);border:2px solid var(--verde);color:var(--branco);font-size:.875rem;font-weight:500;text-decoration:none;transition:background-color .25s,transform .25s var(--curva)}
 .botao-contorno:hover{background:rgba(10,167,106,.15);transform:translateY(-2px)}
 
 /* ---------- topo ---------- */
-.topo{position:fixed;inset:8px 0 auto;z-index:50;transition:inset .35s var(--curva)}
-.topo-faixa{height:80px;border-block:1px solid rgba(232,232,232,.3);background:rgba(232,232,232,.1);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background-color .35s}
-.topo.rolou{inset-block-start:8px}
-.topo.rolou .topo-faixa{background:rgba(7,8,7,.72)}
-/* v2: no topo a barra não aparece; ela surge (fundo, desfoque e bordas) só depois de rolar, como no site oficial */
-.topo-faixa{background:rgba(232,232,232,0);border-color:transparent;-webkit-backdrop-filter:blur(0);backdrop-filter:blur(0);transition:background-color 1s ease,border-color 1s ease,-webkit-backdrop-filter 1s ease,backdrop-filter 1s ease}
+.topo{position:fixed;inset:8px 0 auto;z-index:50}
+/* com a página parada a barra não aparece; ao rolar ela surge com fundo translúcido, desfoque e bordas */
+.topo-faixa{height:80px;border-block:1px solid transparent;background:rgba(232,232,232,0);-webkit-backdrop-filter:blur(0);backdrop-filter:blur(0);transition:background-color 1s ease,border-color 1s ease,-webkit-backdrop-filter 1s ease,backdrop-filter 1s ease}
 .topo.rolou .topo-faixa{background:rgba(232,232,232,.06);border-color:rgba(232,232,232,.2);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 .topo .container{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .marca{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
@@ -103,7 +96,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .topo nav a{text-decoration:none;color:var(--branco);font-size:var(--h6);position:relative;padding:6px 0}
 .topo nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--verde-claro);transform:scaleX(0);transform-origin:0 50%;transition:transform .3s var(--curva)}
 .topo nav a:hover::after,.topo nav a[aria-current="true"]::after{transform:scaleX(1)}
-@media (max-width:899px){.topo nav{display:none}.topo .botao{padding-left:56px;padding-right:20px;gap:12px}}
+@media (max-width:899px){.topo nav{display:none}.topo .botao{padding-left:56px;padding-right:20px}}
 @media (max-width:420px){.topo .botao .texto{display:none}.topo .botao,.topo .botao:hover{padding:0 8px;width:52px}.topo .botao .seta{left:8px!important}}
 
 /* ---------- hero ---------- */
@@ -168,8 +161,7 @@ main{overflow-x:clip}
 .hero.passou{opacity:0;visibility:hidden}
 main>:not(.hero){position:relative;z-index:1}
 main>section:not(.hero):not(.missao):not(.depoimentos),main>.faixa{background:var(--preto-escuro)}
-.video-img{position:absolute;inset:0 -21px;background:url(../img/obra.jpg) center/cover no-repeat,linear-gradient(180deg,#26302a,#0d120f);transform:scale(1.08);transition:transform 1.4s var(--curva)}
-.video.dentro .video-img{transform:scale(1)}
+.video-img{position:absolute;inset:0;background:url(../img/obra.jpg) center/cover no-repeat,linear-gradient(180deg,#26302a,#0d120f)}
 .video::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--preto-escuro) 0%,rgba(7,8,7,0) 100%)}
 .controles{position:absolute;left:50%;bottom:28%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:32px}
 .controles button{background:none;border:0;padding:0;cursor:pointer}
@@ -328,11 +320,9 @@ main>section:not(.hero):not(.missao):not(.depoimentos),main>.faixa{background:va
 @media (max-width:767px){.rodape-grade{grid-template-columns:1fr}.rodape nav{padding:0}.rodape nav ul{flex-direction:row;flex-wrap:wrap;gap:16px 32px}}
 
 /* ---------- movimento ---------- */
-@keyframes aproximar{to{transform:scale(1)}}
 @keyframes encher{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes pulso{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.6);opacity:0}}
 @keyframes correr{to{transform:translateX(-50%)}}
-@keyframes subir{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 .missao-deco{animation:girar 90s linear infinite}
 @keyframes girar{to{transform:rotate(360deg)}}
 /* ---------- v2: abertura com o símbolo se montando ---------- */
@@ -345,8 +335,6 @@ html.lenis,html.lenis body{height:auto}
 html{scrollbar-gutter:stable}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-  .js .rv,.js .hero-texto>*,.js .hero .sociais a{opacity:1!important;transform:none!important}
-  .frase{transform:none!important}
 }
 
 @media (max-width:699px){.quebra{display:none}}
@@ -475,10 +463,10 @@ html{scrollbar-gutter:stable}
         </div>
         <div>
           <dl class="numeros">
-            <div class="numero rv" style="--atraso:0ms"><dt>Projetos</dt><dd><span data-conta="1200" data-prefixo="+">+1200</span></dd></div>
-            <div class="numero rv" style="--atraso:80ms"><dt>Satisfação</dt><dd><span data-conta="9.8" data-decimal=",">9,8</span></dd></div>
-            <div class="numero rv" style="--atraso:160ms"><dt>Recomendação</dt><dd><span data-conta="100" data-sufixo="%">100%</span></dd></div>
-            <div class="numero rv" style="--atraso:240ms"><dt>Colaboradores</dt><dd><span data-conta="30" data-prefixo="+">+30</span></dd></div>
+            <div class="numero rv"><dt>Projetos</dt><dd><span data-conta="1200" data-prefixo="+">+1200</span></dd></div>
+            <div class="numero rv"><dt>Satisfação</dt><dd><span data-conta="9.8" data-decimal=",">9,8</span></dd></div>
+            <div class="numero rv"><dt>Recomendação</dt><dd><span data-conta="100" data-sufixo="%">100%</span></dd></div>
+            <div class="numero rv"><dt>Colaboradores</dt><dd><span data-conta="30" data-prefixo="+">+30</span></dd></div>
           </dl>
           <p class="missao-texto rv">Nossa missão é criar soluções de construção que atendam às necessidades dos clientes e contribuam de forma positiva para o meio ambiente e as comunidades ao nosso redor. Usamos tecnologias atuais e práticas sustentáveis para que cada projeto seja eficiente e duradouro. Com foco em integridade, trabalho em equipe e segurança, buscamos ser referência em qualidade e satisfação dos clientes.</p>
         </div>
@@ -524,13 +512,13 @@ html{scrollbar-gutter:stable}
       <div class="servicos-grade">
         <div class="linha-servicos ls1">
         <article class="servico s1 rv"><div class="servico-img" role="img" aria-label="Varanda reformada"></div><div class="servico-txt"><h3>Reformas internas</h3><p>Cozinhas, banheiros e ambientes renovados com acabamento de qualidade.</p></div></article>
-        <article class="servico s2 rv" style="--atraso:80ms"><div class="servico-img" role="img" aria-label="Cozinha reformada"></div><div class="servico-txt"><h3>Reformas externas</h3><p>Fachadas, telhados e áreas externas mais bonitas e protegidas.</p></div></article>
-        <article class="servico s3 rv" style="--atraso:160ms"><div class="servico-img" role="img" aria-label="Trabalhador na estrutura de um telhado"></div><div class="servico-txt"><h3>Reformas estruturais</h3><p>Reforços e ajustes que garantem segurança e durabilidade à construção.</p></div></article>
+        <article class="servico s2 rv"><div class="servico-img" role="img" aria-label="Cozinha reformada"></div><div class="servico-txt"><h3>Reformas externas</h3><p>Fachadas, telhados e áreas externas mais bonitas e protegidas.</p></div></article>
+        <article class="servico s3 rv"><div class="servico-img" role="img" aria-label="Trabalhador na estrutura de um telhado"></div><div class="servico-txt"><h3>Reformas estruturais</h3><p>Reforços e ajustes que garantem segurança e durabilidade à construção.</p></div></article>
         </div>
         <div class="linha-servicos ls2">
         <div class="s-barra rv" aria-hidden="true"></div>
-        <article class="servico s4 rv" style="--atraso:80ms"><div class="servico-img" role="img" aria-label="Técnico instalando janelas eficientes"></div><div class="servico-txt"><h3>Eficiência energética</h3><p>Janelas, isolamento e soluções que reduzem o consumo de energia.</p></div></article>
-        <article class="servico s5 rv" style="--atraso:160ms"><div class="servico-img" role="img" aria-label="Equipe trabalhando em um espaço comercial"></div><div class="servico-txt"><h3>Reformas comerciais</h3><p>Espaços de trabalho funcionais, prontos para receber clientes e equipe.</p></div></article>
+        <article class="servico s4 rv"><div class="servico-img" role="img" aria-label="Técnico instalando janelas eficientes"></div><div class="servico-txt"><h3>Eficiência energética</h3><p>Janelas, isolamento e soluções que reduzem o consumo de energia.</p></div></article>
+        <article class="servico s5 rv"><div class="servico-img" role="img" aria-label="Equipe trabalhando em um espaço comercial"></div><div class="servico-txt"><h3>Reformas comerciais</h3><p>Espaços de trabalho funcionais, prontos para receber clientes e equipe.</p></div></article>
         </div>
       </div>
     </div>
@@ -564,7 +552,7 @@ html{scrollbar-gutter:stable}
         <p>Sabemos que você pode ter dúvidas sobre nossos serviços, nossa experiência e nossa forma de trabalhar. Abaixo estão as respostas para as perguntas mais comuns. Se não encontrar o que procura, fale com a gente. Estamos aqui para ajudar.</p>
         <div class="chave" aria-hidden="true"><span class="c1"><svg><use href="#marca" fill="url(#g-branco)"/></svg></span><span class="c2"></span><span class="c3"></span></div>
       </div>
-      <div class="perguntas rv" style="--atraso:120ms">
+      <div class="perguntas rv">
         <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r1" id="p1"><span>A Parreira é regularizada e tem seguro?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r1" role="region" aria-labelledby="p1"><div><p>Sim. A Parreira é regularizada para obras residenciais e comerciais, e todo projeto tem seguro de responsabilidade do início ao fim.</p></div></div></div>
         <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r2" id="p2"><span>Há quanto tempo a empresa atua?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r2" role="region" aria-labelledby="p2"><div><p>Há cinco anos construímos e reformamos, com mais de 1.200 projetos entregues.</p></div></div></div>
         <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r3" id="p3"><span>Vocês mostram projetos anteriores ou indicações de clientes?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r3" role="region" aria-labelledby="p3"><div><p>Sim. Peça à nossa equipe e enviamos projetos parecidos com o seu e contatos de clientes que aceitaram dar referência.</p></div></div></div>
@@ -590,7 +578,7 @@ html{scrollbar-gutter:stable}
           <li><a href="https://instagram.com/parreira" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-contato"/><svg x="22" y="22" width="20" height="20" style="color:#fff"><use href="#i-instagram"/></svg></svg><span>@parreira</span></a></li>
         </ul>
       </div>
-      <form class="formulario rv" id="formulario" style="--atraso:120ms" novalidate>
+      <form class="formulario rv" id="formulario" novalidate>
         <svg class="icone" viewBox="0 0 64 64" aria-hidden="true"><circle opacity=".3" cx="32" cy="32" r="32" fill="#0ED285"/><svg x="22" y="22" width="20" height="20" style="color:#0AA76A"><use href="#i-email"/></svg></svg>
         <h2>Envie uma mensagem</h2>
         <div class="campos">
@@ -649,15 +637,6 @@ html{scrollbar-gutter:stable}
   var $ = function(s, c){ return (c || document).querySelector(s); };
   var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
-  /* reveal */
-  var rv = $$('.rv');
-  if ('IntersectionObserver' in window && !reduz) {
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('dentro'); io.unobserve(e.target); } });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
-    rv.forEach(function(el){ io.observe(el); });
-  } else rv.forEach(function(el){ el.classList.add('dentro'); });
-
   /* números que contam */
   var nums = $$('[data-conta]');
   function contar(el){
@@ -677,15 +656,8 @@ html{scrollbar-gutter:stable}
     nums.forEach(function(n){ on.observe(n); });
   }
 
-  /* vídeo entra com zoom */
-  var video = $('#video');
-  if ('IntersectionObserver' in window) {
-    var ov = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { video.classList.add('dentro'); ov.disconnect(); } }, { threshold: .2 });
-    ov.observe(video);
-  }
-
-  /* topo + frases ao rolar (um único handler) */
-  var heroSec = $('.hero'), topo = $('#topo'), frases = $$('.frase'), secFrases = $('.frases'), pedido = false;
+  /* topo e hero ao rolar (um único handler) */
+  var heroSec = $('.hero'), topo = $('#topo'), pedido = false;
   function aoRolar(){
     pedido = false;
     topo.classList.toggle('rolou', window.scrollY > 200);
@@ -791,7 +763,7 @@ html{scrollbar-gutter:stable}
   var camadas = [document.querySelector('.hero-fundo')].concat([].slice.call(document.querySelectorAll('.hero-slide')));
   var tracos = [].slice.call(document.querySelectorAll('.indicadores span')), atual = 0;
   setInterval(function(){
-    if (document.hidden) return;
+    if (document.hidden || camadas[0].closest('.hero').classList.contains('passou')) return;
     var prox = (atual + 1) % camadas.length;
     if (camadas[prox].classList.contains('hero-slide')) camadas[prox].classList.add('on');
     if (camadas[atual].classList.contains('hero-slide')) camadas[atual].classList.remove('on');

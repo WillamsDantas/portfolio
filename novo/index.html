@@ -34,8 +34,9 @@
   --texto-3:#7A7A82;
   --cinza-claro:#CFCFD6;
   --vidro:rgba(255,255,255,.06);
-  --borda:linear-gradient(135deg,rgba(255,255,255,.28),rgba(255,255,255,.04) 50%,rgba(255,255,255,.16));
-  --borda-forte:linear-gradient(135deg,rgba(255,255,255,.7),rgba(255,255,255,.08) 50%,rgba(255,255,255,.45));
+  --borda:#33333A;          /* bordas finas: pílulas, cabeçalho, ícones */
+  --borda-card:#2C2C31;     /* bordas dos cards: sólida, 2px */
+  --borda-forte:#CFCFD6;    /* borda com mouse */
   --conteudo:1008px;
   --margem:clamp(20px,4vw,40px);
   --ease:cubic-bezier(.22,.61,.36,1);
@@ -53,9 +54,11 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .wrap{width:100%;max-width:calc(var(--conteudo) + var(--margem)*2);margin:0 auto;padding:0 var(--margem)}
 :focus-visible{outline:2px solid var(--cinza-claro);outline-offset:3px;border-radius:6px}
 
-/* borda em gradiente reutilizável */
+/* borda sólida reutilizável (sem gradiente e sem animação) */
 .gb{position:relative}
 .gb::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:var(--borda);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+
+.teaser.gb::before,.photo.gb::before{padding:2px;background:var(--borda-card)}
 
 /* pílulas */
 .pill{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;background:var(--vidro);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);font-size:12px;line-height:1.2;color:var(--cinza-claro)}
@@ -132,9 +135,7 @@ h2{margin:0;font-weight:300;font-size:clamp(36px,4.4vw,64px);line-height:1;lette
 /* ---------- cards de trabalho ---------- */
 .works{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
 .card{position:relative;display:flex;flex-direction:column;aspect-ratio:3/4;border-radius:16px;background:var(--superficie);overflow:hidden;isolation:isolate;transition:background .4s var(--ease)}
-.card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:var(--borda);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:3;transition:opacity .4s}
-.card .spin-border{position:absolute;inset:0;border-radius:inherit;padding:1.5px;overflow:hidden;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;z-index:3;pointer-events:none}
-.card .spin-border::before{content:"";position:absolute;left:50%;top:50%;width:200%;aspect-ratio:1;translate:-50% -50%;background:conic-gradient(from 0deg,rgba(255,255,255,0) 0deg,rgba(255,255,255,.9) 40deg,rgba(255,255,255,0) 90deg,rgba(255,255,255,0) 180deg,rgba(255,255,255,.6) 220deg,rgba(255,255,255,0) 270deg)}
+.card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:2px;background:var(--borda-card);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:3;transition:background .35s var(--ease)}
 .card-cat{position:relative;z-index:2;padding:22px 16px 0;text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--texto-2)}
 .card-media{position:relative;flex:1;margin:16px;border-radius:10px;background:var(--elevado);overflow:hidden;display:grid;place-items:center}
 .card-media::after{content:"";position:absolute;inset:0;background:rgba(8,8,10,.38);transition:opacity .45s var(--ease)}
@@ -148,9 +149,7 @@ h2{margin:0;font-weight:300;font-size:clamp(36px,4.4vw,64px);line-height:1;lette
 .lab .card:nth-child(even){translate:0 clamp(60px,9vw,130px)}
 @media (hover:hover) and (pointer:fine){
   .card:hover{background:var(--superficie-2)}
-  .card:hover::before{opacity:0}
-  .card:hover .spin-border{opacity:1}
-  .card:hover .spin-border::before{animation:spinb 2.4s linear infinite}
+  .card:hover::before{background:var(--borda-forte)}
   .card:hover .card-media::after{opacity:0}
   .card:hover .poster{color:var(--texto-2);transform:scale(1.04)}
   .avatar:hover{transform:scale(1.05);box-shadow:0 0 0 1px rgba(255,255,255,.35)}
@@ -163,13 +162,12 @@ h2{margin:0;font-weight:300;font-size:clamp(36px,4.4vw,64px);line-height:1;lette
   .teaser:hover{transform:scale(1.01)}
   .teaser:hover::before{background:var(--borda-forte)}
 }
-@keyframes spinb{to{rotate:1080deg}}
 .cursor{position:fixed;left:0;top:0;z-index:60;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--texto);color:var(--fundo);display:grid;place-items:center;pointer-events:none;opacity:0;scale:.4;transition:opacity .25s,scale .25s var(--ease)}
 .cursor.on{opacity:1;scale:1}
 .cursor svg{width:22px;height:22px}
 
 /* ---------- sobre ---------- */
-.teaser{position:relative;aspect-ratio:16/8;border-radius:24px;overflow:hidden;background:radial-gradient(70% 90% at 50% 40%,#26262B,#141418 70%,var(--preto));transition:transform .5s var(--ease)}
+.teaser{position:relative;--bw:2px;aspect-ratio:16/8;border-radius:24px;overflow:hidden;background:radial-gradient(70% 90% at 50% 40%,#26262B,#141418 70%,var(--preto));transition:transform .5s var(--ease)}
 .teaser .grain{position:absolute;inset:0;opacity:.18;background-image:radial-gradient(rgba(255,255,255,.35) 1px,transparent 1px);background-size:3px 3px;-webkit-mask-image:radial-gradient(60% 60% at 50% 50%,#000,transparent);mask-image:radial-gradient(60% 60% at 50% 50%,#000,transparent)}
 .teaser .play{position:absolute;left:50%;top:50%;translate:-50% -50%;width:64px;height:64px;border-radius:50%;background:var(--vidro);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);display:grid;place-items:center}
 .teaser .play svg{width:22px;height:22px;margin-left:3px}
@@ -217,7 +215,7 @@ h3.name{margin:0;font-weight:500;font-size:clamp(36px,3.6vw,52px);line-height:1.
 .then{position:relative}
 .then-stage{position:relative;height:100vh;height:100svh;display:grid;place-items:center;overflow:hidden}
 .then-shape{position:absolute;left:50%;top:50%;width:clamp(160px,18vw,240px);aspect-ratio:1;margin:calc(clamp(160px,18vw,240px)/-2) 0 0 calc(clamp(160px,18vw,240px)/-2);border-radius:22px;background:linear-gradient(135deg,#26262B,#141418);opacity:.9}
-.then-shape::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:var(--borda);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.then-shape::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:2px;background:var(--borda-card);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
 .phrase{position:absolute;left:0;right:0;top:50%;translate:0 -50%;margin:0;padding:0 var(--margem);text-align:center;font-size:clamp(28px,2.8vw,40px);line-height:1.25;font-weight:400;opacity:0}
 .then-static{display:none}
 
@@ -392,12 +390,12 @@ footer{border-top:1px solid var(--linha)}
         <p class="sec-sub fx-title">Criativos, carrosséis e identidades que colocam marcas em movimento.</p>
       </div>
       <div class="works" id="works">
-        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Criativos</span><div class="card-media"><span class="poster">BALT</span></div><div class="card-foot"><strong>BALT Moto Elétrica</strong><span>2026</span></div></article>
-        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Carrosséis</span><div class="card-media"><span class="poster">Evellyn<br>Leticia</span></div><div class="card-foot"><strong>Evellyn Leticia</strong><span>2026</span></div></article>
-        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Criativos</span><div class="card-media"><span class="poster">MonttCred</span></div><div class="card-foot"><strong>MonttCred</strong><span>2026</span></div></article>
-        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Identidade visual</span><div class="card-media"><span class="poster">Nosso<br>Cantinho</span></div><div class="card-foot"><strong>Nosso Cantinho</strong><span>2026</span></div></article>
-        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Carrosséis</span><div class="card-media"><span class="poster">Ana<br>Vieira</span></div><div class="card-foot"><strong>Ana Vieira</strong><span>2026</span></div></article>
-        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Novo projeto</span><div class="card-media"><span class="poster">Em<br>breve</span></div><div class="card-foot"><strong>Próximo case</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="card-cat">Criativos</span><div class="card-media"><span class="poster">BALT</span></div><div class="card-foot"><strong>BALT Moto Elétrica</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="card-cat">Carrosséis</span><div class="card-media"><span class="poster">Evellyn<br>Leticia</span></div><div class="card-foot"><strong>Evellyn Leticia</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="card-cat">Criativos</span><div class="card-media"><span class="poster">MonttCred</span></div><div class="card-foot"><strong>MonttCred</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="card-cat">Identidade visual</span><div class="card-media"><span class="poster">Nosso<br>Cantinho</span></div><div class="card-foot"><strong>Nosso Cantinho</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="card-cat">Carrosséis</span><div class="card-media"><span class="poster">Ana<br>Vieira</span></div><div class="card-foot"><strong>Ana Vieira</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="card-cat">Novo projeto</span><div class="card-media"><span class="poster">Em<br>breve</span></div><div class="card-foot"><strong>Próximo case</strong><span>2026</span></div></article>
       </div>
     </div>
   </section>
@@ -410,11 +408,11 @@ footer{border-top:1px solid var(--linha)}
         <p class="sec-sub fx-title">Onde testo ideias: apps, ferramentas e projetos autorais.</p>
       </div>
       <div class="lab">
-        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">App</span><div class="card-media"><span class="poster">Retornei</span></div><div class="card-foot"><strong>Retornei</strong><span>2026</span></div></article>
-        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Plugin Figma</span><div class="card-media"><span class="poster">Prelo</span></div><div class="card-foot"><strong>Prelo</strong><span>2026</span></div></article>
-        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Plugin Figma</span><div class="card-media"><span class="poster">Paleta</span></div><div class="card-foot"><strong>Paleta</strong><span>2026</span></div></article>
-        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">App</span><div class="card-media"><span class="poster">Quita</span></div><div class="card-foot"><strong>Quita</strong><span>2026</span></div></article>
-        <article class="card fx-in"><span class="spin-border"></span><span class="card-cat">Inteligência artificial</span><div class="card-media"><span class="poster">Agente<br>de ofertas</span></div><div class="card-foot"><strong>Agente de ofertas</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="card-cat">App</span><div class="card-media"><span class="poster">Retornei</span></div><div class="card-foot"><strong>Retornei</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="card-cat">Plugin Figma</span><div class="card-media"><span class="poster">Prelo</span></div><div class="card-foot"><strong>Prelo</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="card-cat">Plugin Figma</span><div class="card-media"><span class="poster">Paleta</span></div><div class="card-foot"><strong>Paleta</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="card-cat">App</span><div class="card-media"><span class="poster">Quita</span></div><div class="card-foot"><strong>Quita</strong><span>2026</span></div></article>
+        <article class="card fx-in"><span class="card-cat">Inteligência artificial</span><div class="card-media"><span class="poster">Agente<br>de ofertas</span></div><div class="card-foot"><strong>Agente de ofertas</strong><span>2026</span></div></article>
       </div>
     </div>
   </section>

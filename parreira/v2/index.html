@@ -74,10 +74,15 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* ---------- botões ---------- */
 .botao{display:inline-flex;align-items:center;gap:20px;height:52px;padding:0 8px 0 32px;border-radius:var(--raio-botao);background:var(--verde);color:var(--branco);font-size:.875rem;font-weight:500;text-decoration:none;border:0;cursor:pointer;transition:transform .25s var(--curva),box-shadow .25s,background-color .25s}
-.botao:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(10,167,106,.6)}
+.botao:hover{translate:0 -2px;box-shadow:0 4px 8px rgba(10,167,106,.6)}
 .botao:active{transform:scale(.98)}
 .botao .seta{width:36px;height:36px;border-radius:12px;background:var(--branco-escuro);display:grid;place-items:center;flex:none;transition:transform .3s var(--curva)}
 .botao:hover .seta{transform:rotate(45deg)}
+/* v2: seta troca de lado girando */
+.botao{position:relative;padding:0 28px 0 64px;transition:padding .7s var(--curva),translate .3s var(--curva),box-shadow .3s var(--curva)}
+.botao .seta{position:absolute;left:8px;top:50%;transform:translateY(-50%);transition:left .7s var(--curva),transform .7s var(--curva)}
+.botao:hover{padding:0 64px 0 28px}
+.botao:hover .seta{left:calc(100% - 44px);transform:translateY(-50%) rotate(360deg)}
 .botao .seta svg{width:13px;height:13px}
 .botao-contorno{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 40px;border-radius:var(--raio-botao);border:2px solid var(--verde);color:var(--branco);font-size:.875rem;font-weight:500;text-decoration:none;transition:background-color .25s,transform .25s var(--curva)}
 .botao-contorno:hover{background:rgba(10,167,106,.15);transform:translateY(-2px)}
@@ -87,6 +92,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .topo-faixa{height:80px;border-block:1px solid rgba(232,232,232,.3);background:rgba(232,232,232,.1);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background-color .35s}
 .topo.rolou{inset-block-start:0}
 .topo.rolou .topo-faixa{background:rgba(7,8,7,.72)}
+/* v2: no topo a barra não aparece; ela surge (fundo, desfoque e bordas) só depois de rolar, como no site oficial */
+.topo-faixa{background:rgba(232,232,232,0);border-color:transparent;-webkit-backdrop-filter:blur(0);backdrop-filter:blur(0);transition:background-color 1s ease,border-color 1s ease,-webkit-backdrop-filter 1s ease,backdrop-filter 1s ease}
+.topo.rolou .topo-faixa{background:rgba(232,232,232,.06);border-color:rgba(232,232,232,.2);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 .topo .container{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .marca{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
 .marca .simbolo{width:40px;height:40px}
@@ -95,19 +103,24 @@ button,input,select,textarea{font:inherit;color:inherit}
 .topo nav a{text-decoration:none;color:var(--branco);font-size:var(--h6);position:relative;padding:6px 0}
 .topo nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--verde-claro);transform:scaleX(0);transform-origin:0 50%;transition:transform .3s var(--curva)}
 .topo nav a:hover::after,.topo nav a[aria-current="true"]::after{transform:scaleX(1)}
-@media (max-width:899px){.topo nav{display:none}.topo .botao{padding-left:20px;gap:12px}}
-@media (max-width:420px){.topo .botao .texto{display:none}.topo .botao{padding:0 8px}}
+@media (max-width:899px){.topo nav{display:none}.topo .botao{padding-left:56px;padding-right:20px;gap:12px}}
+@media (max-width:420px){.topo .botao .texto{display:none}.topo .botao,.topo .botao:hover{padding:0 8px;width:52px}.topo .botao .seta{left:8px!important}}
 
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:min(807px,100svh);display:flex;align-items:center;padding-block:160px 64px;overflow:hidden;isolation:isolate}
-.hero-fundo{position:absolute;inset:-13px 0 0;z-index:-2;background:url(../img/hero.jpg) 75% 30%/cover no-repeat,url(../img/lqip-hero.jpg) 75% 30%/cover no-repeat;transform:scale(1.06);animation:aproximar 2.4s var(--curva) forwards}
+.hero-fundo{position:absolute;inset:-13px 0 0;z-index:-2;background:url(../img/hero.jpg) 75% 30%/cover no-repeat,url(../img/lqip-hero.jpg) 75% 30%/cover no-repeat}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,8,7,.85) 0%,rgba(7,8,7,.45) 45%,rgba(7,8,7,0) 75%),linear-gradient(0deg,var(--preto-claro) 0%,rgba(28,28,28,0) 40%)}
 .hero .container{position:relative}
 .hero-texto{max-width:600px;display:flex;flex-direction:column;gap:32px}
 .hero-texto p{color:var(--cinza-400);font-size:var(--h6);line-height:1.4}
 .indicadores{display:flex;gap:16px;margin-top:32px}
 .indicadores span{width:48px;height:2px;background:rgba(255,255,255,.3);position:relative;overflow:hidden}
-.indicadores span:first-child::after{content:"";position:absolute;inset:0;background:var(--branco);transform-origin:0 50%;animation:encher 5s linear infinite}
+.indicadores span::after{content:"";position:absolute;inset:0;background:var(--branco);transform-origin:0 50%;transform:scaleX(0)}
+.indicadores span.on::after{animation:encher 5s linear forwards}
+.hero-slide{position:absolute;inset:-13px 0 0;z-index:-2;background-size:cover;background-repeat:no-repeat;opacity:0;transition:opacity 1.4s ease}
+.hero-slide.on{opacity:1}
+.hero-slide.h2{background-image:url(../img/hero-2.jpg);background-position:center}
+.hero-slide.h3{background-image:url(../img/obra.jpg);background-position:center}
 .sociais{display:flex;gap:17px}
 .sociais a{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:rgba(232,232,232,.1);border:1px solid rgba(232,232,232,.3);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background-color .25s,transform .25s var(--curva)}
 .sociais a:hover{background:var(--verde);border-color:var(--verde);transform:translateY(-3px)}
@@ -148,7 +161,13 @@ button,input,select,textarea{font:inherit;color:inherit}
 .sobre{padding-top:102px;text-align:center}
 .sobre .h1{max-width:670px;margin:0 auto}
 .sobre-titulo{margin-top:6px}
-.video{position:relative;margin-top:clamp(56px,10vw,142px);height:clamp(300px,44vw,626px);overflow:hidden}
+.video{position:relative;margin-top:clamp(56px,10vw,142px);height:clamp(300px,44vw,626px);overflow:hidden;width:100vw;margin-left:calc(50% - 50vw)}
+main{overflow-x:clip}
+/* v2: o hero fica parado e a página sobe por cima dele, como no site oficial */
+.hero{position:sticky;top:0;z-index:0;transition:opacity .4s ease,visibility .4s}
+.hero.passou{opacity:0;visibility:hidden}
+main>:not(.hero){position:relative;z-index:1}
+main>section:not(.hero):not(.missao):not(.depoimentos),main>.faixa{background:var(--preto-escuro)}
 .video-img{position:absolute;inset:0 -21px;background:url(../img/obra.jpg) center/cover no-repeat,linear-gradient(180deg,#26302a,#0d120f);transform:scale(1.08);transition:transform 1.4s var(--curva)}
 .video.dentro .video-img{transform:scale(1)}
 .video::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--preto-escuro) 0%,rgba(7,8,7,0) 100%)}
@@ -185,7 +204,12 @@ button,input,select,textarea{font:inherit;color:inherit}
 .servico-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .8s var(--curva);z-index:-2}
 .servico::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,15,15,0) 0%,#0F0F0F 100%);z-index:-1}
 .servico:hover .servico-img{transform:scale(1.06)}
-.servico h3{position:absolute;left:28px;right:28px;bottom:24px;font-size:var(--h4);font-weight:500;line-height:1.2;color:var(--branco-normal)}
+.servico-txt{position:absolute;left:28px;right:28px;bottom:24px}
+.servico h3{font-size:var(--h4);font-weight:500;line-height:1.2;color:var(--branco-normal)}
+.servico-txt p{max-height:0;opacity:0;overflow:hidden;margin-top:0;font-size:.875rem;line-height:1.5;color:var(--cinza-300,#C9C9C9);transition:max-height .6s var(--curva),opacity .5s var(--curva),margin-top .6s var(--curva)}
+.servico::before{content:"";position:absolute;inset:0;border:2px solid var(--verde);border-radius:inherit;opacity:0;transition:opacity .4s var(--curva);z-index:1;pointer-events:none}
+.servico:hover::before{opacity:1}
+.servico:hover .servico-txt p{max-height:90px;opacity:1;margin-top:8px}
 .s-barra{border-radius:var(--raio-cartao);background:var(--verde)}
 .s1 .servico-img{background-image:url(../img/interior.jpg),linear-gradient(135deg,#3d3a33,#14130f)}
 .s2 .servico-img{background-image:url(../img/exterior.jpg),linear-gradient(135deg,#3a3f3c,#121513)}
@@ -272,7 +296,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .campos select.preenchido{color:var(--branco-normal)}
 .campos input:focus,.campos select:focus,.campos textarea:focus{border-color:var(--verde);background-color:#303030}
 .formulario .botao{margin-top:33px;margin-left:4px;width:calc(100% - 4px);justify-content:center;position:relative;padding:0}
-.formulario .botao .seta{position:absolute;right:10px}
+.formulario .botao .seta{position:absolute;left:10px;right:auto}.formulario .botao:hover{padding:0}.formulario .botao:hover .seta{left:calc(100% - 46px)}
 .aviso-form{margin-top:12px;font-size:.875rem;color:var(--verde-claro)}
 .aviso-form:empty{display:none}
 @media (max-width:1099px){.contato{padding-block:88px}.contato-intro{padding-top:0}.formulario{padding:36px 32px 40px}}
@@ -312,9 +336,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .missao-deco{animation:girar 90s linear infinite}
 @keyframes girar{to{transform:rotate(360deg)}}
 /* ---------- v2: abertura com o símbolo se montando ---------- */
-.abertura{position:fixed;inset:0;z-index:999;background:#070807;display:flex;align-items:center;justify-content:center;gap:clamp(12px,1.6vw,20px)}
-.abertura .ab-simbolo{width:clamp(64px,8vw,96px);height:auto;overflow:visible}
-.abertura .ab-nome{width:clamp(150px,18vw,220px);height:auto;color:#fff;opacity:0}
+.abertura{position:fixed;inset:0;z-index:999;background:#070807;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;pointer-events:none}
+.abertura .ab-simbolo{width:clamp(44px,4vw,56px);height:auto;overflow:visible}
+.abertura .ab-nome{width:clamp(78px,6.5vw,92px);height:auto;color:#fff;opacity:0}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 .lenis.lenis-stopped{overflow:hidden}
@@ -328,7 +352,10 @@ html.lenis,html.lenis body{height:auto}
 @media (max-width:1099px){.quebra-frase{display:none}}
 @media (hover:none),(pointer:coarse){
   .botao:hover,.botao-contorno:hover,.sociais a:hover,.setas button:hover,.depo:hover{transform:none;box-shadow:none}
-  .botao:hover .seta{transform:none}
+  .botao:hover{padding:0 28px 0 64px}
+  .botao:hover .seta{left:8px;transform:translateY(-50%)}
+  .formulario .botao:hover{padding:0}.formulario .botao:hover .seta{left:10px}
+  .servico:hover::before{opacity:0}.servico:hover .servico-txt p{max-height:0;opacity:0}
   .botao-contorno:hover{background:transparent}
   .sociais a:hover{background:rgba(232,232,232,.1);border-color:rgba(232,232,232,.3)}
   .setas button:hover{background:var(--verde)}
@@ -417,12 +444,14 @@ html.lenis,html.lenis body{height:auto}
 <main id="conteudo">
   <section class="hero" id="inicio" aria-labelledby="hero-titulo">
     <div class="hero-fundo" role="img" aria-label="Operário com capacete de segurança"></div>
+    <div class="hero-slide h2" aria-hidden="true"></div>
+    <div class="hero-slide h3" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-texto">
         <h1 class="h1" id="hero-titulo">Construindo o<br class="quebra"> amanhã juntos</h1>
         <p>Há cinco anos construímos e reformamos sonhos, com alta qualidade e muito cuidado com nossos clientes e projetos.</p>
         <div><a class="botao" href="#contato">Entre em contato<span class="seta" aria-hidden="true"><svg><use href="#i-seta"/></svg></span></a></div>
-        <div class="indicadores" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <div class="indicadores" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
       </div>
       <div class="sociais" aria-label="Redes sociais">
         <a href="https://wa.me/11234567890" aria-label="WhatsApp" target="_blank" rel="noopener"><svg style="color:#fff"><use href="#i-whatsapp"/></svg></a>
@@ -493,14 +522,14 @@ html.lenis,html.lenis body{height:auto}
       </div>
       <div class="servicos-grade">
         <div class="linha-servicos ls1">
-        <article class="servico s1 rv"><div class="servico-img" role="img" aria-label="Varanda reformada"></div><h3>Reformas internas</h3></article>
-        <article class="servico s2 rv" style="--atraso:80ms"><div class="servico-img" role="img" aria-label="Cozinha reformada"></div><h3>Reformas externas</h3></article>
-        <article class="servico s3 rv" style="--atraso:160ms"><div class="servico-img" role="img" aria-label="Trabalhador na estrutura de um telhado"></div><h3>Reformas estruturais</h3></article>
+        <article class="servico s1 rv"><div class="servico-img" role="img" aria-label="Varanda reformada"></div><div class="servico-txt"><h3>Reformas internas</h3><p>Cozinhas, banheiros e ambientes renovados com acabamento de qualidade.</p></div></article>
+        <article class="servico s2 rv" style="--atraso:80ms"><div class="servico-img" role="img" aria-label="Cozinha reformada"></div><div class="servico-txt"><h3>Reformas externas</h3><p>Fachadas, telhados e áreas externas mais bonitas e protegidas.</p></div></article>
+        <article class="servico s3 rv" style="--atraso:160ms"><div class="servico-img" role="img" aria-label="Trabalhador na estrutura de um telhado"></div><div class="servico-txt"><h3>Reformas estruturais</h3><p>Reforços e ajustes que garantem segurança e durabilidade à construção.</p></div></article>
         </div>
         <div class="linha-servicos ls2">
         <div class="s-barra rv" aria-hidden="true"></div>
-        <article class="servico s4 rv" style="--atraso:80ms"><div class="servico-img" role="img" aria-label="Técnico instalando janelas eficientes"></div><h3>Eficiência energética</h3></article>
-        <article class="servico s5 rv" style="--atraso:160ms"><div class="servico-img" role="img" aria-label="Equipe trabalhando em um espaço comercial"></div><h3>Reformas comerciais</h3></article>
+        <article class="servico s4 rv" style="--atraso:80ms"><div class="servico-img" role="img" aria-label="Técnico instalando janelas eficientes"></div><div class="servico-txt"><h3>Eficiência energética</h3><p>Janelas, isolamento e soluções que reduzem o consumo de energia.</p></div></article>
+        <article class="servico s5 rv" style="--atraso:160ms"><div class="servico-img" role="img" aria-label="Equipe trabalhando em um espaço comercial"></div><div class="servico-txt"><h3>Reformas comerciais</h3><p>Espaços de trabalho funcionais, prontos para receber clientes e equipe.</p></div></article>
         </div>
       </div>
     </div>
@@ -656,10 +685,11 @@ html.lenis,html.lenis body{height:auto}
   }
 
   /* topo + frases ao rolar (um único handler) */
-  var topo = $('#topo'), frases = $$('.frase'), secFrases = $('.frases'), pedido = false;
+  var heroSec = $('.hero'), topo = $('#topo'), frases = $$('.frase'), secFrases = $('.frases'), pedido = false;
   function aoRolar(){
     pedido = false;
-    topo.classList.toggle('rolou', window.scrollY > 40);
+    topo.classList.toggle('rolou', window.scrollY > 200);
+    heroSec.classList.toggle('passou', window.scrollY > heroSec.offsetHeight + 40);
   }
   window.addEventListener('scroll', function(){ if (!pedido) { pedido = true; requestAnimationFrame(aoRolar); } }, { passive: true });
   aoRolar();
@@ -743,28 +773,45 @@ html.lenis,html.lenis body{height:auto}
     var barras = ab.querySelectorAll('rect'), atrasos = [0.3, 0.2, 0.1, 0.4, 0.4, 0.5, 0.2, 0.3, 0.35];
     barras.forEach(function(b, i){ tl.from(b, { attr: { height: 0 }, duration: 1.3, ease: 'expo.out' }, atrasos[i]); });
     tl.from(ab.querySelector('.ab-simbolo'), { rotation: 90, transformOrigin: '50% 50%', duration: 2, ease: 'power3.out' }, 0)
-      .to(ab.querySelector('.ab-nome'), { opacity: 1, x: 0, duration: 1.2 }, 0.7)
-      .from(ab.querySelector('.ab-nome'), { x: -24, duration: 1.2 }, 0.7)
-      .to(ab, { opacity: 0, duration: 0.8, ease: 'power2.inOut', onComplete: function(){ ab.remove(); if (lenis) lenis.start(); } }, 2.1);
+      .to(ab.querySelector('.ab-nome'), { opacity: 1, y: 0, duration: 1.2 }, 0.8)
+      .from(ab.querySelector('.ab-nome'), { y: 8, duration: 1.2 }, 0.8)
+      .to(ab, { backgroundColor: 'rgba(7,8,7,0)', duration: 1, ease: 'power2.inOut' }, 2.1)
+      .to(ab.children, { opacity: 0, scale: 0.9, duration: 0.6, ease: 'power2.in', onComplete: function(){ ab.remove(); if (lenis) lenis.start(); } }, 2.7);
   } else if (lenis) lenis.start();
 
   /* entrada do topo e do hero */
-  tl.from('.topo .marca, .topo nav li, .topo .botao', { y: 60, opacity: 0, duration: 1.4, stagger: 0.08 }, ab ? 2.3 : 0)
-    .from('.hero-fundo', { scale: 1.12, duration: 2.4, ease: 'power3.out' }, '<')
-    .from('.hero-texto > *', { x: -120, opacity: 0, duration: 1.6, stagger: 0.14 }, '<0.15')
-    .from('.hero .sociais a', { y: 30, opacity: 0, duration: 1, stagger: 0.08 }, '<0.4');
+  // como no site oficial: o título do hero entra primeiro, da esquerda e devagar; depois o topo (logo, menu e, com atraso, o botão)
+  var t0 = ab ? 2.4 : 0;
+  tl.from('.hero-texto > *', { x: -200, opacity: 0, duration: 3, stagger: 0.3, clearProps: 'transform,opacity' }, t0)
+    .from('.hero .sociais a', { x: -200, opacity: 0, duration: 3, stagger: 0.12, clearProps: 'transform,opacity' }, t0 + 1)
+    // topo inteiro entra junto: logo, menu e botão no mesmo movimento
+    .from('.topo .marca, .topo nav li, .topo .botao', { y: 60, opacity: 0, duration: 1.4, stagger: 0.08, clearProps: 'all' }, t0 + 0.5);
+
+  /* hero: três fotos se alternando, com os tracinhos acompanhando */
+  var camadas = [document.querySelector('.hero-fundo')].concat([].slice.call(document.querySelectorAll('.hero-slide')));
+  var tracos = [].slice.call(document.querySelectorAll('.indicadores span')), atual = 0;
+  setInterval(function(){
+    if (document.hidden) return;
+    var prox = (atual + 1) % camadas.length;
+    if (camadas[prox].classList.contains('hero-slide')) camadas[prox].classList.add('on');
+    if (camadas[atual].classList.contains('hero-slide')) camadas[atual].classList.remove('on');
+    if (prox === 0) camadas.forEach(function(c){ if (c.classList.contains('hero-slide')) c.classList.remove('on'); });
+    tracos.forEach(function(t){ t.classList.remove('on'); });
+    void tracos[prox].offsetWidth; tracos[prox].classList.add('on');
+    atual = prox;
+  }, 5000);
 
   /* seções entram da esquerda ao rolar */
   gsap.utils.toArray('main section').forEach(function(sec){
     var itens = sec.querySelectorAll('.rv');
     if (!itens.length) return;
-    gsap.from(itens, { x: -120, opacity: 0, duration: 1.5, ease: curva, stagger: 0.12,
+    gsap.from(itens, { x: -120, opacity: 0, duration: 1.5, ease: curva, stagger: 0.12, clearProps: 'transform,opacity',
       scrollTrigger: { trigger: sec, start: 'top 80%' } });
   });
 
   /* imagem da obra cresce com a rolagem */
-  gsap.from('#video', { scale: 0.55, y: 80, borderRadius: 24, ease: 'none',
-    scrollTrigger: { trigger: '#video', start: 'top 95%', end: 'top 35%', scrub: 1.5 } });
+  gsap.from('#video', { scale: 0.45, y: 80, borderRadius: 32, ease: 'none',
+    scrollTrigger: { trigger: '#video', start: 'top 95%', end: 'top 20%', scrub: 1.5 } });
 
   /* frases chegam de lados diferentes, presas à rolagem */
   [['.f1', { x: -220 }], ['.f2', { x: 220 }], ['.f3', { y: 70 }]].forEach(function(f){

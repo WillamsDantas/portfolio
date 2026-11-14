@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Parreira · Construindo o amanhã juntos</title>
+<meta name="description" content="Há cinco anos construímos e reformamos sonhos, com alta qualidade e muito cuidado com nossos clientes e projetos.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#070807">
+<meta property="og:title" content="Parreira · Construindo o amanhã juntos">
+<meta property="og:description" content="Construção e reforma com alta qualidade e cuidado em cada projeto.">
+<meta property="og:type" content="website">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="preload" href="../fonts/lexend-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../img/hero.jpg" as="image" media="(min-width:900px)">
+<link rel="preload" href="../img/hero-m.jpg" as="image" media="(max-width:899px)">
+<style>
+@font-face{font-family:"Lexend";font-weight:400;font-style:normal;font-display:swap;src:url(../fonts/lexend-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Lexend";font-weight:500;font-style:normal;font-display:swap;src:url(../fonts/lexend-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Mukta";font-weight:400;font-style:normal;font-display:swap;src:url(../fonts/mukta-latin-400-normal.woff2) format("woff2")}
+
+:root{
+  /* cores do style guide Parreira */
+  --preto-escuro:#070807;
+  --preto:#0F0F0F;
+  --preto-claro:#1C1C1C;
+  --preto-clarissimo:#2A2A2A;
+  --branco:#FFFFFF;
+  --branco-normal:#F3F3F3;
+  --branco-escuro:#E8E8E8;
+  --cinza-100:#C4C4C4;
+  --cinza-400:#A2A2A2;
+  --cinza-500:#969696;
+  --cinza-600:#8A8A8A;
+  --verde:#0AA76A;
+  --verde-claro:#0ED285;
+  --verde-marca:#22BE83;
+
+  --fonte:"Lexend",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fonte-campo:"Mukta",system-ui,sans-serif;
+
+  --h1:clamp(2.25rem,.9rem + 3.9vw,4.5rem);
+  --h2:clamp(1.75rem,.95rem + 2.5vw,3.5rem);
+  --h4:clamp(1.25rem,1rem + .7vw,1.75rem);
+  --h5:1.125rem;
+  --h6:1rem;
+
+  --largura:1216px;
+  --gut:clamp(20px,5vw,24px);
+  --curva:cubic-bezier(.2,.7,.2,1);
+  --raio-botao:16px;
+  --raio-cartao:20px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--preto-escuro);color:var(--branco-normal);font-family:var(--fonte);font-weight:400;font-size:var(--h6);line-height:1.4;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p,ul,ol{margin:0}
+ul,ol{padding:0;list-style:none}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pular{position:absolute;left:12px;top:-60px;z-index:100;background:var(--verde);color:var(--branco);padding:10px 16px;border-radius:12px;text-decoration:none}
+.pular:focus{top:12px}
+.container{width:min(var(--largura),100% - var(--gut)*2);margin-inline:auto}
+
+.rotulo{display:block;color:var(--verde-claro);font-size:var(--h6);line-height:1.4;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
+.h1{font-size:var(--h1);font-weight:500;line-height:1;letter-spacing:-.01em}
+.h2{font-size:var(--h2);font-weight:500;line-height:1.1;letter-spacing:-.01em}
+.h4{font-size:var(--h4);font-weight:500;line-height:1.2}
+
+/* ---------- botões ---------- */
+.botao{display:inline-flex;align-items:center;gap:20px;height:52px;padding:0 8px 0 32px;border-radius:var(--raio-botao);background:var(--verde);color:var(--branco);font-size:.875rem;font-weight:500;text-decoration:none;border:0;cursor:pointer;transition:transform .25s var(--curva),box-shadow .25s,background-color .25s}
+.botao:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(10,167,106,.6)}
+.botao:active{transform:scale(.98)}
+.botao .seta{width:36px;height:36px;border-radius:12px;background:var(--branco-escuro);display:grid;place-items:center;flex:none;transition:transform .3s var(--curva)}
+.botao:hover .seta{transform:rotate(45deg)}
+.botao .seta svg{width:13px;height:13px}
+.botao-contorno{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 40px;border-radius:var(--raio-botao);border:2px solid var(--verde);color:var(--branco);font-size:.875rem;font-weight:500;text-decoration:none;transition:background-color .25s,transform .25s var(--curva)}
+.botao-contorno:hover{background:rgba(10,167,106,.15);transform:translateY(-2px)}
+
+/* ---------- topo ---------- */
+.topo{position:fixed;inset:26px 0 auto;z-index:50;transition:inset .35s var(--curva)}
+.topo-faixa{height:80px;border-block:1px solid rgba(232,232,232,.3);background:rgba(232,232,232,.1);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background-color .35s}
+.topo.rolou{inset-block-start:0}
+.topo.rolou .topo-faixa{background:rgba(7,8,7,.72)}
+.topo .container{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.marca{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+.marca .simbolo{width:40px;height:40px}
+.marca .nome{width:113px;height:17px}
+.topo nav ul{display:flex;gap:48px}
+.topo nav a{text-decoration:none;color:var(--branco);font-size:var(--h6);position:relative;padding:6px 0}
+.topo nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--verde-claro);transform:scaleX(0);transform-origin:0 50%;transition:transform .3s var(--curva)}
+.topo nav a:hover::after,.topo nav a[aria-current="true"]::after{transform:scaleX(1)}
+@media (max-width:899px){.topo nav{display:none}.topo .botao{padding-left:20px;gap:12px}}
+@media (max-width:420px){.topo .botao .texto{display:none}.topo .botao{padding:0 8px}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:min(807px,100svh);display:flex;align-items:center;padding-block:160px 64px;overflow:hidden;isolation:isolate}
+.hero-fundo{position:absolute;inset:-13px 0 0;z-index:-2;background:url(../img/hero.jpg) 75% 30%/cover no-repeat,url(../img/lqip-hero.jpg) 75% 30%/cover no-repeat;transform:scale(1.06);animation:aproximar 2.4s var(--curva) forwards}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,8,7,.85) 0%,rgba(7,8,7,.45) 45%,rgba(7,8,7,0) 75%),linear-gradient(0deg,var(--preto-claro) 0%,rgba(28,28,28,0) 40%)}
+.hero .container{position:relative}
+.hero-texto{max-width:600px;display:flex;flex-direction:column;gap:32px}
+.hero-texto p{color:var(--cinza-400);font-size:var(--h6);line-height:1.4}
+.indicadores{display:flex;gap:16px;margin-top:32px}
+.indicadores span{width:48px;height:2px;background:rgba(255,255,255,.3);position:relative;overflow:hidden}
+.indicadores span:first-child::after{content:"";position:absolute;inset:0;background:var(--branco);transform-origin:0 50%;animation:encher 5s linear infinite}
+.sociais{display:flex;gap:17px}
+.sociais a{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:rgba(232,232,232,.1);border:1px solid rgba(232,232,232,.3);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background-color .25s,transform .25s var(--curva)}
+.sociais a:hover{background:var(--verde);border-color:var(--verde);transform:translateY(-3px)}
+.sociais svg{width:20px;height:20px}
+.hero .sociais{position:absolute;right:0;bottom:-8px}
+@media (max-width:899px){.hero-fundo{background-image:url(../img/hero-m.jpg),url(../img/lqip-hero.jpg);background-position:82% 20%}.hero::after{background:linear-gradient(90deg,rgba(7,8,7,.88) 0%,rgba(7,8,7,.6) 55%,rgba(7,8,7,.25) 100%),linear-gradient(0deg,var(--preto-claro) 0%,rgba(28,28,28,0) 40%)}.hero{min-height:0;padding-block:150px 72px}.hero .sociais{position:static;margin-top:40px}}
+
+/* ---------- missão ---------- */
+.missao{position:relative;background:var(--preto-claro);padding-block:97px 82px;overflow:hidden}
+.missao-deco{position:absolute;left:10px;top:33px;width:571px;height:569px;opacity:.1;pointer-events:none}
+.missao-grade{position:relative;display:grid;grid-template-columns:335px 1fr;gap:clamp(40px,5.6vw,81px)}
+.missao-intro{display:flex;flex-direction:column;align-items:flex-start}
+.missao-intro .h2{margin-top:13px}
+.missao-intro p{margin-top:13px;color:var(--cinza-500);max-width:334px}
+.missao-intro .botao{margin-top:45px}
+.numeros{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,2.2vw,32px)}
+.numero dt{font-size:var(--h5);color:var(--branco-normal)}
+.numero dt::after{content:"";display:block;height:1px;background:rgba(243,243,243,.2);margin-top:18px}
+.numero dd{margin:26px 0 0;font-size:clamp(2rem,1.6rem + 1.6vw,2.5rem);line-height:1.15;color:var(--verde-claro);font-weight:500;font-variant-numeric:tabular-nums}
+.missao-texto{margin-top:48px;max-width:682px;color:var(--cinza-600)}
+.missao-rodape{position:relative;margin-top:105px;padding-top:42px;border-top:1px solid rgba(243,243,243,.2);display:flex;align-items:center;gap:48px}
+.missao-rodape .simbolo{width:44px;height:44px;margin-left:15px;flex:none}
+.missao-rodape .h4{max-width:488px;color:var(--branco);margin-left:41px}
+.missao-rodape .botao-contorno{margin-left:auto}
+@media (max-width:699px){.numeros{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}}
+@media (max-width:1199px){
+  .missao{padding-block:80px 64px}
+  .missao-deco{width:360px;height:360px;left:auto;right:-80px;top:-40px}
+  .missao-rodape{margin-top:64px}
+  .missao-grade{grid-template-columns:1fr;gap:56px}
+  .missao-rodape{flex-wrap:wrap;gap:24px}
+  .missao-rodape .h4{margin-left:0;flex:1 1 260px}
+  .missao-rodape .simbolo{margin-left:0}
+  .missao-rodape .botao-contorno{margin-left:0}
+}
+
+/* ---------- sobre ---------- */
+.sobre{padding-top:102px;text-align:center}
+.sobre .h1{max-width:670px;margin:0 auto}
+.sobre-titulo{margin-top:6px}
+.video{position:relative;margin-top:clamp(56px,10vw,142px);height:clamp(300px,44vw,626px);overflow:hidden}
+.video-img{position:absolute;inset:0 -21px;background:url(../img/obra.jpg) center/cover no-repeat,linear-gradient(180deg,#26302a,#0d120f);transform:scale(1.08);transition:transform 1.4s var(--curva)}
+.video.dentro .video-img{transform:scale(1)}
+.video::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--preto-escuro) 0%,rgba(7,8,7,0) 100%)}
+.controles{position:absolute;left:50%;bottom:28%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:32px}
+.controles button{background:none;border:0;padding:0;cursor:pointer}
+.controles .play{width:96px;height:96px;border-radius:50%;position:relative;isolation:isolate}
+.controles svg{width:100%;height:100%}
+.controles .play::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--verde);animation:pulso 2.4s ease-out infinite;z-index:-1}
+.controles .pular-video{width:24px;height:24px;opacity:.9;transition:opacity .2s,transform .2s}
+.controles .pular-video:hover{opacity:1;transform:scale(1.1)}
+@media (max-width:767px){.sobre{padding-top:72px}.video{margin-top:56px;height:360px}.controles{top:auto;bottom:72px}.controles .play{width:72px;height:72px}}
+
+/* ---------- frases ---------- */
+.frases{padding-block:136px 149px;overflow:hidden}
+.frase{display:flex;align-items:center;gap:20px;white-space:nowrap;font-size:clamp(2rem,.9rem + 4vw,4.5rem);font-weight:500;line-height:1;will-change:transform}
+.frase+.frase{margin-top:56px}
+.frase.verde{color:var(--verde)}
+.frase .nw{display:inline-flex;align-items:center;gap:inherit;white-space:nowrap}
+.frase .selo{width:72px;height:72px;border-radius:50%;background:var(--verde);display:grid;place-items:center;flex:none}
+.frase .selo svg{width:27px;height:27px}
+.f1{padding-left:129px}.f2{padding-left:103px;gap:17px}.f3{padding-left:0}.f4{padding-left:118px}
+@media (min-width:1100px){.frases-bloco{width:fit-content;margin-inline:auto}}
+@media (min-width:1441px){.frase{font-size:5vw;gap:1.39vw}.frase+.frase{margin-top:3.9vw}.frase .selo{width:5vw;height:5vw}.f1{padding-left:8.96vw}.f2{padding-left:7.15vw;gap:1.18vw}.f3{padding-left:0}.f4{padding-left:8.19vw}}
+@media (max-width:1099px){.frases{padding-block:88px 96px}.frase{white-space:normal;flex-wrap:wrap;line-height:1.1;gap:16px;width:min(var(--largura),100% - var(--gut)*2);margin-inline:auto;transform:none!important}.frase+.frase{margin-top:32px}.f1,.f2,.f3,.f4{padding-left:0}.frase .selo{width:clamp(44px,6vw,64px);height:clamp(44px,6vw,64px)}.frase .selo svg{width:40%;height:40%}.frase{display:block}.frase .nw{display:inline}.frase .selo{display:inline-grid;vertical-align:middle}.f1 .selo,.f3 .selo{margin-left:14px}.f2 .selo{margin-right:14px}}
+
+/* ---------- serviços ---------- */
+.servicos{padding-bottom:173px}
+.servicos .h2{margin-top:0}
+.servicos-grade{margin-top:79px;display:flex;flex-direction:column;gap:36px}
+.linha-servicos{display:grid;gap:32px;grid-auto-rows:280px}
+.ls1{grid-template-columns:488fr 280fr 384fr}
+.ls2{grid-template-columns:72fr 488fr 592fr}
+.servico{position:relative;border-radius:var(--raio-cartao);overflow:hidden;background:#1a1f1c;isolation:isolate;text-decoration:none}
+.servico-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .8s var(--curva);z-index:-2}
+.servico::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,15,15,0) 0%,#0F0F0F 100%);z-index:-1}
+.servico:hover .servico-img{transform:scale(1.06)}
+.servico h3{position:absolute;left:28px;right:28px;bottom:24px;font-size:var(--h4);font-weight:500;line-height:1.2;color:var(--branco-normal)}
+.s-barra{border-radius:var(--raio-cartao);background:var(--verde)}
+.s1 .servico-img{background-image:url(../img/interior.jpg),linear-gradient(135deg,#3d3a33,#14130f)}
+.s2 .servico-img{background-image:url(../img/exterior.jpg),linear-gradient(135deg,#3a3f3c,#121513)}
+.s3 .servico-img{background-image:url(../img/structural.jpg),linear-gradient(135deg,#4a4a3b,#141410)}
+.s4 .servico-img{background-image:url(../img/energy.jpg),linear-gradient(135deg,#3a3d42,#111215)}
+.s5 .servico-img{background-image:url(../img/commercial.jpg),linear-gradient(135deg,#40382f,#15120f)}
+@media (max-width:999px){.ls1{grid-template-columns:1fr 1fr}.s3{grid-column:1/-1}.ls2{grid-template-columns:1fr 1fr}.s-barra{display:none}.linha-servicos{gap:20px}.servicos-grade{gap:20px}}
+@media (max-width:599px){.servicos{padding-bottom:96px}.servicos-grade{margin-top:40px;gap:16px}.ls1,.ls2{grid-template-columns:1fr;grid-auto-rows:240px;gap:16px}}
+
+/* ---------- depoimentos ---------- */
+.depoimentos{background:var(--preto-claro);padding-block:139px 181px}
+.depo-topo{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.setas{display:flex;gap:32px}
+.setas button{width:48px;height:48px;border-radius:12px;background:var(--verde);border:0;display:grid;place-items:center;cursor:pointer;transition:transform .25s var(--curva),background-color .25s}
+.setas button:hover{transform:translateY(-2px);background:var(--verde-claro)}
+.setas svg{width:16px;height:16px}
+.depo-trilho{margin-top:87px;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 64px)/3);gap:32px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth;padding-block:8px}
+.depo-trilho::-webkit-scrollbar{display:none}
+.depo{margin:0;scroll-snap-align:start;height:280px;border-radius:var(--raio-cartao);background:var(--preto-clarissimo);padding:50px 36px 28px 36px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .3s var(--curva)}
+.depo:hover{transform:translateY(-4px)}
+.depo blockquote{margin:0;font-size:var(--h6);line-height:1.4;color:var(--branco)}
+.depo figcaption{display:flex;align-items:center;gap:13px;margin-left:-7px}
+.depo figcaption svg{width:56px;height:56px;flex:none}
+.depo cite{font-style:normal;color:var(--verde-claro);display:block}
+.depo small{color:var(--cinza-600);font-size:.875rem}
+@media (max-width:1099px){.depoimentos{padding-block:96px}.depo-trilho{margin-top:48px;grid-auto-columns:calc((100% - 24px)/2);gap:24px}.depo{height:auto;min-height:260px;gap:32px}}
+@media (max-width:599px){.depoimentos{padding-block:80px}.depo-trilho{grid-auto-columns:88%;gap:16px}.setas{gap:12px}}
+
+/* ---------- perguntas ---------- */
+.duvidas{padding-block:172px 179px}
+.duvidas-grade{display:grid;grid-template-columns:314px 1fr;gap:clamp(64px,14vw,206px)}
+.duvidas-intro .h1{margin-top:28px}
+.duvidas-intro p{margin-top:33px;color:var(--cinza-600)}
+.chave{margin-top:47px;display:flex;align-items:center;width:134px;height:56px}
+.chave span{width:56px;height:56px;border-radius:50%;display:grid;place-items:center}
+.chave .c1{background:var(--verde);z-index:2}
+.chave .c1 svg{width:27px;height:27px}
+.chave .c2{background:var(--verde-claro);margin-left:-15px;z-index:1;opacity:.55}
+.chave .c3{background:var(--branco-normal);margin-left:-19px;opacity:.12}
+.pergunta{border-bottom:1px solid rgba(243,243,243,.2)}
+.pergunta h3{font-size:var(--h6);font-weight:400}
+.pergunta button{width:100%;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding:22px 0;background:none;border:0;cursor:pointer;text-align:left;color:var(--branco-normal);line-height:1.4}
+.pergunta:first-child button{padding-top:0}
+.pergunta button span:first-child{max-width:536px}
+.pergunta .mais{width:14px;height:14px;flex:none;margin:4px 23px 0 0;transition:transform .35s var(--curva)}
+.pergunta button[aria-expanded="true"] .mais{transform:rotate(45deg)}
+.resposta{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--curva)}
+.resposta>div{overflow:hidden}
+.resposta p{padding:0 60px 24px 0;color:var(--cinza-600);max-width:600px}
+.pergunta.aberta .resposta{grid-template-rows:1fr}
+@media (max-width:1099px){.duvidas{padding-block:96px}.duvidas-grade{grid-template-columns:1fr;gap:48px}.duvidas-intro p{max-width:560px}.pergunta button span:first-child{max-width:none}}
+
+/* ---------- faixa corrida ---------- */
+.faixa{overflow:hidden;padding-block:14px;white-space:nowrap}
+.faixa-trilho{display:inline-flex;gap:0;animation:correr 32s linear infinite}
+.faixa span{font-size:var(--h4);font-weight:500;line-height:1.2;padding-right:24px}
+.faixa .v{color:var(--verde-claro)}
+.faixa:hover .faixa-trilho{animation-play-state:paused}
+
+/* ---------- contato ---------- */
+.contato{position:relative;padding-block:117px 117px;overflow:hidden;isolation:isolate}
+.contato-fundo{position:absolute;inset:0 -76px 0 -108px;z-index:-2;background:url(../img/hero-2.jpg) center/cover no-repeat,radial-gradient(ellipse at 70% 40%,#0f3a26 0%,#070807 70%)}
+.contato::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#000 0%,rgba(0,0,0,0) 100%)}
+.contato-grade{display:grid;grid-template-columns:minmax(0,592px) minmax(360px,488px);justify-content:space-between;align-items:start;gap:48px}
+.contato-intro{padding-top:57px}
+.contato-intro .rotulo{color:var(--verde)}
+.contato-intro .h2{margin-top:6px}
+.contato-intro p{margin-top:24px;max-width:444px;color:var(--cinza-100)}
+.contatos{margin-top:61px;display:flex;flex-direction:column;gap:22px}
+.contatos a{display:flex;align-items:center;gap:15px;color:var(--verde-claro);font-size:var(--h5);text-decoration:none}
+.contatos a span{transition:transform .25s var(--curva)}
+.contatos a:hover span{transform:translateX(4px)}
+.contatos a>svg{width:64px;height:64px;flex:none}
+.formulario{background:var(--preto);border:2px solid var(--preto-claro);border-radius:24px;box-shadow:0 18px 80px rgba(0,0,0,.4);padding:44px 53px 52px 43px}
+.formulario .icone{width:64px;height:64px}
+.formulario h2{margin-top:11px;font-size:var(--h4);font-weight:500;line-height:1.2}
+.campos{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:17px 11px;margin-left:4px}
+.campos .todo{grid-column:1/-1}
+.campos label{display:block}
+.campos input,.campos select,.campos textarea{width:100%;height:52px;border-radius:16px;background:var(--preto-clarissimo);border:1px solid transparent;padding:0 21px;font-family:var(--fonte-campo);font-size:1rem;line-height:1.5;color:var(--branco-normal);outline:none;transition:border-color .2s,background-color .2s}
+.campos textarea{height:52px;padding-top:13px;resize:vertical;min-height:52px}
+.campos ::placeholder{color:var(--cinza-500)}
+.campos select{appearance:none;-webkit-appearance:none;color:var(--cinza-500);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M10.17 0H1C.11 0-.33 1.08.29 1.71l4.59 4.58a1 1 0 0 0 1.41 0l4.59-4.58C11.51 1.08 11.06 0 10.17 0Z' fill='%230AA76A'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 19px center;padding-right:44px}
+.campos select.preenchido{color:var(--branco-normal)}
+.campos input:focus,.campos select:focus,.campos textarea:focus{border-color:var(--verde);background-color:#303030}
+.formulario .botao{margin-top:33px;margin-left:4px;width:calc(100% - 4px);justify-content:center;position:relative;padding:0}
+.formulario .botao .seta{position:absolute;right:10px}
+.aviso-form{margin-top:12px;font-size:.875rem;color:var(--verde-claro)}
+.aviso-form:empty{display:none}
+@media (max-width:1099px){.contato{padding-block:88px}.contato-intro{padding-top:0}.formulario{padding:36px 32px 40px}}
+@media (max-width:899px){.contato-grade{grid-template-columns:1fr}}
+@media (max-width:520px){.formulario{padding:32px 20px}.campos{grid-template-columns:1fr;margin-left:0}.formulario .botao{margin-left:0;width:100%}}
+
+/* ---------- rodapé ---------- */
+.rodape{background:var(--preto-claro);padding-block:62px calc(57px + env(safe-area-inset-bottom))}
+.rodape-grade{display:grid;grid-template-columns:1fr auto;gap:40px}
+.rodape .marca{margin-left:4px}
+.rodape dl{margin:51px 0 0 4px}
+.rodape dt{color:var(--verde-claro)}
+.rodape dd{margin:0;font-size:.8125rem;color:var(--branco);line-height:1.4}
+.rodape dd+dt{margin-top:24px}
+.rodape dt+dd{margin-top:10px}
+.rodape dd a{text-decoration:underline;text-underline-offset:2px}
+.rodape .sociais{margin-top:46px;margin-left:-5px}
+.rodape .sociais a{background:transparent}
+.rodape nav{padding-top:95px;padding-right:118px}
+.rodape nav ul{display:flex;flex-direction:column;gap:27px}
+.rodape nav a{text-decoration:none;color:var(--branco);transition:color .2s}
+.rodape nav a:hover{color:var(--verde-claro)}
+.rodape-base{margin-top:47px;padding-top:48px;border-top:1px solid rgba(243,243,243,.2);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;font-size:.8125rem}
+.rodape-base .verde{color:var(--verde)}
+.rodape-base ul{display:flex;gap:24px 40px;justify-self:end}
+.rodape-base ul a{color:var(--cinza-600);text-decoration:none}
+.rodape-base ul a:hover{color:var(--branco)}
+@media (max-width:1099px){.rodape nav{padding-right:0}.rodape-base{grid-template-columns:1fr;justify-items:start;gap:12px}.rodape-base ul{justify-self:start;flex-wrap:wrap}}
+@media (max-width:767px){.rodape-grade{grid-template-columns:1fr}.rodape nav{padding:0}.rodape nav ul{flex-direction:row;flex-wrap:wrap;gap:16px 32px}}
+
+/* ---------- movimento ---------- */
+@keyframes aproximar{to{transform:scale(1)}}
+@keyframes encher{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pulso{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.6);opacity:0}}
+@keyframes correr{to{transform:translateX(-50%)}}
+@keyframes subir{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.missao-deco{animation:girar 90s linear infinite}
+@keyframes girar{to{transform:rotate(360deg)}}
+/* ---------- v2: abertura com o símbolo se montando ---------- */
+.abertura{position:fixed;inset:0;z-index:999;background:#070807;display:flex;align-items:center;justify-content:center;gap:clamp(12px,1.6vw,20px)}
+.abertura .ab-simbolo{width:clamp(64px,8vw,96px);height:auto;overflow:visible}
+.abertura .ab-nome{width:clamp(150px,18vw,220px);height:auto;color:#fff;opacity:0}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .rv,.js .hero-texto>*,.js .hero .sociais a{opacity:1!important;transform:none!important}
+  .frase{transform:none!important}
+}
+
+@media (max-width:699px){.quebra{display:none}}
+@media (max-width:1099px){.quebra-frase{display:none}}
+@media (hover:none),(pointer:coarse){
+  .botao:hover,.botao-contorno:hover,.sociais a:hover,.setas button:hover,.depo:hover{transform:none;box-shadow:none}
+  .botao:hover .seta{transform:none}
+  .botao-contorno:hover{background:transparent}
+  .sociais a:hover{background:rgba(232,232,232,.1);border-color:rgba(232,232,232,.3)}
+  .setas button:hover{background:var(--verde)}
+  .servico:hover .servico-img{transform:none}
+  .contatos a:hover span{transform:none}
+}
+.botao,.botao-contorno,.setas button,.sociais a,.controles button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+</style>
+<script>
+(function(){
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+  function inicio(){ window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }
+  window.addEventListener('load', inicio);
+  window.addEventListener('pageshow', function(e){ if (e.persisted) inicio(); });
+})();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="g-verde" x1="0" y1="0" x2="0" y2="1"><stop offset=".638" stop-color="#22BE83"/><stop offset="1" stop-color="#22BE83" stop-opacity=".2"/></linearGradient>
+    <linearGradient id="g-branco" x1="0" y1="0" x2="0" y2="1"><stop offset=".638" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".2"/></linearGradient>
+  </defs>
+  <symbol id="marca" viewBox="0 0 571 569"><g>
+    <rect x="416.298" y="56.0381" width="50.2905" height="237.084" transform="rotate(6 416.298 56.0381)"/>
+    <rect x="237.778" y="27.6273" width="50.2905" height="237.084" transform="rotate(-33.3227 237.778 27.6273)"/>
+    <rect x="81.1768" y="119.123" width="50.2905" height="237.084" transform="rotate(-72.6306 81.1768 119.123)"/>
+    <rect x="18.9951" y="288.422" width="50.2905" height="237.084" transform="rotate(-112.192 18.9951 288.422)"/>
+    <rect x="77.208" y="459.315" width="50.2905" height="237.084" transform="rotate(-151.449 77.208 459.315)"/>
+    <rect x="231.487" y="554.079" width="50.2905" height="237.084" transform="rotate(169.269 231.487 554.079)"/>
+    <rect x="410.496" y="529.575" width="50.2905" height="237.084" transform="rotate(129.774 410.496 529.575)"/>
+    <rect x="533.505" y="397.305" width="50.2905" height="237.084" transform="rotate(90.523 533.505 397.305)"/>
+    <rect x="535.627" y="191.822" width="50.2905" height="237.084" transform="rotate(45.301 535.627 191.822)"/>
+  </g></symbol>
+  <symbol id="nome" viewBox="0 0 113 17"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M79.5083 0.145305C79.4775 0.225146 79.4667 0.703105 79.4844 1.20731L79.5165 2.12402L80.5851 2.15517L81.6537 2.18632V1.09316V0H80.6091C79.8395 0 79.5496 0.0382323 79.5083 0.145305ZM3.10251 3.62173C3.00584 3.74982 2.41125 5.44751 2.41125 5.59554C2.41125 5.63323 4.72331 5.66405 7.54919 5.66405C11.7988 5.66405 12.7088 5.69019 12.8133 5.81524C12.8983 5.91708 12.9296 6.44166 12.909 7.42187L12.8783 8.87731L8.19277 8.90574L3.50727 8.93406V10.0222V11.1103H8.75186C12.0625 11.1103 14.1156 11.069 14.3198 10.9982C14.4976 10.9366 14.7392 10.7283 14.8567 10.5352C15.0544 10.2104 15.0703 9.9659 15.0703 7.23866C15.0703 4.62274 15.0489 4.26057 14.8795 4.00361C14.7685 3.835 14.5167 3.66671 14.2767 3.60049C14.0166 3.5287 11.8999 3.48655 8.53495 3.48622C4.39856 3.48568 3.1823 3.51607 3.10251 3.62173ZM16.8157 3.63088C16.7849 3.71072 16.7742 4.18868 16.7918 4.69289L16.824 5.60959L23.2357 5.66405L29.6474 5.71851L29.6778 7.32515L29.708 8.93178H25.0975C20.6729 8.93178 20.4692 8.94071 20.0486 9.15398C19.476 9.44426 19.1814 9.9329 19.1808 10.5929L19.1804 11.1103L24.3043 11.1119C27.1224 11.1129 29.4885 11.1516 29.5622 11.1982C29.6555 11.2571 29.7053 11.776 29.7266 12.9121L29.757 14.5414L30.8257 14.5725L31.8943 14.6037L31.8926 9.45308C31.8914 5.52713 31.8582 4.2378 31.7528 4.03019C31.6767 3.8802 31.4435 3.6995 31.2338 3.62783C30.9551 3.53273 28.9786 3.49625 23.8625 3.49167C18.133 3.48666 16.8618 3.51182 16.8157 3.63088ZM34.8233 4.65934L33.6458 5.83299L33.6743 11.3854L33.7027 16.9377H34.7439H35.7852L35.84 11.437C35.8701 8.41166 35.9347 5.87515 35.9834 5.80021C36.0517 5.69542 36.9905 5.66405 40.0623 5.66405C43.8951 5.66405 44.0569 5.67233 44.1659 5.87471C44.2283 5.99061 44.2793 6.53152 44.2793 7.0768V8.06823L45.348 8.03707L46.4166 8.00592L46.4483 6.92267L46.4798 5.83942L45.2993 4.66249L44.1187 3.48557H40.0597H36.0006L34.8233 4.65934ZM49.3037 4.65117L48.1134 5.81676L48.1418 11.3772L48.1702 16.9377L49.2388 16.9688L50.3075 17V11.4627C50.3075 7.30118 50.3401 5.89301 50.439 5.79476C50.6276 5.6073 58.4267 5.6073 58.6153 5.79476C58.6998 5.87874 58.7468 6.30877 58.7468 6.99685V8.06823L59.8155 8.03707L60.8841 8.00592L60.9151 6.91385L60.946 5.82188L59.7532 4.65367L58.5604 3.48557H54.5272H50.4939L49.3037 4.65117ZM65.9198 3.60147C65.7356 3.65495 65.4713 3.81888 65.3323 3.96582C65.1399 4.1695 65.0661 4.40293 65.022 4.94744L64.9644 5.66187L70.2128 5.6902L75.4612 5.71851L75.4916 7.27068L75.522 8.82285H76.6129C77.6533 8.82285 77.7066 8.81152 77.7643 8.57777C77.7976 8.44292 77.8109 7.25434 77.7939 5.93636L77.7629 3.54003L72.0087 3.52217C68.844 3.51226 66.1039 3.54798 65.9198 3.60147ZM84.5632 4.60684L83.4074 5.7281V11.3601V16.9922H84.5034H85.5994V11.3942C85.5994 6.39014 85.6178 5.78931 85.7728 5.73017C85.8682 5.69379 87.7078 5.66405 89.861 5.66405C92.7596 5.66405 93.8099 5.69793 93.9073 5.79476C93.9918 5.87874 94.0388 6.30878 94.0388 6.99707V8.06855L95.0526 8.03729L96.0664 8.00592L96.0974 6.85906L96.1282 5.7122L94.9898 4.59888L93.8514 3.48557H89.7852H85.7192L84.5632 4.60684ZM97.948 3.55822C97.9078 3.59809 97.8749 4.08825 97.8749 4.64746V5.66405L104.204 5.66569C107.686 5.66667 110.597 5.70719 110.674 5.75577C110.78 5.82232 110.807 6.22065 110.784 7.36076L110.753 8.87731L106.021 8.93178C101.457 8.98428 101.278 8.99419 100.986 9.21084C100.487 9.58107 100.259 9.97374 100.202 10.5576L100.149 11.1103H105.305C108.141 11.1103 110.539 11.14 110.635 11.1764C110.782 11.2327 110.808 11.4907 110.808 12.9192V14.5958H111.904H113L112.998 9.50363C112.997 5.65229 112.963 4.34509 112.86 4.13912C112.785 3.98934 112.551 3.78108 112.341 3.67641C111.989 3.50104 111.406 3.4859 104.99 3.48579C101.157 3.48568 97.9881 3.51825 97.948 3.55822ZM79.4882 10.3206L79.5165 16.9377L80.5851 16.9688L81.6537 17V11.3521V5.70414L80.6273 4.70378C80.0628 4.1536 79.5691 3.70342 79.5304 3.70342C79.4917 3.70342 79.4726 6.68108 79.4882 10.3206ZM0 11.441V17L1.06862 16.9688L2.13725 16.9377L2.16563 11.4098L2.19402 5.8819H1.09701H0V11.441ZM62.6205 6.05041C62.5832 6.14746 62.5793 8.1412 62.6121 10.4808L62.6717 14.7347L63.8036 15.8635L64.9354 16.9922H71.31C77.0217 16.9922 77.6915 16.9743 77.7511 16.8198C77.8477 16.5696 77.8296 15.1098 77.7279 14.9507C77.661 14.846 76.2041 14.8091 71.2904 14.7873L64.9394 14.7592V12.962V11.1647L69.7669 11.1103C74.1187 11.0611 74.6232 11.0371 74.8862 10.8656C75.2294 10.6421 75.4387 10.0391 75.3877 9.42193L75.3516 8.98624L70.1212 8.95792L64.8907 8.92971L64.8603 7.43298L64.8298 5.93636L63.7593 5.90521C62.8546 5.87885 62.6782 5.90129 62.6205 6.05041ZM16.8459 11.3971C16.8037 11.439 16.7692 12.4383 16.7692 13.6176C16.7692 15.6674 16.7801 15.778 17.0184 16.1293C17.1554 16.3314 17.434 16.6083 17.6374 16.7445L18.0072 16.9922H23.4051H28.8032L29.0985 16.148C29.261 15.6838 29.4375 15.1936 29.4909 15.0588L29.5879 14.8137H24.3976C19.9121 14.8137 19.1886 14.7915 19.0705 14.6499C18.9707 14.5305 18.9449 14.0659 18.9749 12.9343L19.016 11.3826L17.9693 11.3516C17.3937 11.3346 16.8882 11.3551 16.8459 11.3971ZM97.8962 13.6623C97.9272 15.8225 97.9466 16.0194 98.1567 16.3038C98.2815 16.4727 98.5528 16.6966 98.7595 16.8013C99.1021 16.9751 99.6097 16.9918 104.511 16.9919L109.886 16.9922L110.197 16.0391C110.369 15.5149 110.532 15.0248 110.561 14.9498C110.601 14.8421 109.525 14.8137 105.406 14.8137C100.76 14.8137 100.193 14.7952 100.133 14.6414C100.097 14.5466 100.067 13.7623 100.067 12.8986V11.3281H98.9649H97.8628L97.8962 13.6623Z"/></symbol>
+  <symbol id="i-whatsapp" viewBox="22 22 20 20"><path fill="currentColor" d="M27.2526 38.4944L27.9774 38.917C29.1881 39.623 30.5641 40 32 40C36.4183 40 40 36.4183 40 32C40 27.5817 36.4183 24 32 24C27.5817 24 24 27.5817 24 32C24 33.4363 24.3772 34.8128 25.0837 36.0238L25.5061 36.7478L24.8526 39.1494L27.2526 38.4944ZM22.0042 42L23.3561 37.0315C22.494 35.5536 22 33.8345 22 32C22 26.4771 26.4772 22 32 22C37.5228 22 42 26.4771 42 32C42 37.5228 37.5228 42 32 42C30.1661 42 28.4475 41.5064 26.9699 40.6447L22.0042 42ZM28.3913 27.3083C28.5252 27.2989 28.6596 27.2975 28.7936 27.304C28.8478 27.3076 28.9017 27.3138 28.9556 27.3201C29.1149 27.3385 29.29 27.4355 29.3489 27.5689C29.6472 28.2454 29.9367 28.9256 30.2172 29.6096C30.2791 29.7606 30.2418 29.9563 30.124 30.1457C30.0642 30.2428 29.9703 30.379 29.8615 30.5183C29.7484 30.663 29.505 30.9291 29.505 30.9291C29.505 30.9291 29.4064 31.0473 29.4436 31.1944C29.458 31.25 29.5042 31.331 29.5461 31.3991C29.5693 31.4368 29.5908 31.4705 29.6048 31.4938C29.8607 31.9211 30.2047 32.3543 30.6249 32.7616C30.7453 32.8783 30.8621 32.9974 30.9877 33.108C31.456 33.5209 31.9858 33.8583 32.558 34.1082L32.5631 34.1105C32.6476 34.1469 32.691 34.1668 32.8147 34.2193C32.8771 34.2457 32.9409 34.2685 33.0064 34.2858C33.0301 34.292 33.0544 34.2955 33.0788 34.2972C33.2405 34.3069 33.334 34.2032 33.3739 34.1555C34.0974 33.279 34.1636 33.2218 34.1686 33.2222V33.2238C34.2637 33.1236 34.4132 33.0888 34.5466 33.097C34.6075 33.1007 34.6681 33.1124 34.7235 33.1377C35.2553 33.3803 36.1248 33.7587 36.1248 33.7587L36.7063 34.0201C36.8037 34.0671 36.8926 34.1778 36.8969 34.2854C36.8995 34.3523 36.9067 34.4603 36.8828 34.6579C36.8515 34.9166 36.7728 35.2281 36.6946 35.3913C36.6396 35.5058 36.5684 35.6074 36.4856 35.6934C36.3733 35.81 36.2899 35.8808 36.1549 35.9814C36.0727 36.0426 36.0301 36.0714 36.0301 36.0714C35.8912 36.159 35.8129 36.2028 35.6474 36.2909C35.39 36.428 35.1056 36.5068 34.8143 36.5218C34.6286 36.5313 34.4434 36.5447 34.2579 36.5347C34.2497 36.5342 33.6897 36.4482 33.6897 36.4482C32.2678 36.0742 30.9528 35.3736 29.8494 34.402C29.6238 34.2034 29.4145 33.9885 29.201 33.7759C28.3119 32.8908 27.6388 31.9364 27.2307 31.0336C27.0294 30.5884 26.902 30.1116 26.9 29.621C26.8963 29.0141 27.095 28.4232 27.4647 27.9419C27.5376 27.847 27.6068 27.7485 27.7261 27.6359C27.8525 27.5165 27.9329 27.4524 28.0196 27.4081C28.1351 27.349 28.2619 27.3174 28.3913 27.3083Z"/></symbol>
+  <symbol id="i-email" viewBox="22 22 20 20"><path fill="currentColor" d="M23 23H41C41.2652 23 41.5196 23.1054 41.7071 23.2929C41.8946 23.4804 42 23.7348 42 24V40C42 40.2652 41.8946 40.5196 41.7071 40.7071C41.5196 40.8946 41.2652 41 41 41H23C22.7348 41 22.4804 40.8946 22.2929 40.7071C22.1054 40.5196 22 40.2652 22 40V24C22 23.7348 22.1054 23.4804 22.2929 23.2929C22.4804 23.1054 22.7348 23 23 23ZM40 27.238L32.072 34.338L24 27.216V39H40V27.238ZM24.511 25L32.061 31.662L39.502 25H24.511Z"/></symbol>
+  <symbol id="i-instagram" viewBox="22 22 20 20"><path fill="currentColor" d="M32 29C31.2044 29 30.4413 29.3161 29.8787 29.8787C29.3161 30.4413 29 31.2044 29 32C29 32.7956 29.3161 33.5587 29.8787 34.1213C30.4413 34.6839 31.2044 35 32 35C32.7956 35 33.5587 34.6839 34.1213 34.1213C34.6839 33.5587 35 32.7956 35 32C35 31.2044 34.6839 30.4413 34.1213 29.8787C33.5587 29.3161 32.7956 29 32 29ZM32 27C33.3261 27 34.5979 27.5268 35.5355 28.4645C36.4732 29.4021 37 30.6739 37 32C37 33.3261 36.4732 34.5979 35.5355 35.5355C34.5979 36.4732 33.3261 37 32 37C30.6739 37 29.4021 36.4732 28.4645 35.5355C27.5268 34.5979 27 33.3261 27 32C27 30.6739 27.5268 29.4021 28.4645 28.4645C29.4021 27.5268 30.6739 27 32 27ZM38.5 26.75C38.5 27.0815 38.3683 27.3995 38.1339 27.6339C37.8995 27.8683 37.5815 28 37.25 28C36.9185 28 36.6005 27.8683 36.3661 27.6339C36.1317 27.3995 36 27.0815 36 26.75C36 26.4185 36.1317 26.1005 36.3661 25.8661C36.6005 25.6317 36.9185 25.5 37.25 25.5C37.5815 25.5 37.8995 25.6317 38.1339 25.8661C38.3683 26.1005 38.5 26.4185 38.5 26.75ZM32 24C29.526 24 29.122 24.007 27.971 24.058C27.187 24.095 26.661 24.2 26.173 24.39C25.739 24.558 25.426 24.759 25.093 25.093C24.78 25.3954 24.5394 25.7646 24.389 26.173C24.199 26.663 24.094 27.188 24.058 27.971C24.006 29.075 24 29.461 24 32C24 34.474 24.007 34.878 24.058 36.029C24.095 36.812 24.2 37.339 24.389 37.826C24.559 38.261 24.759 38.574 25.091 38.906C25.428 39.242 25.741 39.443 26.171 39.609C26.665 39.8 27.191 39.906 27.971 39.942C29.075 39.994 29.461 40 32 40C34.474 40 34.878 39.993 36.029 39.942C36.811 39.905 37.338 39.8 37.826 39.611C38.259 39.442 38.574 39.241 38.906 38.909C39.243 38.572 39.444 38.259 39.61 37.829C39.8 37.336 39.906 36.809 39.942 36.029C39.994 34.925 40 34.539 40 32C40 29.526 39.993 29.122 39.942 27.971C39.905 27.189 39.8 26.661 39.61 26.173C39.4593 25.765 39.2191 25.396 38.907 25.093C38.6047 24.7798 38.2355 24.5392 37.827 24.389C37.337 24.199 36.811 24.094 36.029 24.058C34.925 24.006 34.539 24 32 24ZM32 22C34.717 22 35.056 22.01 36.122 22.06C37.187 22.11 37.912 22.277 38.55 22.525C39.21 22.779 39.766 23.123 40.322 23.678C40.8305 24.1779 41.224 24.7826 41.475 25.45C41.722 26.087 41.89 26.813 41.94 27.878C41.987 28.944 42 29.283 42 32C42 34.717 41.99 35.056 41.94 36.122C41.89 37.187 41.722 37.912 41.475 38.55C41.2247 39.2178 40.8311 39.8226 40.322 40.322C39.822 40.8303 39.2173 41.2238 38.55 41.475C37.913 41.722 37.187 41.89 36.122 41.94C35.056 41.987 34.717 42 32 42C29.283 42 28.944 41.99 27.878 41.94C26.813 41.89 26.088 41.722 25.45 41.475C24.7823 41.2245 24.1775 40.8309 23.678 40.322C23.1694 39.8222 22.7759 39.2175 22.525 38.55C22.277 37.913 22.11 37.187 22.06 36.122C22.013 35.056 22 34.717 22 32C22 29.283 22.01 28.944 22.06 27.878C22.11 26.812 22.277 26.088 22.525 25.45C22.7752 24.7822 23.1688 24.1773 23.678 23.678C24.1777 23.1692 24.7824 22.7757 25.45 22.525C26.088 22.277 26.812 22.11 27.878 22.06C28.944 22.013 29.283 22 32 22Z"/></symbol>
+  <symbol id="i-linkedin" viewBox="264 20 22 22"><path fill="currentColor" d="M274.5 28.05C275.417 27.1133 276.611 26.5 278 26.5C281.038 26.5 283.5 28.9624 283.5 32V39.5H281.5V32C281.5 30.067 279.933 28.5 278 28.5C276.067 28.5 274.5 30.067 274.5 32V39.5H272.5V27H274.5V28.05ZM267.5 25C266.672 25 266 24.3284 266 23.5C266 22.6716 266.672 22 267.5 22C268.328 22 269 22.6716 269 23.5C269 24.3284 268.328 25 267.5 25ZM266.5 27H268.5V39.5H266.5V27Z"/></symbol>
+  <symbol id="i-seta" viewBox="0 0 13 13"><path fill="#0AA76A" d="M8.60658 1.99999L1.02073 1.99999L1.02072 -1.42778e-07L12.0208 1.36814e-05L12.0207 11H10.0207L10.0208 3.41421L1.41417 12.0208L-4.37179e-05 10.6066L8.60658 1.99999Z"/></symbol>
+  <symbol id="i-mais" viewBox="0 0 14 14"><path fill="#0ED285" d="M6 6V0H8V6H14V8H8V14H6V8H0V6H6Z"/></symbol>
+  <symbol id="i-avatar" viewBox="0 0 56 56"><circle cx="28" cy="28" r="28" fill="#1C1C1C"/><path fill="#0ED285" d="M27.6063 33C31.2688 33 34.4714 34.5751 36.2135 36.9247L34.3714 37.796C32.9537 36.1157 30.4537 35 27.6063 35C24.7589 35 22.259 36.1157 20.8412 37.796L19 36.9238C20.7422 34.5747 23.9444 33 27.6063 33ZM27.6063 18C30.3678 18 32.6064 20.2386 32.6064 23V26C32.6064 28.6888 30.484 30.8818 27.8232 30.9954L27.6063 31C24.8449 31 22.6063 28.7614 22.6063 26V23C22.6063 20.3112 24.7287 18.1182 27.3895 18.0046L27.6063 18ZM27.6063 20C26.0086 20 24.7027 21.2489 24.6114 22.8237L24.6063 23V26C24.6063 27.6569 25.9495 29 27.6063 29C29.2041 29 30.51 27.7511 30.6012 26.1763L30.6063 26V23C30.6063 21.3432 29.2632 20 27.6063 20Z"/></symbol>
+  <symbol id="i-contato" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#E8E8E8" fill-opacity=".1"/><circle cx="32" cy="32" r="31.5" fill="none" stroke="#E8E8E8" stroke-opacity=".3"/></symbol>
+  <symbol id="i-prox" viewBox="0 0 24 24"><path fill="#fff" d="M21 10.2679C22.3333 11.0377 22.3333 12.9623 21 13.7321L9 20.6603C7.66667 21.4301 6 20.4678 6 18.9282V5.0718C6 3.5322 7.66667 2.56995 9 3.33975L21 10.2679Z"/><rect x="20" y="2" width="4" height="20" rx="2" fill="#fff"/></symbol>
+  <symbol id="i-ant" viewBox="0 0 24 24"><path fill="#fff" d="M3 10.2679C1.66667 11.0377 1.66667 12.9623 3 13.7321L15 20.6603C16.3333 21.4301 18 20.4678 18 18.9282V5.0718C18 3.5322 16.3333 2.56995 15 3.33975L3 10.2679Z"/><rect width="4" height="20" rx="2" transform="matrix(-1 0 0 1 4 2)" fill="#fff"/></symbol>
+  <symbol id="i-play" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#0AA76A"/><path fill="#fff" d="M61 46.268C62.3333 47.0378 62.3333 48.9622 61 49.7321L43 60.1244C41.6667 60.8942 40 59.9319 40 58.3923V37.6077C40 36.0681 41.6667 35.1058 43 35.8756L61 46.268Z"/></symbol>
+  <symbol id="i-flecha" viewBox="0 0 16 16"><path fill="#fff" d="M2 7h9.2L7.3 3.1 8.7 1.7 15 8l-6.3 6.3-1.4-1.4L11.2 9H2z"/></symbol>
+</svg>
+
+<script>
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var r = ['416.298 56.0381 6','237.778 27.6273 -33.3227','81.1768 119.123 -72.6306','18.9951 288.422 -112.192','77.208 459.315 -151.449','231.487 554.079 169.269','410.496 529.575 129.774','533.505 397.305 90.523','535.627 191.822 45.301'];
+  var rects = r.map(function(v){ var p = v.split(' '); return '<rect x="' + p[0] + '" y="' + p[1] + '" width="50.2905" height="237.084" transform="rotate(' + p[2] + ' ' + p[0] + ' ' + p[1] + ')"/>'; }).join('');
+  var d = document.createElement('div');
+  d.className = 'abertura'; d.setAttribute('aria-hidden', 'true');
+  d.innerHTML = '<svg class="ab-simbolo" viewBox="0 0 571 569"><g fill="url(#g-verde)">' + rects + '</g></svg><svg class="ab-nome" viewBox="0 0 113 17"><use href="#nome"/></svg>';
+  document.body.appendChild(d);
+  // segurança: se a animação não carregar, a abertura sai sozinha
+  setTimeout(function(){ if (d.parentNode && !window.gsap) d.remove(); }, 4000);
+})();
+</script>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo" id="topo">
+  <div class="topo-faixa">
+    <div class="container">
+      <a class="marca" href="#inicio" aria-label="Parreira, início">
+        <svg class="simbolo" aria-hidden="true"><use href="#marca" fill="url(#g-verde)"/></svg>
+        <svg class="nome" aria-hidden="true" style="color:#fff"><use href="#nome"/></svg>
+      </a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="#inicio">início</a></li>
+          <li><a href="#servicos">serviços</a></li>
+          <li><a href="#sobre">sobre</a></li>
+          <li><a href="#contato">contato</a></li>
+        </ul>
+      </nav>
+      <a class="botao" href="#contato"><span class="texto">Entre em contato</span><span class="seta" aria-hidden="true"><svg><use href="#i-seta"/></svg></span></a>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+    <div class="hero-fundo" role="img" aria-label="Operário com capacete de segurança"></div>
+    <div class="container">
+      <div class="hero-texto">
+        <h1 class="h1" id="hero-titulo">Construindo o<br class="quebra"> amanhã juntos</h1>
+        <p>Há cinco anos construímos e reformamos sonhos, com alta qualidade e muito cuidado com nossos clientes e projetos.</p>
+        <div><a class="botao" href="#contato">Entre em contato<span class="seta" aria-hidden="true"><svg><use href="#i-seta"/></svg></span></a></div>
+        <div class="indicadores" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      </div>
+      <div class="sociais" aria-label="Redes sociais">
+        <a href="https://wa.me/11234567890" aria-label="WhatsApp" target="_blank" rel="noopener"><svg style="color:#fff"><use href="#i-whatsapp"/></svg></a>
+        <a href="mailto:contact@parreira.com" aria-label="E-mail"><svg style="color:#fff"><use href="#i-email"/></svg></a>
+        <a href="https://instagram.com/parreira" aria-label="Instagram" target="_blank" rel="noopener"><svg style="color:#fff"><use href="#i-instagram"/></svg></a>
+        <a href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener"><svg style="color:#fff"><use href="#i-linkedin"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="missao" aria-labelledby="missao-titulo">
+    <svg class="missao-deco" aria-hidden="true"><use href="#marca" fill="url(#g-verde)"/></svg>
+    <div class="container">
+      <div class="missao-grade">
+        <div class="missao-intro rv">
+          <span class="rotulo">Nossa missão</span>
+          <h2 class="h2" id="missao-titulo">Parreira</h2>
+          <p>Fale com a gente para receber um atendimento técnico personalizado e entender como podemos ajudar</p>
+          <a class="botao" href="#contato">Entre em contato<span class="seta" aria-hidden="true"><svg><use href="#i-seta"/></svg></span></a>
+        </div>
+        <div>
+          <dl class="numeros">
+            <div class="numero rv" style="--atraso:0ms"><dt>Projetos</dt><dd><span data-conta="1200" data-prefixo="+">+1200</span></dd></div>
+            <div class="numero rv" style="--atraso:80ms"><dt>Satisfação</dt><dd><span data-conta="9.8" data-decimal=",">9,8</span></dd></div>
+            <div class="numero rv" style="--atraso:160ms"><dt>Recomendação</dt><dd><span data-conta="100" data-sufixo="%">100%</span></dd></div>
+            <div class="numero rv" style="--atraso:240ms"><dt>Colaboradores</dt><dd><span data-conta="30" data-prefixo="+">+30</span></dd></div>
+          </dl>
+          <p class="missao-texto rv">Nossa missão é criar soluções de construção que atendam às necessidades dos clientes e contribuam de forma positiva para o meio ambiente e as comunidades ao nosso redor. Usamos tecnologias atuais e práticas sustentáveis para que cada projeto seja eficiente e duradouro. Com foco em integridade, trabalho em equipe e segurança, buscamos ser referência em qualidade e satisfação dos clientes.</p>
+        </div>
+      </div>
+      <div class="missao-rodape rv">
+        <svg class="simbolo" aria-hidden="true"><use href="#marca" fill="url(#g-verde)"/></svg>
+        <p class="h4">Quer conhecer um pouco mais da Parreira?</p>
+        <a class="botao-contorno" href="#servicos">Nossos serviços</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
+    <div class="container rv">
+      <span class="rotulo">sobre nós</span>
+      <h2 class="h1 sobre-titulo" id="sobre-titulo">Construindo o amanhã juntos.</h2>
+    </div>
+    <div class="video" id="video">
+      <div class="video-img" role="img" aria-label="Engenheiros conferindo o projeto em uma obra"></div>
+      <div class="controles">
+        <button class="pular-video" type="button" aria-label="Vídeo anterior"><svg><use href="#i-ant"/></svg></button>
+        <button class="play" type="button" aria-label="Assistir ao vídeo"><svg><use href="#i-play"/></svg></button>
+        <button class="pular-video" type="button" aria-label="Próximo vídeo"><svg><use href="#i-prox"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="frases" aria-label="Nossos valores">
+    <div class="frases-bloco">
+    <p class="frase verde f1" data-dir="1">5 anos construindo <span class="nw">sonhos.<span class="selo" aria-hidden="true"><svg><use href="#marca" fill="url(#g-branco)"/></svg></span></span></p>
+    <p class="frase f2" data-dir="-1"><span class="nw"><span class="selo" aria-hidden="true"><svg><use href="#marca" fill="url(#g-branco)"/></svg></span>Sua</span> visão, nossa construção</p>
+    <p class="frase verde f3" data-dir="1">Compromisso com a <span class="nw">excelência<span class="selo" aria-hidden="true"><svg><use href="#marca" fill="url(#g-branco)"/></svg></span></span></p>
+    <p class="frase f4" data-dir="-1">Soluções inteligentes <br class="quebra-frase">para um mundo melhor</p>
+    </div>
+  </section>
+
+  <section class="servicos" id="servicos" aria-labelledby="servicos-titulo">
+    <div class="container">
+      <div class="rv">
+        <span class="rotulo">Serviços</span>
+        <h2 class="h2" id="servicos-titulo">Conheça nossos principais serviços</h2>
+      </div>
+      <div class="servicos-grade">
+        <div class="linha-servicos ls1">
+        <article class="servico s1 rv"><div class="servico-img" role="img" aria-label="Varanda reformada"></div><h3>Reformas internas</h3></article>
+        <article class="servico s2 rv" style="--atraso:80ms"><div class="servico-img" role="img" aria-label="Cozinha reformada"></div><h3>Reformas externas</h3></article>
+        <article class="servico s3 rv" style="--atraso:160ms"><div class="servico-img" role="img" aria-label="Trabalhador na estrutura de um telhado"></div><h3>Reformas estruturais</h3></article>
+        </div>
+        <div class="linha-servicos ls2">
+        <div class="s-barra rv" aria-hidden="true"></div>
+        <article class="servico s4 rv" style="--atraso:80ms"><div class="servico-img" role="img" aria-label="Técnico instalando janelas eficientes"></div><h3>Eficiência energética</h3></article>
+        <article class="servico s5 rv" style="--atraso:160ms"><div class="servico-img" role="img" aria-label="Equipe trabalhando em um espaço comercial"></div><h3>Reformas comerciais</h3></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="depoimentos" aria-labelledby="depo-titulo">
+    <div class="container">
+      <div class="depo-topo rv">
+        <div>
+          <span class="rotulo">avaliações</span>
+          <h2 class="h2" id="depo-titulo">Depoimentos</h2>
+        </div>
+        <div class="setas">
+          <button type="button" data-depo="-1" aria-label="Depoimento anterior"><svg style="transform:scaleX(-1)"><use href="#i-flecha"/></svg></button>
+          <button type="button" data-depo="1" aria-label="Próximo depoimento"><svg><use href="#i-flecha"/></svg></button>
+        </div>
+      </div>
+      <div class="depo-trilho rv" id="depo-trilho" tabindex="0" aria-label="Lista de depoimentos">
+        <figure class="depo"><blockquote>Atendimento excepcional do início ao fim! A equipe da Parreira superou nossas expectativas. Recomendo muito o trabalho deles!</blockquote><figcaption><svg aria-hidden="true"><use href="#i-avatar"/></svg><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
+        <figure class="depo"><blockquote>Atendimento excepcional do início ao fim! A equipe da Parreira superou nossas expectativas. Recomendo muito o trabalho deles!</blockquote><figcaption><svg aria-hidden="true"><use href="#i-avatar"/></svg><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
+        <figure class="depo"><blockquote>Atendimento excepcional do início ao fim! A equipe da Parreira superou nossas expectativas. Recomendo muito o trabalho deles!</blockquote><figcaption><svg aria-hidden="true"><use href="#i-avatar"/></svg><span><cite>Sarah Connor</cite><small>Dinamitty</small></span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="duvidas" aria-labelledby="duvidas-titulo">
+    <div class="container duvidas-grade">
+      <div class="duvidas-intro rv">
+        <span class="rotulo" style="letter-spacing:0">Dúvidas</span>
+        <h2 class="h1" id="duvidas-titulo">Perguntas?</h2>
+        <p>Sabemos que você pode ter dúvidas sobre nossos serviços, nossa experiência e nossa forma de trabalhar. Abaixo estão as respostas para as perguntas mais comuns. Se não encontrar o que procura, fale com a gente. Estamos aqui para ajudar.</p>
+        <div class="chave" aria-hidden="true"><span class="c1"><svg><use href="#marca" fill="url(#g-branco)"/></svg></span><span class="c2"></span><span class="c3"></span></div>
+      </div>
+      <div class="perguntas rv" style="--atraso:120ms">
+        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r1" id="p1"><span>A Parreira é regularizada e tem seguro?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r1" role="region" aria-labelledby="p1"><div><p>Sim. A Parreira é regularizada para obras residenciais e comerciais, e todo projeto tem seguro de responsabilidade do início ao fim.</p></div></div></div>
+        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r2" id="p2"><span>Há quanto tempo a empresa atua?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r2" role="region" aria-labelledby="p2"><div><p>Há cinco anos construímos e reformamos, com mais de 1.200 projetos entregues.</p></div></div></div>
+        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r3" id="p3"><span>Vocês mostram projetos anteriores ou indicações de clientes?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r3" role="region" aria-labelledby="p3"><div><p>Sim. Peça à nossa equipe e enviamos projetos parecidos com o seu e contatos de clientes que aceitaram dar referência.</p></div></div></div>
+        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r4" id="p4"><span>Qual a garantia dos serviços?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r4" role="region" aria-labelledby="p4"><div><p>Todo projeto tem garantia por escrito da mão de obra. As condições ficam na proposta, antes do início da obra.</p></div></div></div>
+        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r5" id="p5"><span>Vocês têm experiência com materiais sustentáveis?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r5" role="region" aria-labelledby="p5"><div><p>Sim. Indicamos isolamento eficiente, materiais de baixo impacto e sistemas que economizam energia, com opções que cabem no seu orçamento.</p></div></div></div>
+        <div class="pergunta"><h3><button type="button" aria-expanded="false" aria-controls="r6" id="p6"><span>Como funcionam as mudanças durante a obra?</span><svg class="mais" aria-hidden="true"><use href="#i-mais"/></svg></button></h3><div class="resposta" id="r6" role="region" aria-labelledby="p6"><div><p>Toda mudança é conversada com você, orçada por escrito e aprovada antes de ser feita, sem surpresas de prazo ou custo.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="faixa" aria-hidden="true"><div class="faixa-trilho"><span>Construindo o amanhã juntos.</span><span class="v">5 anos construindo sonhos.</span><span>Construindo o amanhã juntos.</span><span class="v">5 anos construindo sonhos.</span><span>Construindo o amanhã juntos.</span><span class="v">5 anos construindo sonhos.</span><span>Construindo o amanhã juntos.</span><span class="v">5 anos construindo sonhos.</span></div></div>
+
+  <section class="contato" id="contato" aria-labelledby="contato-titulo">
+    <div class="contato-fundo" aria-hidden="true"></div>
+    <div class="container contato-grade">
+      <div class="contato-intro rv">
+        <span class="rotulo">conte com a gente</span>
+        <h2 class="h2" id="contato-titulo">Pronto para tirar seu projeto do papel?</h2>
+        <p>Peça seu orçamento neste formulário rápido. Respondemos com a sua proposta em pouco tempo.</p>
+        <ul class="contatos">
+          <li><a href="tel:+11234567890"><svg aria-hidden="true"><use href="#i-contato"/><svg x="22" y="22" width="20" height="20" style="color:#fff"><use href="#i-whatsapp"/></svg></svg><span>123-456-7890</span></a></li>
+          <li><a href="mailto:contact@parreira.com"><svg aria-hidden="true"><use href="#i-contato"/><svg x="22" y="22" width="20" height="20" style="color:#fff"><use href="#i-email"/></svg></svg><span>contact@parreira.com</span></a></li>
+          <li><a href="https://instagram.com/parreira" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-contato"/><svg x="22" y="22" width="20" height="20" style="color:#fff"><use href="#i-instagram"/></svg></svg><span>@parreira</span></a></li>
+        </ul>
+      </div>
+      <form class="formulario rv" id="formulario" style="--atraso:120ms" novalidate>
+        <svg class="icone" viewBox="0 0 64 64" aria-hidden="true"><circle opacity=".3" cx="32" cy="32" r="32" fill="#0ED285"/><svg x="22" y="22" width="20" height="20" style="color:#0AA76A"><use href="#i-email"/></svg></svg>
+        <h2>Envie uma mensagem</h2>
+        <div class="campos">
+          <label class="todo"><span class="sr">Nome</span><input name="nome" placeholder="Nome" autocomplete="name" required></label>
+          <label class="todo"><span class="sr">E-mail</span><input name="email" type="email" placeholder="E-mail" autocomplete="email" required></label>
+          <label><span class="sr">Telefone</span><input name="telefone" type="tel" placeholder="Telefone" autocomplete="tel"></label>
+          <label><span class="sr">Tipo de serviço</span><select name="servico"><option value="" selected disabled>Tipo de serviço</option><option>Reformas internas</option><option>Reformas externas</option><option>Reformas estruturais</option><option>Eficiência energética</option><option>Reformas comerciais</option></select></label>
+          <label class="todo"><span class="sr">Endereço</span><input name="endereco" placeholder="Endereço" autocomplete="street-address"></label>
+          <label class="todo"><span class="sr">Mensagem</span><textarea name="mensagem" placeholder="Mensagem" rows="1"></textarea></label>
+        </div>
+        <button class="botao" type="submit">Entre em contato<span class="seta" aria-hidden="true"><svg><use href="#i-seta"/></svg></span></button>
+        <p class="aviso-form" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <div class="faixa" aria-hidden="true"><div class="faixa-trilho"><span>Construindo o amanhã juntos.</span><span class="v">5 anos construindo sonhos.</span><span>Construindo o amanhã juntos.</span><span class="v">5 anos construindo sonhos.</span><span>Construindo o amanhã juntos.</span><span class="v">5 anos construindo sonhos.</span><span>Construindo o amanhã juntos.</span><span class="v">5 anos construindo sonhos.</span></div></div>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape-grade">
+      <div>
+        <a class="marca" href="#inicio" aria-label="Parreira, voltar ao início">
+          <svg class="simbolo" aria-hidden="true"><use href="#marca" fill="url(#g-verde)"/></svg>
+          <svg class="nome" aria-hidden="true" style="color:#fff"><use href="#nome"/></svg>
+        </a>
+        <dl>
+          <dt>Endereço</dt><dd>22 Paris ST. Marlborough MA 01752</dd>
+          <dt>Contato</dt><dd>123-456-7890</dd><dd><a href="mailto:contact@parreira.com">contact@parreira.com</a></dd>
+        </dl>
+        <div class="sociais" aria-label="Redes sociais">
+          <a href="https://wa.me/11234567890" aria-label="WhatsApp" target="_blank" rel="noopener"><svg style="color:#fff"><use href="#i-whatsapp"/></svg></a>
+          <a href="mailto:contact@parreira.com" aria-label="E-mail"><svg style="color:#fff"><use href="#i-email"/></svg></a>
+          <a href="https://instagram.com/parreira" aria-label="Instagram" target="_blank" rel="noopener"><svg style="color:#fff"><use href="#i-instagram"/></svg></a>
+          <a href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener"><svg style="color:#fff"><use href="#i-linkedin"/></svg></a>
+        </div>
+      </div>
+      <nav aria-label="Rodapé">
+        <ul><li><a href="#inicio">Início</a></li><li><a href="#servicos">Serviços</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#contato">Contato</a></li></ul>
+      </nav>
+    </div>
+    <div class="rodape-base">
+      <span class="verde">© 2024 Parreira INC. Todos os direitos reservados</span>
+      <span class="verde">Design por Nasser Yousef</span>
+      <ul><li><a href="#">Política de privacidade</a></li><li><a href="#">Termos de uso</a></li><li><a href="#">Configurar cookies</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var doc = document.documentElement;
+  doc.classList.add('js');
+  var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s, c){ return (c || document).querySelector(s); };
+  var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+  /* reveal */
+  var rv = $$('.rv');
+  if ('IntersectionObserver' in window && !reduz) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('dentro'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+    rv.forEach(function(el){ io.observe(el); });
+  } else rv.forEach(function(el){ el.classList.add('dentro'); });
+
+  /* números que contam */
+  var nums = $$('[data-conta]');
+  function contar(el){
+    var alvo = parseFloat(el.dataset.conta), dec = el.dataset.decimal, pre = el.dataset.prefixo || '', suf = el.dataset.sufixo || '';
+    var t0 = null, dur = 1600;
+    function passo(t){
+      if (!t0) t0 = t;
+      var p = Math.min(1, (t - t0) / dur), v = alvo * (1 - Math.pow(1 - p, 3));
+      var txt = dec ? v.toFixed(1).replace('.', dec) : Math.round(v).toString();
+      el.textContent = pre + txt + suf;
+      if (p < 1) requestAnimationFrame(passo);
+    }
+    requestAnimationFrame(passo);
+  }
+  if ('IntersectionObserver' in window && !reduz) {
+    var on = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { contar(e.target); on.unobserve(e.target); } }); }, { threshold: .6 });
+    nums.forEach(function(n){ on.observe(n); });
+  }
+
+  /* vídeo entra com zoom */
+  var video = $('#video');
+  if ('IntersectionObserver' in window) {
+    var ov = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { video.classList.add('dentro'); ov.disconnect(); } }, { threshold: .2 });
+    ov.observe(video);
+  }
+
+  /* topo + frases ao rolar (um único handler) */
+  var topo = $('#topo'), frases = $$('.frase'), secFrases = $('.frases'), pedido = false;
+  function aoRolar(){
+    pedido = false;
+    topo.classList.toggle('rolou', window.scrollY > 40);
+  }
+  window.addEventListener('scroll', function(){ if (!pedido) { pedido = true; requestAnimationFrame(aoRolar); } }, { passive: true });
+  aoRolar();
+
+  /* menu ativo */
+  var links = $$('.topo nav a');
+  if ('IntersectionObserver' in window) {
+    var secs = links.map(function(a){ return $(a.getAttribute('href')); });
+    var om = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { var id = '#' + e.target.id; links.forEach(function(a){ a.setAttribute('aria-current', a.getAttribute('href') === id ? 'true' : 'false'); }); } });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    secs.forEach(function(s){ if (s) om.observe(s); });
+  }
+
+  /* depoimentos */
+  var trilho = $('#depo-trilho'), botoes = $$('[data-depo]');
+  botoes.forEach(function(b){ b.addEventListener('click', function(){
+    var card = trilho.firstElementChild, passo = card.getBoundingClientRect().width + parseFloat(getComputedStyle(trilho).columnGap || 0);
+    var dir = parseFloat(b.dataset.depo), max = trilho.scrollWidth - trilho.clientWidth - 2, destino;
+    if (dir > 0 && trilho.scrollLeft >= max) destino = 0;
+    else if (dir < 0 && trilho.scrollLeft <= 2) destino = trilho.scrollWidth;
+    else destino = trilho.scrollLeft + passo * dir;
+    trilho.scrollTo({ left: destino, behavior: reduz ? 'auto' : 'smooth' });
+  }); });
+
+  /* perguntas: uma aberta por vez */
+  $$('.pergunta button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var item = b.closest('.pergunta'), abrir = b.getAttribute('aria-expanded') !== 'true';
+      $$('.pergunta').forEach(function(p){ p.classList.remove('aberta'); $('button', p).setAttribute('aria-expanded', 'false'); });
+      if (abrir) { item.classList.add('aberta'); b.setAttribute('aria-expanded', 'true'); }
+    });
+  });
+
+  /* formulário: abre o e-mail com os dados preenchidos */
+  var form = $('#formulario'), aviso = $('.aviso-form', form), sel = $('select', form);
+  sel.addEventListener('change', function(){ sel.classList.add('preenchido'); });
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var d = new FormData(form);
+    if (!d.get('nome') || !d.get('email') || !/^\S+@\S+\.\S+$/.test(d.get('email'))) { aviso.textContent = 'Preencha seu nome e um e-mail válido.'; return; }
+    var corpo = ['Nome: ' + d.get('nome'), 'E-mail: ' + d.get('email'), 'Telefone: ' + (d.get('telefone') || ''), 'Serviço: ' + (d.get('servico') || ''), 'Endereço: ' + (d.get('endereco') || ''), '', d.get('mensagem') || ''].join('\n');
+    window.location.href = 'mailto:contact@parreira.com?subject=' + encodeURIComponent('Pedido de orçamento') + '&body=' + encodeURIComponent(corpo);
+    aviso.textContent = 'Obrigado! Seu aplicativo de e-mail vai abrir para enviar a mensagem.';
+  });
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function(){
+  'use strict';
+  var ab = document.querySelector('.abertura');
+  var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduz || !window.gsap) { if (ab) ab.remove(); return; }
+  gsap.registerPlugin(ScrollTrigger);
+  var curva = 'power4.out';
+
+  /* rolagem suave */
+  var lenis = null;
+  if (window.Lenis) {
+    lenis = new Lenis({ lerp: 0.1 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(ev){
+        var alvo = document.querySelector(a.getAttribute('href'));
+        if (!alvo) return;
+        ev.preventDefault();
+        lenis.scrollTo(alvo, { offset: a.getAttribute('href') === '#inicio' ? 0 : -72, duration: 1.4 });
+      });
+    });
+    lenis.stop();
+  }
+
+  /* abertura: as nove barras crescem, o símbolo gira e o nome aparece */
+  var tl = gsap.timeline({ defaults: { ease: curva } });
+  if (ab) {
+    var barras = ab.querySelectorAll('rect'), atrasos = [0.3, 0.2, 0.1, 0.4, 0.4, 0.5, 0.2, 0.3, 0.35];
+    barras.forEach(function(b, i){ tl.from(b, { attr: { height: 0 }, duration: 1.3, ease: 'expo.out' }, atrasos[i]); });
+    tl.from(ab.querySelector('.ab-simbolo'), { rotation: 90, transformOrigin: '50% 50%', duration: 2, ease: 'power3.out' }, 0)
+      .to(ab.querySelector('.ab-nome'), { opacity: 1, x: 0, duration: 1.2 }, 0.7)
+      .from(ab.querySelector('.ab-nome'), { x: -24, duration: 1.2 }, 0.7)
+      .to(ab, { opacity: 0, duration: 0.8, ease: 'power2.inOut', onComplete: function(){ ab.remove(); if (lenis) lenis.start(); } }, 2.1);
+  } else if (lenis) lenis.start();
+
+  /* entrada do topo e do hero */
+  tl.from('.topo .marca, .topo nav li, .topo .botao', { y: 60, opacity: 0, duration: 1.4, stagger: 0.08 }, ab ? 2.3 : 0)
+    .from('.hero-fundo', { scale: 1.12, duration: 2.4, ease: 'power3.out' }, '<')
+    .from('.hero-texto > *', { x: -120, opacity: 0, duration: 1.6, stagger: 0.14 }, '<0.15')
+    .from('.hero .sociais a', { y: 30, opacity: 0, duration: 1, stagger: 0.08 }, '<0.4');
+
+  /* seções entram da esquerda ao rolar */
+  gsap.utils.toArray('main section').forEach(function(sec){
+    var itens = sec.querySelectorAll('.rv');
+    if (!itens.length) return;
+    gsap.from(itens, { x: -120, opacity: 0, duration: 1.5, ease: curva, stagger: 0.12,
+      scrollTrigger: { trigger: sec, start: 'top 80%' } });
+  });
+
+  /* imagem da obra cresce com a rolagem */
+  gsap.from('#video', { scale: 0.55, y: 80, borderRadius: 24, ease: 'none',
+    scrollTrigger: { trigger: '#video', start: 'top 95%', end: 'top 35%', scrub: 1.5 } });
+
+  /* frases chegam de lados diferentes, presas à rolagem */
+  [['.f1', { x: -220 }], ['.f2', { x: 220 }], ['.f3', { y: 70 }]].forEach(function(f){
+    var de = Object.assign({ opacity: 0, ease: 'none' }, f[1]);
+    de.scrollTrigger = { trigger: f[0], start: 'top 98%', end: 'top 65%', scrub: 2 };
+    gsap.from(f[0], de);
+  });
+})();
+</script>
+</body>
+</html>

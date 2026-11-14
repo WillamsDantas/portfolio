@@ -88,9 +88,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .botao-contorno:hover{background:rgba(10,167,106,.15);transform:translateY(-2px)}
 
 /* ---------- topo ---------- */
-.topo{position:fixed;inset:26px 0 auto;z-index:50;transition:inset .35s var(--curva)}
+.topo{position:fixed;inset:8px 0 auto;z-index:50;transition:inset .35s var(--curva)}
 .topo-faixa{height:80px;border-block:1px solid rgba(232,232,232,.3);background:rgba(232,232,232,.1);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background-color .35s}
-.topo.rolou{inset-block-start:26px}
+.topo.rolou{inset-block-start:8px}
 .topo.rolou .topo-faixa{background:rgba(7,8,7,.72)}
 /* v2: no topo a barra não aparece; ela surge (fundo, desfoque e bordas) só depois de rolar, como no site oficial */
 .topo-faixa{background:rgba(232,232,232,0);border-color:transparent;-webkit-backdrop-filter:blur(0);backdrop-filter:blur(0);transition:background-color 1s ease,border-color 1s ease,-webkit-backdrop-filter 1s ease,backdrop-filter 1s ease}
@@ -342,6 +342,7 @@ main>section:not(.hero):not(.missao):not(.depoimentos),main>.faixa{background:va
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 .lenis.lenis-stopped{overflow:hidden}
+html{scrollbar-gutter:stable}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .js .rv,.js .hero-texto>*,.js .hero .sociais a{opacity:1!important;transform:none!important}
@@ -764,7 +765,6 @@ html.lenis,html.lenis body{height:auto}
         lenis.scrollTo(alvo, { offset: a.getAttribute('href') === '#inicio' ? 0 : -72, duration: 1.4 });
       });
     });
-    lenis.stop();
   }
 
   /* abertura: as nove barras crescem, o símbolo gira e o nome aparece */
@@ -776,8 +776,8 @@ html.lenis,html.lenis body{height:auto}
       .to(ab.querySelector('.ab-nome'), { opacity: 1, y: 0, duration: 1.2 }, 0.8)
       .from(ab.querySelector('.ab-nome'), { y: 8, duration: 1.2 }, 0.8)
       .to(ab, { backgroundColor: 'rgba(7,8,7,0)', duration: 1, ease: 'power2.inOut' }, 2.1)
-      .to(ab.children, { opacity: 0, scale: 0.9, duration: 0.6, ease: 'power2.in', onComplete: function(){ ab.remove(); if (lenis) lenis.start(); } }, 2.7);
-  } else if (lenis) lenis.start();
+      .to(ab.children, { opacity: 0, scale: 0.9, duration: 0.6, ease: 'power2.in', onComplete: function(){ ab.remove(); } }, 2.7);
+  }
 
   /* entrada do topo e do hero */
   // como no site oficial: o título do hero entra primeiro, da esquerda e devagar; depois o topo (logo, menu e, com atraso, o botão)

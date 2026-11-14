@@ -90,7 +90,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* ---------- topo ---------- */
 .topo{position:fixed;inset:26px 0 auto;z-index:50;transition:inset .35s var(--curva)}
 .topo-faixa{height:80px;border-block:1px solid rgba(232,232,232,.3);background:rgba(232,232,232,.1);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background-color .35s}
-.topo.rolou{inset-block-start:0}
+.topo.rolou{inset-block-start:26px}
 .topo.rolou .topo-faixa{background:rgba(7,8,7,.72)}
 /* v2: no topo a barra não aparece; ela surge (fundo, desfoque e bordas) só depois de rolar, como no site oficial */
 .topo-faixa{background:rgba(232,232,232,0);border-color:transparent;-webkit-backdrop-filter:blur(0);backdrop-filter:blur(0);transition:background-color 1s ease,border-color 1s ease,-webkit-backdrop-filter 1s ease,backdrop-filter 1s ease}
@@ -122,8 +122,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .hero-slide.h2{background-image:url(../img/hero-2.jpg);background-position:center}
 .hero-slide.h3{background-image:url(../img/obra.jpg);background-position:center}
 .sociais{display:flex;gap:17px}
-.sociais a{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:rgba(232,232,232,.1);border:1px solid rgba(232,232,232,.3);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background-color .25s,transform .25s var(--curva)}
-.sociais a:hover{background:var(--verde);border-color:var(--verde);transform:translateY(-3px)}
+.sociais a{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:rgba(232,232,232,.1);border:1px solid rgba(232,232,232,.3);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background-color .25s,translate .25s var(--curva)}
+.sociais a:hover{background:var(--verde);border-color:var(--verde);translate:0 -3px}
 .sociais svg{width:20px;height:20px}
 .hero .sociais{position:absolute;right:0;bottom:-8px}
 @media (max-width:899px){.hero-fundo{background-image:url(../img/hero-m.jpg),url(../img/lqip-hero.jpg);background-position:82% 20%}.hero::after{background:linear-gradient(90deg,rgba(7,8,7,.88) 0%,rgba(7,8,7,.6) 55%,rgba(7,8,7,.25) 100%),linear-gradient(0deg,var(--preto-claro) 0%,rgba(28,28,28,0) 40%)}.hero{min-height:0;padding-block:150px 72px}.hero .sociais{position:static;margin-top:40px}}
@@ -351,7 +351,7 @@ html.lenis,html.lenis body{height:auto}
 @media (max-width:699px){.quebra{display:none}}
 @media (max-width:1099px){.quebra-frase{display:none}}
 @media (hover:none),(pointer:coarse){
-  .botao:hover,.botao-contorno:hover,.sociais a:hover,.setas button:hover,.depo:hover{transform:none;box-shadow:none}
+  .botao:hover,.botao-contorno:hover,.sociais a:hover,.setas button:hover,.depo:hover{transform:none;translate:none;box-shadow:none}
   .botao:hover{padding:0 28px 0 64px}
   .botao:hover .seta{left:8px;transform:translateY(-50%)}
   .formulario .botao:hover{padding:0}.formulario .botao:hover .seta{left:10px}
@@ -783,7 +783,7 @@ html.lenis,html.lenis body{height:auto}
   // como no site oficial: o título do hero entra primeiro, da esquerda e devagar; depois o topo (logo, menu e, com atraso, o botão)
   var t0 = ab ? 2.4 : 0;
   tl.from('.hero-texto > *', { x: -200, opacity: 0, duration: 3, stagger: 0.3, clearProps: 'transform,opacity' }, t0)
-    .from('.hero .sociais a', { x: -200, opacity: 0, duration: 3, stagger: 0.12, clearProps: 'transform,opacity' }, t0 + 1)
+    .from('.hero .sociais a', { x: -200, opacity: 0, duration: 3, stagger: 0.12, clearProps: 'all' }, t0 + 0.9)
     // topo inteiro entra junto: logo, menu e botão no mesmo movimento
     .from('.topo .marca, .topo nav li, .topo .botao', { y: 60, opacity: 0, duration: 1.4, stagger: 0.08, clearProps: 'all' }, t0 + 0.5);
 

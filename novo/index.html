@@ -134,7 +134,7 @@ h2{margin:0;font-weight:300;font-size:clamp(36px,4.4vw,64px);line-height:1;lette
 
 /* ---------- cards de trabalho ---------- */
 .works{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
-.card{position:relative;display:flex;flex-direction:column;aspect-ratio:3/4;border-radius:16px;background:var(--superficie);overflow:hidden;isolation:isolate;transition:background .4s var(--ease)}
+.card{position:relative;display:flex;flex-direction:column;aspect-ratio:3/4;border-radius:16px;background:var(--superficie);overflow:hidden;isolation:isolate;z-index:1;transition:background .4s var(--ease),scale .6s var(--ease),box-shadow .6s var(--ease),z-index 0s .6s}
 .card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:2px;background:var(--borda-card);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:3;transition:background .35s var(--ease)}
 .card-cat{position:relative;z-index:2;padding:22px 16px 0;text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--texto-2)}
 .card-media{position:relative;flex:1;margin:16px;border-radius:10px;background:var(--elevado);overflow:hidden;display:grid;place-items:center}
@@ -146,9 +146,14 @@ h2{margin:0;font-weight:300;font-size:clamp(36px,4.4vw,64px);line-height:1;lette
 .lab{display:grid;grid-template-columns:repeat(2,minmax(0,330px));justify-content:center;column-gap:clamp(28px,6vw,90px);row-gap:28px}
 .lab .card{aspect-ratio:4/4.3}
 .lab{padding-bottom:clamp(60px,9vw,130px)}
-.lab .card:nth-child(even){translate:0 clamp(60px,9vw,130px)}
+.lab .card:nth-child(even){top:clamp(60px,9vw,130px)}
 @media (hover:hover) and (pointer:fine){
-  .card:hover{background:var(--superficie-2)}
+  .card:hover{background:var(--superficie-2);scale:1.3;z-index:5;box-shadow:0 30px 80px rgba(8,8,10,.75);transition:background .4s var(--ease),scale .6s var(--ease),box-shadow .6s var(--ease),z-index 0s}
+  .works:hover .card:not(:hover) .card-media::after{opacity:1}
+  .card:first-child:hover,.works .card:nth-child(3n+1):hover{transform-origin:left center}
+  .works .card:nth-child(3n):hover{transform-origin:right center}
+  .lab .card:nth-child(odd):hover{transform-origin:left center}
+  .lab .card:nth-child(even):hover{transform-origin:right center}
   .card:hover::before{background:var(--borda-forte)}
   .card:hover .card-media::after{opacity:0}
   .card:hover .poster{color:var(--texto-2);transform:scale(1.04)}
@@ -162,8 +167,9 @@ h2{margin:0;font-weight:300;font-size:clamp(36px,4.4vw,64px);line-height:1;lette
   .teaser:hover{transform:scale(1.01)}
   .teaser:hover::before{background:var(--borda-forte)}
 }
-.cursor{position:fixed;left:0;top:0;z-index:60;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--texto);color:var(--fundo);display:grid;place-items:center;pointer-events:none;opacity:0;scale:.4;transition:opacity .25s,scale .25s var(--ease)}
-.cursor.on{opacity:1;scale:1}
+.cursor{position:fixed;left:0;top:0;z-index:60;width:0;height:0;pointer-events:none}
+.cursor-dot{position:absolute;left:-28px;top:-28px;width:56px;height:56px;border-radius:50%;background:var(--texto);color:var(--fundo);display:grid;place-items:center;opacity:0;transform:scale(.4);transition:opacity .25s,transform .3s var(--ease)}
+.cursor.on .cursor-dot{opacity:1;transform:scale(1)}
 .cursor svg{width:22px;height:22px}
 
 /* ---------- sobre ---------- */
@@ -276,7 +282,7 @@ footer{border-top:1px solid var(--linha)}
   .lab{grid-template-columns:1fr 1fr;column-gap:14px;row-gap:14px}
   .lab .card{aspect-ratio:3/4}
   .lab{padding-bottom:56px}
-  .lab .card:nth-child(even){translate:0 56px}
+  .lab .card:nth-child(even){top:56px}
   .lab .card-cat{padding-top:14px;font-size:9px}
   .lab .card-media{margin:10px}
   .lab .card-foot{padding:0 10px 14px}
@@ -562,7 +568,7 @@ footer{border-top:1px solid var(--linha)}
   </div>
 </footer>
 
-<div class="cursor" aria-hidden="true"><svg><use href="#i-up"/></svg></div>
+<div class="cursor" aria-hidden="true"><span class="cursor-dot"><svg><use href="#i-up"/></svg></span></div>
 
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
@@ -620,7 +626,7 @@ footer{border-top:1px solid var(--linha)}
   gsap.registerPlugin(ScrollTrigger);
 
   // entrada padrão: x −50 px
-  gsap.utils.toArray('.fx-in').forEach(el=>gsap.fromTo(el,{x:-50,opacity:0},{x:0,opacity:1,duration:.9,ease:'power4.out',scrollTrigger:{trigger:el,start:'top 80%',once:true}}));
+  gsap.utils.toArray('.fx-in').forEach(el=>gsap.fromTo(el,{x:-50,opacity:0},{x:0,opacity:1,duration:.9,ease:'power4.out',clearProps:'transform,translate,rotate,scale',scrollTrigger:{trigger:el,start:'top 80%',once:true}}));
   // títulos: x −100 px
   gsap.utils.toArray('.fx-title').forEach(el=>gsap.fromTo(el,{x:-100,opacity:0},{x:0,opacity:1,duration:1,ease:'power4.out',scrollTrigger:{trigger:el,start:'top 80%',once:true}}));
   // contato e links: y −50 px em sequência

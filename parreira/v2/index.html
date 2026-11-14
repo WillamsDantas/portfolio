@@ -775,13 +775,14 @@ html{scrollbar-gutter:stable}
     tl.from(ab.querySelector('.ab-simbolo'), { rotation: 90, transformOrigin: '50% 50%', duration: 2, ease: 'power3.out' }, 0)
       .to(ab.querySelector('.ab-nome'), { opacity: 1, y: 0, duration: 1.2 }, 0.8)
       .from(ab.querySelector('.ab-nome'), { y: 8, duration: 1.2 }, 0.8)
-      .to(ab, { backgroundColor: 'rgba(7,8,7,0)', duration: 1, ease: 'power2.inOut' }, 2.1)
-      .to(ab.children, { opacity: 0, scale: 0.9, duration: 0.6, ease: 'power2.in', onComplete: function(){ ab.remove(); } }, 2.7);
+      // o símbolo sai primeiro e rápido; o fundo se desfaz logo atrás, antes de o hero entrar
+      .to(ab.children, { opacity: 0, scale: 0.9, duration: 0.45, ease: 'power2.out' }, 1.9)
+      .to(ab, { backgroundColor: 'rgba(7,8,7,0)', duration: 0.8, ease: 'power2.inOut', onComplete: function(){ ab.remove(); } }, 2.0);
   }
 
   /* entrada do topo e do hero */
   // como no site oficial: o título do hero entra primeiro, da esquerda e devagar; depois o topo (logo, menu e, com atraso, o botão)
-  var t0 = ab ? 2.4 : 0;
+  var t0 = ab ? 2.5 : 0;
   tl.from('.hero-texto > *', { x: -200, opacity: 0, duration: 3, stagger: 0.3, clearProps: 'transform,opacity' }, t0)
     .from('.hero .sociais a', { x: -200, opacity: 0, duration: 3, stagger: 0.12, clearProps: 'all' }, t0 + 0.9)
     // topo inteiro entra junto: logo, menu e botão no mesmo movimento
